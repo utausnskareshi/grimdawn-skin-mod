@@ -1,0 +1,21 @@
+{
+  "_説明": "check_publish.py の指摘のうち、確認して認めたもの。rule（規則の ID。* は全て）・path（glob）・match（任意。指摘の文に含まれる文字列）・value（任意。伏せる前の一致文字列との完全一致。pii.*・secret.* は伏せ字なので match ではなくこちらで書く）・reason（必須）。",
+  "allow": [
+    {
+      "rule": "size.file",
+      "path": "licenses/setup/trellis-runtime-packages*.txt",
+      "reason": "初回のセットアップで取得する TRELLIS 実行環境のパッケージのライセンス全文の一覧（第三者のライセンス本文。日本語の .txt と英語の .en.txt）。配布用 ZIP の作成（scripts/package/build_package.py）とアプリのライセンス表示に使う"
+    },
+    {
+      "rule": "env.devpath",
+      "path": "scripts/package/check_package.py",
+      "reason": "配布物に開発環境のパスが残っていないかを調べる検査そのもの（パターンと説明文）"
+    },
+    {
+      "rule": "pii.identity",
+      "path": "*",
+      "value": "utausnskareshi",
+      "reason": "公開するリポジトリの持ち主の GitHub のユーザー名（配布元の URL と、コミットの作者名として公開する名前）"
+    }
+  ]
+}

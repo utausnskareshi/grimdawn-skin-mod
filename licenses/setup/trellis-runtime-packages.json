@@ -1,0 +1,1160 @@
+{
+ "python": "3.11.9",
+ "count": 142,
+ "by_class": {
+  "permissive": [
+   "annotated-types",
+   "asttokens",
+   "attrs",
+   "blinker",
+   "ccimport",
+   "charset-normalizer",
+   "click",
+   "colorama",
+   "comm",
+   "ConfigArgParse",
+   "contourpy",
+   "cumm-cu126",
+   "cycler",
+   "cyclopts",
+   "dash",
+   "dataclasses-json",
+   "Deprecated",
+   "docstring_parser",
+   "entrypoints",
+   "executing",
+   "fastjsonschema",
+   "filelock",
+   "fire",
+   "Flask",
+   "flatbuffers",
+   "fonttools",
+   "fsspec",
+   "glcontext",
+   "hf-xet",
+   "huggingface_hub",
+   "idna",
+   "ImageIO",
+   "imageio-ffmpeg",
+   "importlib_metadata",
+   "ipycanvas",
+   "ipyevents",
+   "ipython",
+   "ipython_pygments_lexers",
+   "ipywidgets",
+   "itsdangerous",
+   "janus",
+   "jedi",
+   "Jinja2",
+   "jsonschema",
+   "jsonschema-specifications",
+   "jupyter_client",
+   "jupyter_core",
+   "jupyterlab_widgets",
+   "kiwisolver",
+   "lark",
+   "lazy-loader",
+   "llvmlite",
+   "markdown-it-py",
+   "MarkupSafe",
+   "marshmallow",
+   "matplotlib",
+   "matplotlib-inline",
+   "mdurl",
+   "moderngl",
+   "mpmath",
+   "mypy_extensions",
+   "narwhals",
+   "nbformat",
+   "nest-asyncio",
+   "networkx",
+   "ninja",
+   "numba",
+   "numpy",
+   "nvidia-ml-py",
+   "onnxruntime",
+   "open3d",
+   "opencv-python-headless",
+   "packaging",
+   "parso",
+   "pccm",
+   "pillow",
+   "platformdirs",
+   "plotly",
+   "pooch",
+   "portalocker",
+   "prompt_toolkit",
+   "protobuf",
+   "psutil",
+   "pure_eval",
+   "pybind11",
+   "pydantic",
+   "pydantic_core",
+   "pygltflib",
+   "Pygments",
+   "PyMatting",
+   "pyparsing",
+   "python-dateutil",
+   "pyvista",
+   "pyvista-validation",
+   "PyYAML",
+   "pyzmq",
+   "referencing",
+   "regex",
+   "rembg",
+   "requests",
+   "retrying",
+   "rich",
+   "rich-rst",
+   "rpds-py",
+   "safetensors",
+   "scikit-image",
+   "scipy",
+   "scooby",
+   "setuptools",
+   "six",
+   "spconv-cu126",
+   "stack-data",
+   "sympy",
+   "termcolor",
+   "tifffile",
+   "tokenizers",
+   "torch",
+   "torchvision",
+   "tornado",
+   "traitlets",
+   "transformers",
+   "trimesh",
+   "typing-inspect",
+   "typing-inspection",
+   "typing_extensions",
+   "urllib3",
+   "usd-core",
+   "utils3d",
+   "vtk",
+   "warp-lang",
+   "wcwidth",
+   "Werkzeug",
+   "widgetsnbextension",
+   "wrapt",
+   "xatlas",
+   "xformers",
+   "zipp"
+  ],
+  "weak-copyleft": [
+   "certifi",
+   "easydict",
+   "tqdm"
+  ],
+  "noncommercial": [
+   "kaolin"
+  ],
+  "copyleft": [
+   "plyfile"
+  ]
+ },
+ "noncommercial_files": {
+  "kaolin": [
+   "LICENSE.NSCL"
+  ]
+ },
+ "packages": [
+  {
+   "name": "annotated-types",
+   "version": "0.8.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/annotated-types/annotated-types"
+  },
+  {
+   "name": "asttokens",
+   "version": "3.0.2",
+   "license": "Apache 2.0",
+   "class": "permissive",
+   "home": "https://github.com/gristlabs/asttokens"
+  },
+  {
+   "name": "attrs",
+   "version": "26.1.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://www.attrs.org/"
+  },
+  {
+   "name": "blinker",
+   "version": "1.9.0",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://discord.gg/pallets"
+  },
+  {
+   "name": "ccimport",
+   "version": "0.4.4",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/FindDefinition/ccimport"
+  },
+  {
+   "name": "certifi",
+   "version": "2026.7.22",
+   "license": "MPL-2.0",
+   "class": "weak-copyleft",
+   "home": "https://github.com/certifi/python-certifi"
+  },
+  {
+   "name": "charset-normalizer",
+   "version": "3.5.2",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md"
+  },
+  {
+   "name": "click",
+   "version": "8.5.0",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://click.palletsprojects.com/page/changes/"
+  },
+  {
+   "name": "colorama",
+   "version": "0.4.6",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/tartley/colorama"
+  },
+  {
+   "name": "comm",
+   "version": "0.2.3",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/ipython/comm"
+  },
+  {
+   "name": "ConfigArgParse",
+   "version": "1.8.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/bw2/ConfigArgParse"
+  },
+  {
+   "name": "contourpy",
+   "version": "1.3.3",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/contourpy/contourpy"
+  },
+  {
+   "name": "cumm-cu126",
+   "version": "0.7.11",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/FindDefinition/cumm"
+  },
+  {
+   "name": "cycler",
+   "version": "0.12.1",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://matplotlib.org/cycler/"
+  },
+  {
+   "name": "cyclopts",
+   "version": "5.2.0",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://github.com/BrianPugh/cyclopts"
+  },
+  {
+   "name": "dash",
+   "version": "4.4.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://plotly.com/dash"
+  },
+  {
+   "name": "dataclasses-json",
+   "version": "0.6.7",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/lidatong/dataclasses-json"
+  },
+  {
+   "name": "Deprecated",
+   "version": "1.3.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/laurent-laporte-pro/deprecated"
+  },
+  {
+   "name": "docstring_parser",
+   "version": "0.18.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/rr-/docstring_parser"
+  },
+  {
+   "name": "easydict",
+   "version": "1.13",
+   "license": "LGPL-3.0",
+   "class": "weak-copyleft",
+   "home": "https://github.com/makinacorpus/easydict"
+  },
+  {
+   "name": "entrypoints",
+   "version": "0.4.2",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://entrypoints.readthedocs.io/en/latest/"
+  },
+  {
+   "name": "executing",
+   "version": "2.3.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/alexmojaki/executing"
+  },
+  {
+   "name": "fastjsonschema",
+   "version": "2.22.2",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://github.com/horejsek/python-fastjsonschema"
+  },
+  {
+   "name": "filelock",
+   "version": "3.32.3",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://py-filelock.readthedocs.io"
+  },
+  {
+   "name": "fire",
+   "version": "0.7.1",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://github.com/google/python-fire"
+  },
+  {
+   "name": "Flask",
+   "version": "3.1.3",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://flask.palletsprojects.com/page/changes/"
+  },
+  {
+   "name": "flatbuffers",
+   "version": "25.12.19",
+   "license": "Apache 2.0",
+   "class": "permissive",
+   "home": "https://google.github.io/flatbuffers/"
+  },
+  {
+   "name": "fonttools",
+   "version": "4.67.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "http://github.com/fonttools/fonttools"
+  },
+  {
+   "name": "fsspec",
+   "version": "2026.7.0",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://filesystem-spec.readthedocs.io/en/latest/changelog.html"
+  },
+  {
+   "name": "glcontext",
+   "version": "3.1.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/moderngl/glcontext"
+  },
+  {
+   "name": "hf-xet",
+   "version": "1.7.0",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://huggingface.co/docs/hub/xet/index"
+  },
+  {
+   "name": "huggingface_hub",
+   "version": "0.36.2",
+   "license": "Apache",
+   "class": "permissive",
+   "home": "https://github.com/huggingface/huggingface_hub"
+  },
+  {
+   "name": "idna",
+   "version": "3.20",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://github.com/kjd/idna/blob/master/HISTORY.md"
+  },
+  {
+   "name": "ImageIO",
+   "version": "2.38.1",
+   "license": "BSD-2-Clause",
+   "class": "permissive",
+   "home": "https://github.com/imageio/imageio"
+  },
+  {
+   "name": "imageio-ffmpeg",
+   "version": "0.6.0",
+   "license": "BSD-2-Clause",
+   "class": "permissive",
+   "home": "https://github.com/imageio/imageio-ffmpeg"
+  },
+  {
+   "name": "importlib_metadata",
+   "version": "9.0.1",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://github.com/python/importlib_metadata"
+  },
+  {
+   "name": "ipycanvas",
+   "version": "0.14.3",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/jupyter-widgets-contrib/ipycanvas"
+  },
+  {
+   "name": "ipyevents",
+   "version": "2.0.4",
+   "license": "BSD 3-clause",
+   "class": "permissive",
+   "home": "https://github.com/mwcraig/ipyevents"
+  },
+  {
+   "name": "ipython",
+   "version": "9.17.1",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://ipython.org"
+  },
+  {
+   "name": "ipython_pygments_lexers",
+   "version": "1.1.1",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/ipython/ipython-pygments-lexers"
+  },
+  {
+   "name": "ipywidgets",
+   "version": "8.1.9",
+   "license": "BSD 3-Clause License",
+   "class": "permissive",
+   "home": "http://jupyter.org"
+  },
+  {
+   "name": "itsdangerous",
+   "version": "2.2.0",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://itsdangerous.palletsprojects.com/changes/"
+  },
+  {
+   "name": "janus",
+   "version": "2.0.0",
+   "license": "Apache 2",
+   "class": "permissive",
+   "home": "https://github.com/aio-libs/janus"
+  },
+  {
+   "name": "jedi",
+   "version": "0.20.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/davidhalter/jedi"
+  },
+  {
+   "name": "Jinja2",
+   "version": "3.1.6",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://jinja.palletsprojects.com/changes/"
+  },
+  {
+   "name": "jsonschema",
+   "version": "4.26.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/python-jsonschema/jsonschema"
+  },
+  {
+   "name": "jsonschema-specifications",
+   "version": "2025.9.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://jsonschema-specifications.readthedocs.io/"
+  },
+  {
+   "name": "jupyter_client",
+   "version": "7.4.9",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://jupyter.org"
+  },
+  {
+   "name": "jupyter_core",
+   "version": "5.9.1",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://jupyter.org"
+  },
+  {
+   "name": "jupyterlab_widgets",
+   "version": "3.0.17",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/jupyter-widgets/ipywidgets"
+  },
+  {
+   "name": "kaolin",
+   "version": "0.18.0",
+   "license": "Apache License 2.0",
+   "class": "noncommercial",
+   "home": "https://github.com/NVIDIAGameWorks/kaolin",
+   "noncommercial_files": [
+    "LICENSE.NSCL"
+   ]
+  },
+  {
+   "name": "kiwisolver",
+   "version": "1.5.1",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/nucleic/kiwi"
+  },
+  {
+   "name": "lark",
+   "version": "1.3.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/lark-parser/lark"
+  },
+  {
+   "name": "lazy-loader",
+   "version": "0.6",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://scientific-python.org/specs/spec-0001/"
+  },
+  {
+   "name": "llvmlite",
+   "version": "0.50.0",
+   "license": "不明（メタデータに記載なし）",
+   "class": "permissive",
+   "home": "http://llvmlite.readthedocs.io"
+  },
+  {
+   "name": "markdown-it-py",
+   "version": "4.2.0",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://markdown-it-py.readthedocs.io"
+  },
+  {
+   "name": "MarkupSafe",
+   "version": "3.0.3",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://palletsprojects.com/donate"
+  },
+  {
+   "name": "marshmallow",
+   "version": "3.26.2",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://marshmallow.readthedocs.io/en/latest/changelog.html"
+  },
+  {
+   "name": "matplotlib",
+   "version": "3.11.2",
+   "license": "Python Software Foundation License",
+   "class": "permissive",
+   "home": "https://matplotlib.org"
+  },
+  {
+   "name": "matplotlib-inline",
+   "version": "0.2.2",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://github.com/ipython/matplotlib-inline"
+  },
+  {
+   "name": "mdurl",
+   "version": "0.1.2",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://github.com/executablebooks/mdurl"
+  },
+  {
+   "name": "moderngl",
+   "version": "5.13.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/moderngl/moderngl"
+  },
+  {
+   "name": "mpmath",
+   "version": "1.3.0",
+   "license": "BSD",
+   "class": "permissive",
+   "home": "http://mpmath.org/"
+  },
+  {
+   "name": "mypy_extensions",
+   "version": "1.1.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/python/mypy_extensions"
+  },
+  {
+   "name": "narwhals",
+   "version": "2.27.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/narwhals-dev/narwhals"
+  },
+  {
+   "name": "nbformat",
+   "version": "5.11.1",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://jupyter.org"
+  },
+  {
+   "name": "nest-asyncio",
+   "version": "1.6.0",
+   "license": "BSD",
+   "class": "permissive",
+   "home": "https://github.com/erdewit/nest_asyncio"
+  },
+  {
+   "name": "networkx",
+   "version": "3.6.1",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://networkx.org/"
+  },
+  {
+   "name": "ninja",
+   "version": "1.13.2",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://github.com/scikit-build/ninja-python-distributions/issues"
+  },
+  {
+   "name": "numba",
+   "version": "0.68.0",
+   "license": "BSD",
+   "class": "permissive",
+   "home": "https://numba.pydata.org"
+  },
+  {
+   "name": "numpy",
+   "version": "2.4.6",
+   "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+   "class": "permissive",
+   "home": "https://numpy.org"
+  },
+  {
+   "name": "nvidia-ml-py",
+   "version": "13.615.71",
+   "license": "BSD",
+   "class": "permissive",
+   "home": "https://forums.developer.nvidia.com"
+  },
+  {
+   "name": "onnxruntime",
+   "version": "1.31.0",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://onnxruntime.ai"
+  },
+  {
+   "name": "open3d",
+   "version": "0.20.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://www.open3d.org"
+  },
+  {
+   "name": "opencv-python-headless",
+   "version": "5.0.0.93",
+   "license": "Apache 2.0",
+   "class": "permissive",
+   "home": "https://github.com/opencv/opencv-python"
+  },
+  {
+   "name": "packaging",
+   "version": "26.3",
+   "license": "Apache-2.0 OR BSD-2-Clause",
+   "class": "permissive",
+   "home": "https://packaging.pypa.io/"
+  },
+  {
+   "name": "parso",
+   "version": "0.8.7",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/davidhalter/parso"
+  },
+  {
+   "name": "pccm",
+   "version": "0.4.16",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/FindDefinition/PCCM"
+  },
+  {
+   "name": "pillow",
+   "version": "12.3.0",
+   "license": "MIT-CMU",
+   "class": "permissive",
+   "home": "https://pillow.readthedocs.io/en/stable/releasenotes/index.html"
+  },
+  {
+   "name": "platformdirs",
+   "version": "4.13.2",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://platformdirs.readthedocs.io/en/latest/changelog.html"
+  },
+  {
+   "name": "plotly",
+   "version": "7.1.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://plotly.com/python/"
+  },
+  {
+   "name": "plyfile",
+   "version": "1.1.5",
+   "license": "GNU General Public License v3 or later (GPLv3+)",
+   "class": "copyleft",
+   "home": "https://github.com/dranjan/python-plyfile"
+  },
+  {
+   "name": "pooch",
+   "version": "1.9.0",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://www.fatiando.org/pooch"
+  },
+  {
+   "name": "portalocker",
+   "version": "4.4.0",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://github.com/wolph/portalocker/"
+  },
+  {
+   "name": "prompt_toolkit",
+   "version": "3.0.53",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/prompt-toolkit/python-prompt-toolkit"
+  },
+  {
+   "name": "protobuf",
+   "version": "7.36.2",
+   "license": "3-Clause BSD License",
+   "class": "permissive",
+   "home": "https://developers.google.com/protocol-buffers/"
+  },
+  {
+   "name": "psutil",
+   "version": "7.2.2",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://github.com/giampaolo/psutil"
+  },
+  {
+   "name": "pure_eval",
+   "version": "0.2.4",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "http://github.com/alexmojaki/pure_eval"
+  },
+  {
+   "name": "pybind11",
+   "version": "3.1.0",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://github.com/pybind/pybind11"
+  },
+  {
+   "name": "pydantic",
+   "version": "2.14.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/pydantic/pydantic"
+  },
+  {
+   "name": "pydantic_core",
+   "version": "2.50.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/pydantic/pydantic"
+  },
+  {
+   "name": "pygltflib",
+   "version": "1.16.5",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://gitlab.com/dodgyville/pygltflib"
+  },
+  {
+   "name": "Pygments",
+   "version": "2.21.0",
+   "license": "BSD-2-Clause",
+   "class": "permissive",
+   "home": "https://pygments.org"
+  },
+  {
+   "name": "PyMatting",
+   "version": "1.1.16",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://pymatting.github.io"
+  },
+  {
+   "name": "pyparsing",
+   "version": "3.3.3",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://pyparsing-docs.readthedocs.io/en/latest/"
+  },
+  {
+   "name": "python-dateutil",
+   "version": "2.9.0.post0",
+   "license": "Dual License",
+   "class": "permissive",
+   "home": "https://github.com/dateutil/dateutil"
+  },
+  {
+   "name": "pyvista",
+   "version": "0.49.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/pyvista/pyvista/issues"
+  },
+  {
+   "name": "pyvista-validation",
+   "version": "0.2.2",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://validation.pyvista.org/"
+  },
+  {
+   "name": "PyYAML",
+   "version": "6.0.3",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://pyyaml.org/"
+  },
+  {
+   "name": "pyzmq",
+   "version": "27.2.0",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://pyzmq.readthedocs.org"
+  },
+  {
+   "name": "referencing",
+   "version": "0.37.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://referencing.readthedocs.io/"
+  },
+  {
+   "name": "regex",
+   "version": "2026.9.29",
+   "license": "Apache-2.0 AND CNRI-Python",
+   "class": "permissive",
+   "home": "https://github.com/mrabarnett/mrab-regex"
+  },
+  {
+   "name": "rembg",
+   "version": "2.0.85",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/danielgatis/rembg"
+  },
+  {
+   "name": "requests",
+   "version": "2.34.2",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://requests.readthedocs.io"
+  },
+  {
+   "name": "retrying",
+   "version": "1.4.2",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://github.com/groodt/retrying"
+  },
+  {
+   "name": "rich",
+   "version": "15.0.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://rich.readthedocs.io/en/latest/"
+  },
+  {
+   "name": "rich-rst",
+   "version": "2.2.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/wasi-master/rich-rst/issues"
+  },
+  {
+   "name": "rpds-py",
+   "version": "2026.9.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://rpds.readthedocs.io/"
+  },
+  {
+   "name": "safetensors",
+   "version": "0.8.0",
+   "license": "Apache Software License",
+   "class": "permissive",
+   "home": "https://github.com/huggingface/safetensors"
+  },
+  {
+   "name": "scikit-image",
+   "version": "0.26.0",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://scikit-image.org"
+  },
+  {
+   "name": "scipy",
+   "version": "1.17.1",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://scipy.org/"
+  },
+  {
+   "name": "scooby",
+   "version": "0.12.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/banesullivan/scooby/issues"
+  },
+  {
+   "name": "setuptools",
+   "version": "84.0.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/pypa/setuptools"
+  },
+  {
+   "name": "six",
+   "version": "1.17.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/benjaminp/six"
+  },
+  {
+   "name": "spconv-cu126",
+   "version": "2.3.8",
+   "license": "Apache License 2.0",
+   "class": "permissive",
+   "home": "https://github.com/traveller59/spconv"
+  },
+  {
+   "name": "stack-data",
+   "version": "0.6.3",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "http://github.com/alexmojaki/stack_data"
+  },
+  {
+   "name": "sympy",
+   "version": "1.14.0",
+   "license": "BSD",
+   "class": "permissive",
+   "home": "https://sympy.org"
+  },
+  {
+   "name": "termcolor",
+   "version": "3.3.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/termcolor/termcolor/releases"
+  },
+  {
+   "name": "tifffile",
+   "version": "2026.3.3",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://www.cgohlke.com"
+  },
+  {
+   "name": "tokenizers",
+   "version": "0.22.2",
+   "license": "Apache Software License",
+   "class": "permissive",
+   "home": "https://github.com/huggingface/tokenizers"
+  },
+  {
+   "name": "torch",
+   "version": "2.7.0+cu128",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://pytorch.org/"
+  },
+  {
+   "name": "torchvision",
+   "version": "0.22.0+cu128",
+   "license": "BSD",
+   "class": "permissive",
+   "home": "https://github.com/pytorch/vision"
+  },
+  {
+   "name": "tornado",
+   "version": "6.5.10",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "http://www.tornadoweb.org/"
+  },
+  {
+   "name": "tqdm",
+   "version": "4.70.1",
+   "license": "MPL-2.0 AND MIT",
+   "class": "weak-copyleft",
+   "home": "https://tqdm.github.io"
+  },
+  {
+   "name": "traitlets",
+   "version": "5.16.1",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://github.com/ipython/traitlets"
+  },
+  {
+   "name": "transformers",
+   "version": "4.57.6",
+   "license": "Apache 2.0 License",
+   "class": "permissive",
+   "home": "https://github.com/huggingface/transformers"
+  },
+  {
+   "name": "trimesh",
+   "version": "5.1.1",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://github.com/mikedh/trimesh"
+  },
+  {
+   "name": "typing-inspect",
+   "version": "0.9.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/ilevkivskyi/typing_inspect"
+  },
+  {
+   "name": "typing-inspection",
+   "version": "0.4.4",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/pydantic/typing-inspection"
+  },
+  {
+   "name": "typing_extensions",
+   "version": "4.16.0",
+   "license": "PSF-2.0",
+   "class": "permissive",
+   "home": "https://github.com/python/typing_extensions/issues"
+  },
+  {
+   "name": "urllib3",
+   "version": "2.8.0",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/urllib3/urllib3/blob/main/CHANGES.rst"
+  },
+  {
+   "name": "usd-core",
+   "version": "26.8",
+   "license": "LicenseRef-TOST-1.0",
+   "class": "permissive",
+   "home": "https://openusd.org"
+  },
+  {
+   "name": "utils3d",
+   "version": "0.0.2",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/EasternJournalist/utils3d"
+  },
+  {
+   "name": "vtk",
+   "version": "9.7.1",
+   "license": "BSD",
+   "class": "permissive",
+   "home": "https://vtk.org"
+  },
+  {
+   "name": "warp-lang",
+   "version": "1.18.0",
+   "license": "Apache-2.0",
+   "class": "permissive",
+   "home": "https://developer.nvidia.com/warp-python"
+  },
+  {
+   "name": "wcwidth",
+   "version": "0.9.2",
+   "license": "MIT License",
+   "class": "permissive",
+   "home": "https://github.com/jquast/wcwidth"
+  },
+  {
+   "name": "Werkzeug",
+   "version": "3.1.9",
+   "license": "BSD-3-Clause",
+   "class": "permissive",
+   "home": "https://werkzeug.palletsprojects.com/page/changes/"
+  },
+  {
+   "name": "widgetsnbextension",
+   "version": "4.0.16",
+   "license": "BSD 3-Clause License",
+   "class": "permissive",
+   "home": "http://jupyter.org"
+  },
+  {
+   "name": "wrapt",
+   "version": "2.5.1",
+   "license": "BSD-2-Clause",
+   "class": "permissive",
+   "home": "https://github.com/GrahamDumpleton/wrapt"
+  },
+  {
+   "name": "xatlas",
+   "version": "0.0.11",
+   "license": "MIT License（本文はライセンスのファイルを参照）",
+   "class": "permissive",
+   "home": "https://github.com/mworchel/xatlas-python"
+  },
+  {
+   "name": "xformers",
+   "version": "0.0.30",
+   "license": "BSD License",
+   "class": "permissive",
+   "home": "https://facebookresearch.github.io/xformers/"
+  },
+  {
+   "name": "zipp",
+   "version": "4.1.1",
+   "license": "MIT",
+   "class": "permissive",
+   "home": "https://github.com/jaraco/zipp"
+  }
+ ]
+}

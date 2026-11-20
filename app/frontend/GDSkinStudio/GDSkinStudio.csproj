@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>GDSkinStudio</RootNamespace>
+    <AssemblyName>GDSkinStudio</AssemblyName>
+    <!-- アプリの版（バックエンドの gdskin_backend.__version__ と同じにする。scripts/package/build_package.py が確かめる）。
+         最初に公開する版を 1.0.0 にした（2026-11-05。以前の 0.1.0 は公開していない試験用の ZIP の番号） -->
+    <Version>1.0.0</Version>
+    <Product>GD Skin Studio</Product>
+    <!-- D-024: ツール自体は MIT。著作権表示は利用者の指定どおりの表記（ＬＩＮＥ は全角）。scripts/package/check_package.py の COPYRIGHT と同じ -->
+    <Copyright>Copyright (c) 2026 歌うＬＩＮＥ彼氏</Copyright>
+    <NeutralLanguage>ja</NeutralLanguage>
+    <SatelliteResourceLanguages>ja;en</SatelliteResourceLanguages>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon></ApplicationIcon>
+    <!-- WPF の Fluent テーマ（PresentationFramework.Fluent）は .NET 9 以降の標準。ThemeMode の API は使わず辞書で読む -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 3D プレビュー（three.js を同梱。外部 CDN は使わない） -->
+    <Content Include="web\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- ヘルプの画面の文（日本語・英語）。EXE に埋め込む。名前を「help.ja.md」の形にしないのは、言語つきの名前だと
+         MSBuild が衛星アセンブリに分けるため。LogicalName は Help/HelpDocument.cs の ResourceName と同じ -->
+    <EmbeddedResource Include="Help\help_ja.md" LogicalName="GDSkinStudio.Help.help_ja.md" />
+    <EmbeddedResource Include="Help\help_en.md" LogicalName="GDSkinStudio.Help.help_en.md" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,96 @@
+<UserControl x:Class="GDSkinStudio.Views.PreviewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:GDSkinStudio.Localization"
+             xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf">
+    <TabControl x:Name="Tabs" AutomationProperties.AutomationId="PreviewTabs">
+        <TabItem Header="{l:Tr Preview_Tab3D}" AutomationProperties.AutomationId="PreviewTab3D">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <!-- モデルの選択の行と、正面（+Z）の印（SF23。2026-10-17 U-F）。既定は出さない。UI Automation の Toggle でも
+                     効くように Checked・Unchecked で送る。3D のモデルが無いときは隠す。置き場所は幅で決める（UF-R1。
+                     PreviewControl.xaml.cs の PlaceFrontMark）: この行の右の端に行数を増やさずに入ればここ、入らなければ向きのボタンの行の最後。
+                     どちらの行も、行が増えなければ 3D の表示の高さは今までと同じ -->
+                <Grid x:Name="ModelRow" Margin="0,6,0,4" SizeChanged="OnRowSize">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel x:Name="ModelButtons" />
+                    <CheckBox x:Name="FrontMarkCheck" Grid.Column="1" Visibility="Collapsed" MinWidth="0" Content="{l:Tr UF_PreviewFrontMark}" ToolTip="{l:Tr UF_PreviewFrontMarkTip}"
+                              Checked="OnFrontMark" Unchecked="OnFrontMark" Margin="10,0,0,0" VerticalAlignment="Center"
+                              AutomationProperties.AutomationId="PreviewFrontMark" AutomationProperties.HelpText="{l:Tr UF_PreviewFrontMarkTip}" />
+                </Grid>
+                <WrapPanel x:Name="ViewRow" Grid.Row="1" Margin="0,0,0,6">
+                    <Button Style="{StaticResource Small}" Content="{l:Tr Preview_Front}" Click="OnView" Tag="front" Margin="0,0,4,0" AutomationProperties.AutomationId="PreviewFront" />
+                    <Button Style="{StaticResource Small}" Content="{l:Tr Preview_Back}" Click="OnView" Tag="back" Margin="0,0,4,0" AutomationProperties.AutomationId="PreviewBack" />
+                    <Button Style="{StaticResource Small}" Content="{l:Tr Preview_Left}" Click="OnView" Tag="left" Margin="0,0,4,0" AutomationProperties.AutomationId="PreviewLeft" />
+                    <Button Style="{StaticResource Small}" Content="{l:Tr Preview_Right}" Click="OnView" Tag="right" Margin="0,0,4,0" AutomationProperties.AutomationId="PreviewRight" />
+                    <Button Style="{StaticResource Small}" Content="{l:Tr Preview_Reset}" Click="OnView" Tag="reset" Margin="0,0,12,0" AutomationProperties.AutomationId="PreviewReset" />
+                    <CheckBox x:Name="TextureCheck" Content="{l:Tr Preview_Texture}" IsChecked="True" Click="OnTexture" Margin="0,0,10,0" VerticalAlignment="Center" AutomationProperties.AutomationId="PreviewTexture" />
+                    <CheckBox x:Name="WireCheck" Content="{l:Tr Preview_Wireframe}" Click="OnWire" VerticalAlignment="Center" AutomationProperties.AutomationId="PreviewWire" />
+                </WrapPanel>
+                <Border Grid.Row="2" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" ClipToBounds="True">
+                    <Grid>
+                        <wv2:WebView2 x:Name="Web" DefaultBackgroundColor="#E9EDF2" />
+                        <TextBlock x:Name="FallbackText" Visibility="Collapsed" TextWrapping="Wrap" Margin="16" VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" Foreground="{StaticResource Muted}" />
+                    </Grid>
+                </Border>
+                <TextBlock Grid.Row="3" x:Name="StatusText" Style="{StaticResource Hint}" Text="{l:Tr Preview_MouseHint}"
+                           AutomationProperties.AutomationId="PreviewStatus" />
+            </Grid>
+        </TabItem>
+        <TabItem Header="{l:Tr Preview_TabCheck}" AutomationProperties.AutomationId="PreviewTabCheck">
+            <Grid>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Image x:Name="CheckImage" Stretch="Uniform" StretchDirection="DownOnly" />
+                </ScrollViewer>
+                <TextBlock x:Name="CheckEmpty" Text="{l:Tr Preview_NoImage}" Foreground="{StaticResource Muted}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </TabItem>
+        <TabItem Header="{l:Tr Preview_TabCandidates}" AutomationProperties.AutomationId="PreviewTabCandidates">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Image x:Name="CandImage" Stretch="Uniform" StretchDirection="DownOnly" />
+                </ScrollViewer>
+                <TextBlock x:Name="CandEmpty" Text="{l:Tr Preview_NoCandidates}" Foreground="{StaticResource Muted}" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Margin="20" />
+                <!-- 候補の一覧と「この候補で作る」（SF06・SF14。2026-10-17 U-A2。生成の画面だけが CandidateRows を渡す） -->
+                <Border Grid.Row="1" x:Name="CandListPanel" Visibility="Collapsed" BorderBrush="{StaticResource CardBorder}" BorderThickness="0,1,0,0"
+                        Padding="0,6,0,0" Margin="0,6,0,0" AutomationProperties.AutomationId="CandListPanel">
+                    <StackPanel>
+                        <TextBlock Text="{l:Tr UA2_CandListHint}" Style="{StaticResource Hint}" TextWrapping="Wrap" />
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="230">
+                            <ItemsControl x:Name="CandList" Focusable="False" AutomationProperties.AutomationId="CandList">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <DockPanel Margin="0,3,0,3">
+                                            <Button DockPanel.Dock="Right" Style="{StaticResource Small}" Content="{Binding PickText}" Command="{Binding PickCommand}"
+                                                    CommandParameter="{Binding Seed}" ToolTip="{Binding PickToolTip}" VerticalAlignment="Center" Margin="8,0,0,0"
+                                                    Visibility="{Binding CanPick, Converter={StaticResource BoolVis}}"
+                                                    AutomationProperties.AutomationId="{Binding PickId}" AutomationProperties.Name="{Binding PickName}"
+                                                    AutomationProperties.HelpText="{Binding PickToolTip}" />
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Title}" FontWeight="SemiBold" TextWrapping="Wrap" AutomationProperties.AutomationId="{Binding RowId}" />
+                                                <TextBlock Text="{Binding Detail}" Style="{StaticResource Hint}" TextWrapping="Wrap" AutomationProperties.AutomationId="{Binding DetailId}" />
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</UserControl>

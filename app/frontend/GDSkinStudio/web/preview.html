@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://work.gdskin.example https://lib.gdskin.example; script-src 'self' 'sha256-YfouuC739g3EgATrCkTXgjv8189CZnhaFx4jxxHgBrc='; style-src 'self'; img-src 'self' blob: data: https://work.gdskin.example https://lib.gdskin.example; connect-src 'self' blob: data: https://work.gdskin.example https://lib.gdskin.example">
+<title>Preview</title>
+<link rel="stylesheet" href="preview.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body>
+<div id="view"></div>
+<div id="overlay" class="hidden"></div>
+<div id="info"></div>
+<script type="module" src="preview.js"></script>
+</body>
+</html>

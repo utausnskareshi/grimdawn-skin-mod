@@ -1,0 +1,67 @@
+<UserControl x:Class="GDSkinStudio.Views.HelpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:GDSkinStudio.Localization">
+    <!-- ヘルプ: 左に検索と目次、右に選んだ項目の本文（選んで写せる。項目へのリンクで移る）。Ctrl+F で検索の欄へ -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="{l:Tr Help_Title}" Style="{StaticResource PageTitle}" />
+            <TextBlock Text="{l:Tr Help_Subtitle}" Style="{StaticResource PageSub}" AutomationProperties.AutomationId="Help_Subtitle" />
+        </StackPanel>
+        <Border Grid.Row="1" Style="{StaticResource Banner}" Background="{StaticResource ErrBg}"
+                Visibility="{Binding LoadError, Converter={StaticResource NullVis}}">
+            <TextBlock Text="{Binding LoadError}" Foreground="{StaticResource ErrBrush}" TextWrapping="Wrap"
+                       AutomationProperties.AutomationId="Help_LoadError" />
+        </Border>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" Text="{l:Tr Help_SearchLabel}" Style="{StaticResource Label}" Margin="0,0,0,3" />
+                <DockPanel DockPanel.Dock="Top">
+                    <Button DockPanel.Dock="Right" Style="{StaticResource Small}" Content="{l:Tr Help_SearchClear}" Command="{Binding ClearSearchCommand}"
+                            Margin="6,0,0,0" AutomationProperties.AutomationId="Help_SearchClear" />
+                    <TextBox x:Name="SearchBox" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Delay=250}"
+                             AutomationProperties.AutomationId="Help_Search" AutomationProperties.Name="{l:Tr Help_SearchLabel}" />
+                </DockPanel>
+                <TextBlock DockPanel.Dock="Top" Text="{l:Tr Help_SearchHint}" Style="{StaticResource Hint}" />
+                <TextBlock DockPanel.Dock="Top" Text="{Binding SearchStatus}" Style="{StaticResource Hint}" FontWeight="SemiBold"
+                           AutomationProperties.AutomationId="Help_SearchStatus" />
+                <TextBlock DockPanel.Dock="Top" Text="{l:Tr Help_TocLabel}" Style="{StaticResource Label}" Margin="0,8,0,3" />
+                <ListBox ItemsSource="{Binding SectionsView}" SelectedItem="{Binding SelectedSection}"
+                         Background="{StaticResource CardBg}" BorderBrush="{StaticResource CardBorder}" BorderThickness="1" Padding="2"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" VirtualizingPanel.IsVirtualizing="False"
+                         AutomationProperties.AutomationId="Help_Toc" AutomationProperties.Name="{l:Tr Help_TocLabel}">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                            <Setter Property="AutomationProperties.AutomationId" Value="{Binding Id, StringFormat=Help_Toc_{0}}" />
+                            <Setter Property="AutomationProperties.Name" Value="{Binding Title}" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" />
+                                <TextBlock Text="{Binding MatchText}" Style="{StaticResource Hint}" Margin="0"
+                                           Visibility="{Binding HasMatches, Converter={StaticResource BoolVis}}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+            <Border Grid.Column="2" Style="{StaticResource Card}" Padding="0" Margin="0">
+                <FlowDocumentScrollViewer x:Name="Viewer" IsToolBarVisible="False" VerticalScrollBarVisibility="Auto"
+                                          HorizontalScrollBarVisibility="Disabled" Focusable="True"
+                                          AutomationProperties.AutomationId="Help_Content" AutomationProperties.Name="{l:Tr Help_ContentLabel}" />
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

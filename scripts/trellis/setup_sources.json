@@ -1,0 +1,2054 @@
+{
+ "version": 1,
+ "note": "pin_sources.py が GitHub のアーカイブ ZIP の中身から作成",
+ "sources": {
+  "trellis": {
+   "repo": "microsoft/TRELLIS",
+   "commit": "442aa1e1afb9014e80681d3bf604e8d728a86ee7",
+   "dest": "src/TRELLIS",
+   "license": "MIT",
+   "url": "https://github.com/microsoft/TRELLIS/archive/442aa1e1afb9014e80681d3bf604e8d728a86ee7.zip",
+   "archive_prefix": "TRELLIS-442aa1e1afb9014e80681d3bf604e8d728a86ee7/",
+   "archive_size": 36394761,
+   "archive_sha256": "fa57c6c97f78049800100b391ba5900d0147774cc59724c70bedb50ff98fd2b9",
+   "total_bytes": 37988028,
+   "files": {
+    ".github/workflows/codeql.yml": {
+     "size": 4685,
+     "sha256": "447b5bc261b68680d7097b8bbc63732a34ef3286091dc28a2feadb169f39593e"
+    },
+    ".gitignore": {
+     "size": 6860,
+     "sha256": "f5774e1a387a8f1b62bcfffe6759f6a06fb01f28f51f726ded190c4dfa7fd9c2"
+    },
+    ".gitmodules": {
+     "size": 155,
+     "sha256": "2f3125be0ea0ca56975ae1f58f3e08f12015b8e3b704f36426ec20f7833798ea"
+    },
+    "CODE_OF_CONDUCT.md": {
+     "size": 444,
+     "sha256": "9daeae709a0bd71bcfd1c96dc5822ecec5210327eff929da64b0ae7f8faf1444"
+    },
+    "DATASET.md": {
+     "size": 8694,
+     "sha256": "f32dabc7b8f9156e2df15178167bdb82b2a19cb4015ad69f22b35d88301e8f30"
+    },
+    "LICENSE": {
+     "size": 1141,
+     "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    },
+    "README.md": {
+     "size": 22007,
+     "sha256": "675a1bab7837d22972a776dec8e2a2eb01f9211bd40b4c57112a8335ccb9ec3e"
+    },
+    "SECURITY.md": {
+     "size": 2656,
+     "sha256": "7b6976eec43edfa68b79a459dd089c56b7a395916dbf1a01bd11e6d86e12128f"
+    },
+    "SUPPORT.md": {
+     "size": 1244,
+     "sha256": "149773411caf2c59cb1a6bfb2c6f070d1d054f1f018e7a80be319a8c384eeaf5"
+    },
+    "app.py": {
+     "size": 15007,
+     "sha256": "7f1e8c7bcd672615f6f53170d1e4c44cc349db03397671fc054678e8b917db7e"
+    },
+    "app_text.py": {
+     "size": 9585,
+     "sha256": "606debba1eb4a893e9be80677e87f0dc6d95568ae2607a06a44125590c9ea0eb"
+    },
+    "assets/T.ply": {
+     "size": 2089367,
+     "sha256": "163e3efe355f4c7fe36eb3b55563d1897ac1384c5ab2eb1acfc68700de2dc31b"
+    },
+    "assets/example_image/T.png": {
+     "size": 954642,
+     "sha256": "e29ddc83a5bd3a05fe9b34732169bc4ea7131f7c36527fdc5f626a90a73076d2"
+    },
+    "assets/example_image/typical_building_building.png": {
+     "size": 546948,
+     "sha256": "8faa11d557be95c000c475247e61a773d511114c7d1e517c04f8d3d88a6049ec"
+    },
+    "assets/example_image/typical_building_castle.png": {
+     "size": 426358,
+     "sha256": "076f0554b087b921863643d2b1ab3e0572a13a347fd66bc29cd9d194034affae"
+    },
+    "assets/example_image/typical_building_colorful_cottage.png": {
+     "size": 609383,
+     "sha256": "687305b4e35da759692be0de614d728583a2a9cd2fd3a55593fa753e567d0d47"
+    },
+    "assets/example_image/typical_building_maya_pyramid.png": {
+     "size": 231664,
+     "sha256": "4d514f7f4db244ee184af4ddfbc5948d417b4e5bf1c6ee5f5a592679561690df"
+    },
+    "assets/example_image/typical_building_mushroom.png": {
+     "size": 488032,
+     "sha256": "de9b72d3e13e967e70844ddc54643832a84a1b35ca043a11e7c774371d0ccdab"
+    },
+    "assets/example_image/typical_building_space_station.png": {
+     "size": 619626,
+     "sha256": "212c7b4c27ba1e01a7908dbc7f245e7115850eadbc9974aa726327cf35062846"
+    },
+    "assets/example_image/typical_creature_dragon.png": {
+     "size": 563963,
+     "sha256": "0e8d6720dfa1e7b332b76e897e617b7f0863187f30879451b4724f482c84185a"
+    },
+    "assets/example_image/typical_creature_elephant.png": {
+     "size": 481919,
+     "sha256": "86a171e37a3d781e7215977f565cd63e813341c1f89e2c586fa61937e4ed6916"
+    },
+    "assets/example_image/typical_creature_furry.png": {
+     "size": 647568,
+     "sha256": "5b5445b8f1996cf6d72497b2d7564c656f4048e6c1fa626fd7bb3ee582fee671"
+    },
+    "assets/example_image/typical_creature_quadruped.png": {
+     "size": 685321,
+     "sha256": "7469f43f58389adec101e9685f60188bd4e7fbede77eef975102f6a8865bc786"
+    },
+    "assets/example_image/typical_creature_robot_crab.png": {
+     "size": 594232,
+     "sha256": "d7e716abe8f8895080f562d1dc26b14fa0e20a05aa5beb2770c6fb3b87b3476a"
+    },
+    "assets/example_image/typical_creature_robot_dinosour.png": {
+     "size": 632292,
+     "sha256": "d0986f29557a6fddf9b52b5251a6b6103728c61e201b1cfad1e709b090b72f56"
+    },
+    "assets/example_image/typical_creature_rock_monster.png": {
+     "size": 648344,
+     "sha256": "e29458a6110bee8374c0d4d12471e7167a6c1c98c18f6e2d7ff4f5f0ca3fa01b"
+    },
+    "assets/example_image/typical_humanoid_block_robot.png": {
+     "size": 441407,
+     "sha256": "3a0acbb532668e1bf35f3eef5bcbfdd094c22219ef2d837fa01ccf51cce75ca3"
+    },
+    "assets/example_image/typical_humanoid_dragonborn.png": {
+     "size": 481371,
+     "sha256": "5d7c547909a6c12da55dbab1c1c98181ff09e58c9ba943682ca105e71be9548e"
+    },
+    "assets/example_image/typical_humanoid_dwarf.png": {
+     "size": 498425,
+     "sha256": "a4a7c157d5d8071128c27594e45a7a03e5113b3333b7f1c5ff1379481e3e0264"
+    },
+    "assets/example_image/typical_humanoid_goblin.png": {
+     "size": 496430,
+     "sha256": "2b0e9a04ae3e7bef44b7180a70306f95374b60727ffa0f6f01fd6c746595cd77"
+    },
+    "assets/example_image/typical_humanoid_mech.png": {
+     "size": 849947,
+     "sha256": "a244ec54b7984e646e54d433de6897657081dd5b9cd5ccd3d865328d813beb49"
+    },
+    "assets/example_image/typical_misc_crate.png": {
+     "size": 642105,
+     "sha256": "59fd9884301faca93265166d90078e8c31e76c7f93524b1db31975df4b450748"
+    },
+    "assets/example_image/typical_misc_fireplace.png": {
+     "size": 558466,
+     "sha256": "2288c034603e289192d63cbc73565107caefd99e81c4b7afa2983c8b13e34440"
+    },
+    "assets/example_image/typical_misc_gate.png": {
+     "size": 572414,
+     "sha256": "ec8db5389b74fe56b826e3c6d860234541033387350e09268591c46d411cc8e9"
+    },
+    "assets/example_image/typical_misc_lantern.png": {
+     "size": 300270,
+     "sha256": "e17bd83adf433ebfca17abd220097b2b7f08affc649518bd7822e03797e83d41"
+    },
+    "assets/example_image/typical_misc_magicbook.png": {
+     "size": 496050,
+     "sha256": "aff9c14589c340e31b61bf82e4506d77d72c511e741260fa1e600cefa4e103e6"
+    },
+    "assets/example_image/typical_misc_mailbox.png": {
+     "size": 631146,
+     "sha256": "01e86a5d68edafb7e11d7a86f7e8081f5ed1b02578198a3271554c5fb8fb9fcf"
+    },
+    "assets/example_image/typical_misc_monster_chest.png": {
+     "size": 690259,
+     "sha256": "c57a598e842225a31b9770bf3bbb9ae86197ec57d0c2883caf8cb5eed4908fbc"
+    },
+    "assets/example_image/typical_misc_paper_machine.png": {
+     "size": 613984,
+     "sha256": "2d55400ae5d4df2377258400d800ece75766d5274e80ce07c3b29a4d1fd1fa36"
+    },
+    "assets/example_image/typical_misc_phonograph.png": {
+     "size": 517193,
+     "sha256": "14fff9a27ea769d3ca711e9ff55ab3d9385486a5e8b99117f506df326a0a357e"
+    },
+    "assets/example_image/typical_misc_portal2.png": {
+     "size": 386106,
+     "sha256": "57aab2bba56bc946523a3fca77ca70651a4ad8c6fbf1b91a1a824418df48faae"
+    },
+    "assets/example_image/typical_misc_storage_chest.png": {
+     "size": 632296,
+     "sha256": "0e4ac1c67fdda902ecb709447b8defd949c738954c844c1b8364b8e3f7d9e55a"
+    },
+    "assets/example_image/typical_misc_telephone.png": {
+     "size": 647557,
+     "sha256": "00048be46234a2709c12614b04cbad61c6e3c7e63c2a4ef33d999185f5393e36"
+    },
+    "assets/example_image/typical_misc_television.png": {
+     "size": 627348,
+     "sha256": "6a1947b737398bf535ec212668a4d78cd38fe84cf9da1ccd6c0c0d838337755e"
+    },
+    "assets/example_image/typical_misc_workbench.png": {
+     "size": 462693,
+     "sha256": "a6d9ed4d005a5253b8571fd976b0d102e293512d7b5a8ed5e3f7f17c5f4e19da"
+    },
+    "assets/example_image/typical_vehicle_biplane.png": {
+     "size": 574448,
+     "sha256": "c73e98112eb603b4ba635b8965cad7807d0588f083811bc2faa0c7ab9668a65a"
+    },
+    "assets/example_image/typical_vehicle_bulldozer.png": {
+     "size": 692767,
+     "sha256": "23d821b4daea61cbea28cc6ddd3ae46712514dfcdff995c2664f5a70d21f4ef3"
+    },
+    "assets/example_image/typical_vehicle_cart.png": {
+     "size": 693145,
+     "sha256": "b72c04a2aa5cf57717c05151a2982d6dc31afde130d5e830adf37a84a70616cb"
+    },
+    "assets/example_image/typical_vehicle_excavator.png": {
+     "size": 712062,
+     "sha256": "27a418853eefa197f1e10ed944a7bb071413fd2bc1681804ee773a6ce3799c52"
+    },
+    "assets/example_image/typical_vehicle_helicopter.png": {
+     "size": 352731,
+     "sha256": "7f1a1b37bc52417c0e1048927a30bf3a52dde81345f90114040608186196ffe7"
+    },
+    "assets/example_image/typical_vehicle_locomotive.png": {
+     "size": 806246,
+     "sha256": "67d5124e7069b133dc0aaa16047a52c6dc1d7c2a4e4510ffd3235fe95597fbef"
+    },
+    "assets/example_image/typical_vehicle_pirate_ship.png": {
+     "size": 611289,
+     "sha256": "8926ec7c9f36a52e3bf1ca4e8cfc75d297da934fe7c0e8d7a73f0d35a5ef38ad"
+    },
+    "assets/example_image/weatherworn_misc_paper_machine3.png": {
+     "size": 502071,
+     "sha256": "3c6fbf47ed53ffad1a3027f72bf0806c238682c7bf7604b8770aef428906d33b"
+    },
+    "assets/example_multi_image/character_1.png": {
+     "size": 171816,
+     "sha256": "729e2e0214232e1dd45c9187e339f8a2a87c6e41257ef701e578a4f0a8be7ef1"
+    },
+    "assets/example_multi_image/character_2.png": {
+     "size": 198217,
+     "sha256": "e8afc8af9960a5f2315d9d5b9815f29137ef9b63c4d512c451a8ba374003c3ac"
+    },
+    "assets/example_multi_image/character_3.png": {
+     "size": 145868,
+     "sha256": "3413a2b4f67105b947a42ebbe14d3f6ab9f68a99f2258a86fd50d94342b49bdd"
+    },
+    "assets/example_multi_image/mushroom_1.png": {
+     "size": 434321,
+     "sha256": "3e5fd9ee75d39c827b0c5544392c255a89b4ca62bf3cf31f702d39b150bea00c"
+    },
+    "assets/example_multi_image/mushroom_2.png": {
+     "size": 461694,
+     "sha256": "6e5709b910341b12d149632b8442aebd218dd591b238ccb7e4e8b185860aae04"
+    },
+    "assets/example_multi_image/mushroom_3.png": {
+     "size": 424840,
+     "sha256": "115c9c3a11d3d08de568680468ad42ac1322c21bdad46a43e149fc97cc687e48"
+    },
+    "assets/example_multi_image/orangeguy_1.png": {
+     "size": 632098,
+     "sha256": "ab30ee372fc365e5d100f2e06ea7cd17b3ea3f53b1a76ebe44e69a1cf834700e"
+    },
+    "assets/example_multi_image/orangeguy_2.png": {
+     "size": 447045,
+     "sha256": "f7ceecb68666ce692bf0a292fe4e125e657ece2babb67a7df89ab1827ad18665"
+    },
+    "assets/example_multi_image/orangeguy_3.png": {
+     "size": 545243,
+     "sha256": "fb89267bc91e0c0d1fdb148a5a5cd14e594f58e0a3da7b48f4e4cb61a3b7dcf1"
+    },
+    "assets/example_multi_image/popmart_1.png": {
+     "size": 311311,
+     "sha256": "90a1fff9944982d66d13abb78da87a35092c26b905efd5a58b3c077bb5fed2cd"
+    },
+    "assets/example_multi_image/popmart_2.png": {
+     "size": 288176,
+     "sha256": "c74822f7fcf7b95d230e4578342272644a328ea175a90fa492f1b74ee438bdb4"
+    },
+    "assets/example_multi_image/popmart_3.png": {
+     "size": 310746,
+     "sha256": "239b41cf5f42ddcb1d3ba3f273e4ec66f2601b3303562ee97080d1904d9707b9"
+    },
+    "assets/example_multi_image/rabbit_1.png": {
+     "size": 359949,
+     "sha256": "2f64979aae844de9e04f08c3f2cb8b6c47e4681c015afc624375ed6ac6aff0cd"
+    },
+    "assets/example_multi_image/rabbit_2.png": {
+     "size": 492291,
+     "sha256": "85bb8760b5fb4c2e5c36e169a3cd0f95ca3164bd4764b8a830d220cd852f60ed"
+    },
+    "assets/example_multi_image/rabbit_3.png": {
+     "size": 339992,
+     "sha256": "f1f10a6c04e10ce27a20fd583ff443238bff2b6a49c485e5cf0ed6952a20c9c5"
+    },
+    "assets/example_multi_image/tiger_1.png": {
+     "size": 426296,
+     "sha256": "f2a61f5e48bd1a68d90c3afaf9ad8e5a7d955bc31ef7032b7fd876647922be1d"
+    },
+    "assets/example_multi_image/tiger_2.png": {
+     "size": 731448,
+     "sha256": "e5cab1d833a2541ca18e56fada83f5fe6b0cfe84c2d7e72382e2c93fcabc33a0"
+    },
+    "assets/example_multi_image/tiger_3.png": {
+     "size": 646392,
+     "sha256": "5614fcb8e85dba6f30af6c992d1fe63e33b95ab70b4c870de4f0761fcecd5d9c"
+    },
+    "assets/example_multi_image/yoimiya_1.png": {
+     "size": 245840,
+     "sha256": "e6d9e7e0a3c75a736a25aeca6986afaa2adcd1ce96277484cbc9c41bf63d0230"
+    },
+    "assets/example_multi_image/yoimiya_2.png": {
+     "size": 182235,
+     "sha256": "6e0703e3a557949a3176f2b02c8601ff883e22ce81962a75a21dbff9d5848ccf"
+    },
+    "assets/example_multi_image/yoimiya_3.png": {
+     "size": 239134,
+     "sha256": "56352f95536fcfe0996c33909e39e5beb423bd22b4bc48936938717073785305"
+    },
+    "assets/logo.webp": {
+     "size": 1403066,
+     "sha256": "1548a7b7f6b0fb3c06091529bb5052f0ee9a119eb4e1a014325d6561e9b9f2d1"
+    },
+    "assets/teaser.png": {
+     "size": 2098442,
+     "sha256": "a83608f6f4ae71eb7b96965a16978b5f5fb0d594a34bf1066c105f93af71c4d5"
+    },
+    "configs/generation/slat_flow_img_dit_L_64l8p2_fp16.json": {
+     "size": 3174,
+     "sha256": "86c202776cd64e5865180dbd298c4983a5e5b067f395a4636ebe4c18841bb390"
+    },
+    "configs/generation/slat_flow_txt_dit_B_64l8p2_fp16.json": {
+     "size": 3151,
+     "sha256": "6d2ca54282f14a6e275f23c768a2e09342d5e7c895c8505212800e9c32164ca5"
+    },
+    "configs/generation/slat_flow_txt_dit_L_64l8p2_fp16.json": {
+     "size": 3151,
+     "sha256": "3fa46ac2e21f95ea4e7afab1e620a73c273a25e7b509319aae9da0f466453d5c"
+    },
+    "configs/generation/slat_flow_txt_dit_XL_64l8p2_fp16.json": {
+     "size": 3151,
+     "sha256": "1598189d0434a7b564c295ae225e18585e6380c633da5b663cc1d9e1b5ede0a0"
+    },
+    "configs/generation/ss_flow_img_dit_L_16l8_fp16.json": {
+     "size": 2036,
+     "sha256": "16c261c7bdcc049d60e42edda5fcb55a3882e454859b8f74907b7ac41ac4ff05"
+    },
+    "configs/generation/ss_flow_txt_dit_B_16l8_fp16.json": {
+     "size": 2013,
+     "sha256": "7ea0e0cb147670e8d211c6cdbcce128e6460319e9f669a3a5aa995c5dd573fb6"
+    },
+    "configs/generation/ss_flow_txt_dit_L_16l8_fp16.json": {
+     "size": 2013,
+     "sha256": "27fcb88ebe6390c48746ed81742af499d7f3a768f604e7274fd1f354e1b09749"
+    },
+    "configs/generation/ss_flow_txt_dit_XL_16l8_fp16.json": {
+     "size": 2056,
+     "sha256": "b8d26e990993313f9f931cc77a862d5109f888eef20c630cad956a6604d358a0"
+    },
+    "configs/vae/slat_vae_dec_mesh_swin8_B_64l8_fp16.json": {
+     "size": 2082,
+     "sha256": "625810fab712c0e028ee366f5d6e65b76a01d284260fd72a69aa22e6b10aa7a2"
+    },
+    "configs/vae/slat_vae_dec_rf_swin8_B_64l8_fp16.json": {
+     "size": 2007,
+     "sha256": "0fae673c76decbcc2943f2403fa75bfdc2803b66119e40198881bc70ad6858d3"
+    },
+    "configs/vae/slat_vae_enc_dec_gs_swin8_B_64l8_fp16.json": {
+     "size": 3168,
+     "sha256": "75465614c77961bd6c0d3e07bf1f8a50a1c8b1137a30b11d620155943a913ef4"
+    },
+    "configs/vae/ss_vae_conv3d_16l8_fp16.json": {
+     "size": 1763,
+     "sha256": "22b4a56d3248e6d04ff3ad6c6dd8516aca159dc2c416cb11fd5f68f746c50a65"
+    },
+    "dataset_toolkits/blender_script/io_scene_usdz.zip": {
+     "size": 34685,
+     "sha256": "ec07ab6125fe0a021ed08c64169eceda126330401aba3d494d5203d26ac4b093"
+    },
+    "dataset_toolkits/blender_script/render.py": {
+     "size": 20037,
+     "sha256": "0d4aa5490903abc38a77756a5c45142d14b4c927896d47e5b42a33c2dc8b0397"
+    },
+    "dataset_toolkits/build_metadata.py": {
+     "size": 13422,
+     "sha256": "211b2c03438d9adc593b01a0abd4cdc34b458ff61681e23c34655b14f5ea4b78"
+    },
+    "dataset_toolkits/calculate_aesthetic_scores.py": {
+     "size": 4116,
+     "sha256": "72509af8ef880ccf7a5a9b3fece76e759728bf7060a0dc875c1d0555a92d82c7"
+    },
+    "dataset_toolkits/datasets/3D-FUTURE.py": {
+     "size": 3871,
+     "sha256": "1d3a0a4d125500dd1068a09fcb21c6687608d84f046aa2b3a11311f12fa9cfa3"
+    },
+    "dataset_toolkits/datasets/ABO.py": {
+     "size": 3834,
+     "sha256": "7375d3f4f425e2bee1d8403f3e8213354556a241db45269aef1970e38161d30d"
+    },
+    "dataset_toolkits/datasets/HSSD.py": {
+     "size": 3654,
+     "sha256": "80fa34172466edaabd3f6900640e12f5a258a54e6b7ae35dece829408df7b9c3"
+    },
+    "dataset_toolkits/datasets/ObjaverseXL.py": {
+     "size": 3460,
+     "sha256": "499218541bb1b26a29319c6c2b9296377a1e2f199eb0056259f2633c5f851da8"
+    },
+    "dataset_toolkits/datasets/Toys4k.py": {
+     "size": 3547,
+     "sha256": "2af1ff14176740a74884d9010491605fb76f18bfa43a97c8e21ccd035d5e86bc"
+    },
+    "dataset_toolkits/download.py": {
+     "size": 2125,
+     "sha256": "f8cff28ee63e269ba839b05f56f65a40bf18da2f920d71ac0ae23cd423f8f35f"
+    },
+    "dataset_toolkits/encode_latent.py": {
+     "size": 5923,
+     "sha256": "c91d967c531a43e461e543bcf2b3f1753d36efe5f5ce751db62c54264e941703"
+    },
+    "dataset_toolkits/encode_ss_latent.py": {
+     "size": 5725,
+     "sha256": "f01c22a740b36ce9a9ee7025785fd316f3b95d252240598f0bf7bd767acd1fa2"
+    },
+    "dataset_toolkits/extract_feature.py": {
+     "size": 7887,
+     "sha256": "387ff2a6a042999ac901d89b70923a85909a381ce61c664c2f1caa2ddfb1eed3"
+    },
+    "dataset_toolkits/render.py": {
+     "size": 4987,
+     "sha256": "dc11918be69d952c25ad13ffd7c0f0d9a8dd8d5392699d30e31e2291d106d7c1"
+    },
+    "dataset_toolkits/render_cond.py": {
+     "size": 5313,
+     "sha256": "33bb1b0184bfc7a50deeda11e50b6d10fa8a9b9f22229c7adacb3638da469fa2"
+    },
+    "dataset_toolkits/setup.sh": {
+     "size": 135,
+     "sha256": "0bd7d615fd834cd2d8384957fa7e811598903c7610e55e955325a0fb3b1ff82e"
+    },
+    "dataset_toolkits/stat_latent.py": {
+     "size": 2563,
+     "sha256": "abd1aa450a48f79d68e62150b5d8dac0003122aa4a2cba4020dfaca4168c1b0f"
+    },
+    "dataset_toolkits/utils.py": {
+     "size": 1243,
+     "sha256": "8425f5a142741d63ad3aa003a60ca5f33a35be9151281de2b8f5fdf38bbd2b75"
+    },
+    "dataset_toolkits/voxelize.py": {
+     "size": 4159,
+     "sha256": "15eee74a5c812803c1fabbfe92b3f5e18c3378b41a7c7842980d2628804a89dc"
+    },
+    "example.py": {
+     "size": 2098,
+     "sha256": "68f6fd4d0ccf23d0518cb930d4228284f1b534b93dc1e5546259a2f83479880b"
+    },
+    "example_multi_image.py": {
+     "size": 1752,
+     "sha256": "55df67028b2eb58293b7b931237e81146c9f725d0fdec099d460ac2386942888"
+    },
+    "example_text.py": {
+     "size": 2038,
+     "sha256": "55f67c8e179a5c92d6a994592045d9db7e2598b11e19eb8bbb5b7378246c305e"
+    },
+    "example_variant.py": {
+     "size": 1684,
+     "sha256": "aefb5f97d38595c1ba3c82ed0263dcf59b41f3afe59194575b69b2c20629cfaf"
+    },
+    "setup.sh": {
+     "size": 11579,
+     "sha256": "e536f1152eb8243dc59d818d3db9eddc1818486a1c4823657331165fbd2ca553"
+    },
+    "train.py": {
+     "size": 5834,
+     "sha256": "ab9978b92a2ea6bba5225ad865d2bc629250dfe17b64132ec19e908623204a36"
+    },
+    "trellis/__init__.py": {
+     "size": 141,
+     "sha256": "6eb340add1370ec95a8c19c36d5e7deb96e5950f1ffd2464e988fd77b813c130"
+    },
+    "trellis/datasets/__init__.py": {
+     "size": 1704,
+     "sha256": "1cfb19f87c22c8706972e26a1d419070cc7bed26456e686e46d9e149e2ee5a68"
+    },
+    "trellis/datasets/components.py": {
+     "size": 4874,
+     "sha256": "431dfd8a117e6c2b257641e600eacce7cdc3e88da1447d6a24ed8b0c99d86ca6"
+    },
+    "trellis/datasets/sparse_feat2render.py": {
+     "size": 4847,
+     "sha256": "acb6404c8fbe943aa3bdea9b0735683f98eab18e68ff3aa60e92f368f9e5f514"
+    },
+    "trellis/datasets/sparse_structure.py": {
+     "size": 4153,
+     "sha256": "99c2f34e6d278475c0b98170a49bb1a8b2a75badeda605319a4e21448639674c"
+    },
+    "trellis/datasets/sparse_structure_latent.py": {
+     "size": 7189,
+     "sha256": "57e78cc778b8bd40fb3e9795f99fa61fedd404a28dbb67d0bdfc5436c99ee673"
+    },
+    "trellis/datasets/structured_latent.py": {
+     "size": 8426,
+     "sha256": "deba9aacb6313cca7f17ff7f6449bf83f52055428cb86d38f694377782af50cf"
+    },
+    "trellis/datasets/structured_latent2render.py": {
+     "size": 5316,
+     "sha256": "f7a4eed1cb6743d196ba4ef6a140a0d68444eab8a81034f1e443e741c29e4751"
+    },
+    "trellis/models/__init__.py": {
+     "size": 3173,
+     "sha256": "afb0321d3b8212be4efdebe16bc80f317135e2c106de3d044896df1d8f46f9ab"
+    },
+    "trellis/models/sparse_elastic_mixin.py": {
+     "size": 882,
+     "sha256": "f28ee27e2d633510a2663f5dd1a63298983bcf6de25c85296d147578529e047d"
+    },
+    "trellis/models/sparse_structure_flow.py": {
+     "size": 7348,
+     "sha256": "cb5c67ec40a97587b55d63809eb51ebc320a7d79d06b55f170f16567eeb24eda"
+    },
+    "trellis/models/sparse_structure_vae.py": {
+     "size": 9886,
+     "sha256": "d32e4490b2f5356b72229ee7c8fb25702238b4f0877c49f1cae15ddc9ca615bc"
+    },
+    "trellis/models/structured_latent_flow.py": {
+     "size": 10390,
+     "sha256": "73cec44bda33c70ebecd2c88bf70fad857a25769a2994e9a9bb6c0ed9e442b33"
+    },
+    "trellis/models/structured_latent_vae/__init__.py": {
+     "size": 273,
+     "sha256": "7ff6602d44207b58c4dce103b136219b78b98a3a424368a7fb219a2ea2dd41bf"
+    },
+    "trellis/models/structured_latent_vae/base.py": {
+     "size": 4332,
+     "sha256": "bdbfc21143bfde3de9346339986bf42574211f74b028fc8ab646858c87c9fd2e"
+    },
+    "trellis/models/structured_latent_vae/decoder_gs.py": {
+     "size": 5519,
+     "sha256": "b0e3fa3478dc200c26a4c43937113d98fb6d1d5184fddd8279066ac44a3a9f51"
+    },
+    "trellis/models/structured_latent_vae/decoder_mesh.py": {
+     "size": 5934,
+     "sha256": "872906263d86e9799ed58528f82520045e90762da23e4f47a77bfb9531daf8ab"
+    },
+    "trellis/models/structured_latent_vae/decoder_rf.py": {
+     "size": 4239,
+     "sha256": "0a5fa6e2256a92c7335201e3fea6e8aae822a594389cba4d78713a9cc427273f"
+    },
+    "trellis/models/structured_latent_vae/encoder.py": {
+     "size": 2568,
+     "sha256": "c22f00d03a1283e02df72f9e7aeb938e6537877b05e279f0283fb97ead292ca0"
+    },
+    "trellis/modules/attention/__init__.py": {
+     "size": 758,
+     "sha256": "163edbd14e9b602922dc83f0e3e1d1a217296ea94e7f9f5ba04a9af3fe96d760"
+    },
+    "trellis/modules/attention/full_attn.py": {
+     "size": 4932,
+     "sha256": "18f6fe3168efff666ad7ef5321ff493280eafc95d69bc24a47938b9febbb8551"
+    },
+    "trellis/modules/attention/modules.py": {
+     "size": 6231,
+     "sha256": "6d3b110e91003c8730f5a87922a133db596dc2fbc47272fe6f3b19443589132c"
+    },
+    "trellis/modules/norm.py": {
+     "size": 720,
+     "sha256": "dffc3a789ddcab606186326ce581345bfe848912f3e590753b967f9451e5a9d7"
+    },
+    "trellis/modules/sparse/__init__.py": {
+     "size": 2907,
+     "sha256": "f01025f71781973767aa7c8c55ec61f7c44a045b1a61592e143e5666190dbdf1"
+    },
+    "trellis/modules/sparse/attention/__init__.py": {
+     "size": 108,
+     "sha256": "78a2d717c82a6b63f39e82272e94c309befc355e4fbf38dbcfc044b7578e46f4"
+    },
+    "trellis/modules/sparse/attention/full_attn.py": {
+     "size": 9206,
+     "sha256": "cfed8f6d72223a44433f9a38f3a0eb89d114ac77f710306b3e6ec1acfc12b432"
+    },
+    "trellis/modules/sparse/attention/modules.py": {
+     "size": 6103,
+     "sha256": "2d35dcfb32d8fed7a7da71c0754a0463a4251f98d5a08bdb430552926babcbd7"
+    },
+    "trellis/modules/sparse/attention/serialized_attn.py": {
+     "size": 8258,
+     "sha256": "57f0a6a1a79fb6fa3ad153769226c8f7f36d122b64017a3b029c880385b5f306"
+    },
+    "trellis/modules/sparse/attention/windowed_attn.py": {
+     "size": 6075,
+     "sha256": "b6730399cbe6dff15f9f3863a06c6076758f9b45377d07a31b54c8994afdf344"
+    },
+    "trellis/modules/sparse/basic.py": {
+     "size": 17454,
+     "sha256": "215dca48d25f1e4640622c33b7f899ceb4211b96a1c04e0374f37a72da724118"
+    },
+    "trellis/modules/sparse/conv/__init__.py": {
+     "size": 537,
+     "sha256": "65bdef30f1cb4feb77c4d00b3a27f04c2ed8748779ed09e5f4535cfa396ad102"
+    },
+    "trellis/modules/sparse/conv/conv_spconv.py": {
+     "size": 3955,
+     "sha256": "69174887a0b378851ced8fd35fe52f5a37c4c7ef2067daac80ad2980bdddb1b1"
+    },
+    "trellis/modules/sparse/conv/conv_torchsparse.py": {
+     "size": 1716,
+     "sha256": "2bbbce0d55f4c8057ba8e4a8d46124ccbe9f4ea9ff0b6a3b6834cd3f285acd27"
+    },
+    "trellis/modules/sparse/linear.py": {
+     "size": 387,
+     "sha256": "8a3dc106ecc875e6ad13bbef2b543846c71c8b61bb7f8db889cbd94c56a46747"
+    },
+    "trellis/modules/sparse/nonlinearity.py": {
+     "size": 875,
+     "sha256": "b686ec25498fff4a1f14c53db05a33747faed6b2dafd4d2f63be0ada26e7b082"
+    },
+    "trellis/modules/sparse/norm.py": {
+     "size": 2151,
+     "sha256": "04f963d39fdbbd9a7f118b6291a94abd0264a6fa947f216da46a0b502d8af226"
+    },
+    "trellis/modules/sparse/spatial.py": {
+     "size": 4567,
+     "sha256": "d38197d35faaf55def3b0b0b279380c4ff2f62f0d78e620f6ed8fb1d72449440"
+    },
+    "trellis/modules/sparse/transformer/__init__.py": {
+     "size": 46,
+     "sha256": "debb94976ce5c7fbf196012d9dbd1c6aa70acbc37c8f97cb3ffc94ef90730bfb"
+    },
+    "trellis/modules/sparse/transformer/blocks.py": {
+     "size": 5181,
+     "sha256": "d061125f84805347e782e230c1e612dc5453145aae1a6289c5035e60d40ac266"
+    },
+    "trellis/modules/sparse/transformer/modulated.py": {
+     "size": 6124,
+     "sha256": "83aaab23aeae47df478dc38702ed4c7707b25e0771e3b4c89f8ac621077db28b"
+    },
+    "trellis/modules/spatial.py": {
+     "size": 1763,
+     "sha256": "cfab71d7106b4fdf6cbdd2885646b5590d13439f9308c5b924c069afcdbf185d"
+    },
+    "trellis/modules/transformer/__init__.py": {
+     "size": 46,
+     "sha256": "debb94976ce5c7fbf196012d9dbd1c6aa70acbc37c8f97cb3ffc94ef90730bfb"
+    },
+    "trellis/modules/transformer/blocks.py": {
+     "size": 5865,
+     "sha256": "3c03f97d24b462bcfd54f33f97dfe056b896f76e77dd391b197c5f576b2a94b9"
+    },
+    "trellis/modules/transformer/modulated.py": {
+     "size": 5587,
+     "sha256": "1e03f9b0e9141782678bd59421b9cec79df6e2f64296dc920c8d160e3e74ab0c"
+    },
+    "trellis/modules/utils.py": {
+     "size": 1157,
+     "sha256": "acfdc3769ce510f79f1762638063ff796481947d33d26a04f7c061f2eccdbf09"
+    },
+    "trellis/pipelines/__init__.py": {
+     "size": 759,
+     "sha256": "481154bace0520887b62966357a63d07db41ad35bbc037ece67c9329750e67e3"
+    },
+    "trellis/pipelines/base.py": {
+     "size": 1840,
+     "sha256": "2b06cdf54571576247bd6601adda7b3772dc23106a4973c35bfc42c4e9253c0c"
+    },
+    "trellis/pipelines/samplers/__init__.py": {
+     "size": 121,
+     "sha256": "438e0d327767c4ed05b167347e306f3ed80b4956add8f506126937feba0989ad"
+    },
+    "trellis/pipelines/samplers/base.py": {
+     "size": 286,
+     "sha256": "be8530b55ea66ac58e8ab23d650f463636dd52cf7e39c7c9c66f69bf72e6a0d1"
+    },
+    "trellis/pipelines/samplers/classifier_free_guidance_mixin.py": {
+     "size": 454,
+     "sha256": "28af94747319a29d68f1dba864e103fcea906a24827646532d5915109de1098d"
+    },
+    "trellis/pipelines/samplers/flow_euler.py": {
+     "size": 7155,
+     "sha256": "77060b663ac731699249bbb3b54647cbce2f85ccf7a120bd123b22012a38bba4"
+    },
+    "trellis/pipelines/samplers/guidance_interval_mixin.py": {
+     "size": 629,
+     "sha256": "6d290aef03b58b2967e5edaaee3578cdde39e4471689dca3429ffb08ff632c21"
+    },
+    "trellis/pipelines/trellis_image_to_3d.py": {
+     "size": 15345,
+     "sha256": "a9a6eab500dd0693f6f5aa86d42291a4921596988c5c6460aa17fad6fe66b833"
+    },
+    "trellis/pipelines/trellis_text_to_3d.py": {
+     "size": 10366,
+     "sha256": "053e6c10ac36ea1e50356ecadf452fa1df658483a8dc45cbbdbe3fe64b32168e"
+    },
+    "trellis/renderers/__init__.py": {
+     "size": 930,
+     "sha256": "e71cc19496d0dee80cf364edb0d3dcf7488d37466a9f05bd3c6b2fa13ef67271"
+    },
+    "trellis/renderers/gaussian_render.py": {
+     "size": 8122,
+     "sha256": "80f2e7ce8ae64a0f9a08207ceed250657ccf943c803054318f5776a6123dbbc3"
+    },
+    "trellis/renderers/mesh_renderer.py": {
+     "size": 5348,
+     "sha256": "ce2200bcd5d78bd264c597fd099d2a4c296c565ed198b7134a0044cb1103c1ae"
+    },
+    "trellis/renderers/octree_renderer.py": {
+     "size": 11482,
+     "sha256": "5af41097bfd2cd28c1a81e83d9b10ebc1cbff46867a85997d5e1bfeea5491dbd"
+    },
+    "trellis/renderers/sh_utils.py": {
+     "size": 4371,
+     "sha256": "7d1ff267546390635e6d1f68c4f88c4a8b052482d5c9be1d32f06bc69e9a96e7"
+    },
+    "trellis/representations/__init__.py": {
+     "size": 143,
+     "sha256": "9a927094c556265a0e346d3a288ef5909011f2bd1422416bbf55e631848a96ea"
+    },
+    "trellis/representations/gaussian/__init__.py": {
+     "size": 36,
+     "sha256": "891087d9c250aa57155bd0606808e2783cbe6cc6991c81edb551f625f81d34be"
+    },
+    "trellis/representations/gaussian/gaussian_model.py": {
+     "size": 9578,
+     "sha256": "f343877e12b92c13b9a90439d06eb63b225d20ba8ff8c337cd3ed641d1a45c64"
+    },
+    "trellis/representations/gaussian/general_utils.py": {
+     "size": 3971,
+     "sha256": "97553507caa4f3e6849919d9658b0b0da064e6c8f19142045da79072171ffa51"
+    },
+    "trellis/representations/mesh/__init__.py": {
+     "size": 62,
+     "sha256": "c79f790288c93d43afbb44a946dd005da003eb6fcb1517a0caeca4505cbee61d"
+    },
+    "trellis/representations/mesh/cube2mesh.py": {
+     "size": 5480,
+     "sha256": "dbf51b69a23200e029d2f78e3c741485767fd3d745ec06b83b8c754c6c9371b0"
+    },
+    "trellis/representations/mesh/utils_cube.py": {
+     "size": 2650,
+     "sha256": "3153e11dab5f0794caf3541ec6ba8b06e041dac26e4193ecf821d4e146336c35"
+    },
+    "trellis/representations/octree/__init__.py": {
+     "size": 33,
+     "sha256": "2243db6b94f53b4f547bb5d269ad0d2c7b779a7f18cde64cb60f1ab050659b48"
+    },
+    "trellis/representations/octree/octree_dfs.py": {
+     "size": 18481,
+     "sha256": "95856e8b2fad4d3319c876dcecb7e1ceeaa9025f8ceb6786f729e02150faaa2c"
+    },
+    "trellis/representations/radiance_field/__init__.py": {
+     "size": 28,
+     "sha256": "73a6481c49a88fbadd8c8b5c16e0f968e4a4c86d24de45cb1ca302ec6c831f1c"
+    },
+    "trellis/representations/radiance_field/strivec.py": {
+     "size": 739,
+     "sha256": "9b407592d4f4df607e29b9da1351c0c0f783adb006ea433de22921a84e7a5791"
+    },
+    "trellis/trainers/__init__.py": {
+     "size": 2394,
+     "sha256": "1287a68c0d475b65417e0d225998ed0ab7f16f7bcc1cc6ded3ea778e0c76ee62"
+    },
+    "trellis/trainers/base.py": {
+     "size": 15515,
+     "sha256": "54bbd32d9d7e582c79af8ac9fd25c39667a05c473b75c708f2fab98440790a0b"
+    },
+    "trellis/trainers/basic.py": {
+     "size": 20469,
+     "sha256": "04b6aa0a8fc8625cb4aef01072e66a3b59547dbc7bee9b428e6e1b7972dcdac1"
+    },
+    "trellis/trainers/flow_matching/flow_matching.py": {
+     "size": 13626,
+     "sha256": "1dd40748ec814819ef5c0338caab81117b4a1d0dfe98c9a544d4ebc391939e78"
+    },
+    "trellis/trainers/flow_matching/mixins/classifier_free_guidance.py": {
+     "size": 2349,
+     "sha256": "c34a959c7c6e284650587c2d6f2698c96cc849eaa6d7080ff77a3ce3917ead02"
+    },
+    "trellis/trainers/flow_matching/mixins/image_conditioned.py": {
+     "size": 3491,
+     "sha256": "b07a547adfb0d93783883fa6ee4dc63f2fb84b44cd7313a7d1f3bb57fc7e7dcd"
+    },
+    "trellis/trainers/flow_matching/mixins/text_conditioned.py": {
+     "size": 2449,
+     "sha256": "c9abc4fa80c7097dd1a37bc73083586fe6b3bd4e1130087094af6d503f1a4e4b"
+    },
+    "trellis/trainers/flow_matching/sparse_flow_matching.py": {
+     "size": 11599,
+     "sha256": "c7176519a2bae8912b3476193e318377c52d15f71bbbc5c04196e7346c3a3914"
+    },
+    "trellis/trainers/utils.py": {
+     "size": 2383,
+     "sha256": "96f6266114cc5a0b85e4e39f77c44fb0d06364aadab031d3fc12fefd93cabace"
+    },
+    "trellis/trainers/vae/sparse_structure_vae.py": {
+     "size": 4940,
+     "sha256": "46f223b6fa83c5bf95f990f331f8d6d76b492e2d2ad106429a59845d9f2ab050"
+    },
+    "trellis/trainers/vae/structured_latent_vae_gaussian.py": {
+     "size": 11324,
+     "sha256": "649e6714b0f899554678b69eaade5c56b1ca0e208b9129d89c2d1bf93a781a9a"
+    },
+    "trellis/trainers/vae/structured_latent_vae_mesh_dec.py": {
+     "size": 17468,
+     "sha256": "da1d989c5f596c63b5d235af50f63a2161e76200b404c814ec1b5ba6e6014085"
+    },
+    "trellis/trainers/vae/structured_latent_vae_rf_dec.py": {
+     "size": 8889,
+     "sha256": "649fcaf74b0411468db6c642403881c3449787f4a232370a202e30ee8fe12cf9"
+    },
+    "trellis/utils/__init__.py": {
+     "size": 0,
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "trellis/utils/data_utils.py": {
+     "size": 8887,
+     "sha256": "c50e27614b859969d72a7f6573142fd69e095c421c7ee85e110952b7d6a07032"
+    },
+    "trellis/utils/dist_utils.py": {
+     "size": 2533,
+     "sha256": "591e9d156dd5b5f0a631c9edbeab92f854904b948f80afbb592bd7d018d3cf27"
+    },
+    "trellis/utils/elastic_utils.py": {
+     "size": 8022,
+     "sha256": "3ddb58be780ea572d1e047771fd7d33b3cc147c9df79edcedba80a94a5ee0114"
+    },
+    "trellis/utils/general_utils.py": {
+     "size": 6369,
+     "sha256": "340b1bcc0b584db3eddd01a3548b3ac7989ac4cabcbd6e6d63ec6cb4b9fc562c"
+    },
+    "trellis/utils/grad_clip_utils.py": {
+     "size": 3285,
+     "sha256": "d914c4a710b9e29b8e8b7d7c93f17b078976a74e840a9cc0b44411df4f47b989"
+    },
+    "trellis/utils/loss_utils.py": {
+     "size": 2983,
+     "sha256": "0222a018325037cedae6e57ea6f90a412bd645aaf88fc7b5cc29b0f5ab4972c8"
+    },
+    "trellis/utils/postprocessing_utils.py": {
+     "size": 25978,
+     "sha256": "34c5b9711cebd2991236c4913e6f653dfe5ffbb8ce31f7464bde334d46785a6e"
+    },
+    "trellis/utils/random_utils.py": {
+     "size": 867,
+     "sha256": "fe57c1fcd28731477dd1e2236c8d38934b79012aa9592bd100a937224075803f"
+    },
+    "trellis/utils/render_utils.py": {
+     "size": 5637,
+     "sha256": "d68dfc20a8aea3596456d4adc6a995438f3338830acdac43e5701b8725ba4457"
+    }
+   }
+  },
+  "flexicubes": {
+   "repo": "MaxtirError/FlexiCubes",
+   "commit": "815e075a2a400d06c48d94c347674344ed6ae5c5",
+   "dest": "src/TRELLIS/trellis/representations/mesh/flexicubes",
+   "license": "Apache-2.0",
+   "url": "https://github.com/MaxtirError/FlexiCubes/archive/815e075a2a400d06c48d94c347674344ed6ae5c5.zip",
+   "archive_prefix": "FlexiCubes-815e075a2a400d06c48d94c347674344ed6ae5c5/",
+   "archive_size": 5202815,
+   "archive_sha256": "44c6238706416a88b1df9df744636a998247a02a272e6f9e4ee0ea1e25fe9085",
+   "total_bytes": 6474822,
+   "files": {
+    "DCO.txt": {
+     "size": 1365,
+     "sha256": "e2d4e3a3e38f7bd60cbafd7c075cafcdc588efcfdf7bc26ee3c14f7408b10ed2"
+    },
+    "LICENSE.txt": {
+     "size": 11357,
+     "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    "README.md": {
+     "size": 7896,
+     "sha256": "1df7926263633567e95c805d336d10c73c9641ace3826bbf252f88de76a6f886"
+    },
+    "examples/data/inputmodels/block.obj": {
+     "size": 132062,
+     "sha256": "d7b57c63a3e087938ccecd73ec27eea17c2e2a222112216b6d01906885fbf24f"
+    },
+    "examples/download_data.py": {
+     "size": 1667,
+     "sha256": "d5fbf3782fe4cd70e8a1f19f5cdca578c46e353b3c6dd3abf97c30a13399099d"
+    },
+    "examples/extraction.ipynb": {
+     "size": 1841141,
+     "sha256": "44b849d8162cbae41cefd05915d6d745e7456d38b7d3838e8e6bd308d38396ed"
+    },
+    "examples/loss.py": {
+     "size": 4397,
+     "sha256": "aa7e180cafd9612397f37d8bc6aa3101cb8e7132e77c369a4191dc9c9ac904ad"
+    },
+    "examples/optimization.ipynb": {
+     "size": 497248,
+     "sha256": "5b0a782ddfcf34a5051320b961bd99e350bf6fac693ae06b26d0eae3370ade75"
+    },
+    "examples/optimize.py": {
+     "size": 8567,
+     "sha256": "425e662db0ab7caba21a0cea2288078f1dfbd0df9c76b21cc5df1cac30f807ca"
+    },
+    "examples/render.py": {
+     "size": 11211,
+     "sha256": "b5b695ac6b21c23a1e74929a2c48cd7231f02a856f9255604c3ee1daca114066"
+    },
+    "examples/util.py": {
+     "size": 5470,
+     "sha256": "e5cd687f4f879f88762b949dd18b57bd2a139fd6d6b4b342326f8f3d74e6b2cd"
+    },
+    "flexicubes.py": {
+     "size": 20945,
+     "sha256": "fe443b5225680969c706644931a4f723e7137ce8007758c1870b6841af2d4238"
+    },
+    "images/ablate_L_dev.jpg": {
+     "size": 73011,
+     "sha256": "91a86b3a9da166b6d3cf56f1062225b9d188033a56e45bf4bf183be79b1925f8"
+    },
+    "images/block_final.png": {
+     "size": 55999,
+     "sha256": "d030fee195d332f63ef80805486ed0b4074b1afc34efcba621e385aca9ae9135"
+    },
+    "images/block_init.png": {
+     "size": 198533,
+     "sha256": "699ba21d95cce9d1504d31fca3694ba339f21703ac0bc3240c87df6ac2d2db3e"
+    },
+    "images/teaser_top.png": {
+     "size": 3562986,
+     "sha256": "71c27efaeeb7fc3357440607b34805495fc34acf39be00bb70dd315b5b25a71d"
+    },
+    "tables.py": {
+     "size": 40967,
+     "sha256": "de9535d097dc7df266a8e8098efbe6f46d923287536d5f7f7ee924171267c442"
+    }
+   }
+  },
+  "dinov2": {
+   "repo": "facebookresearch/dinov2",
+   "commit": "12592a9bdfea0a6e4ee4767cd5a8d3195c0e3509",
+   "dest": "torch-home/hub/facebookresearch_dinov2_main",
+   "license": "Apache-2.0",
+   "url": "https://github.com/facebookresearch/dinov2/archive/12592a9bdfea0a6e4ee4767cd5a8d3195c0e3509.zip",
+   "archive_prefix": "dinov2-12592a9bdfea0a6e4ee4767cd5a8d3195c0e3509/",
+   "archive_size": 1174243,
+   "archive_sha256": "db796f1c3a8a1a3d4e78b26e076140d54b985ac0f263a66426955f5e03066070",
+   "total_bytes": 1982562,
+   "files": {
+    ".github/workflows/lint.yaml": {
+     "size": 796,
+     "sha256": "843ad6a49b4b9d5c852ac97c2261038424bc14dc3ccee1f5cdbdc4f79a4fbbaf"
+    },
+    ".gitignore": {
+     "size": 106,
+     "sha256": "ec0cbea6dd54b7483520390b354ae720b9f3c2c44f68571afc86d0b25fd130b2"
+    },
+    "CODE_OF_CONDUCT.md": {
+     "size": 3537,
+     "sha256": "b161b3e2ec4712ebf69efc38ef796d2c701a323aac51cf11759d38e9c56c39bd"
+    },
+    "CONTRIBUTING.md": {
+     "size": 1239,
+     "sha256": "4732808845ea471137308b5fbaa7e35c1f3c96113f2fbdf8a0ec6b00d91559b6"
+    },
+    "LICENSE": {
+     "size": 11359,
+     "sha256": "600cc67cc4cb2f5ea317dcfc687ad1c74dc4bec8782bbe9db0afd83513b935b7"
+    },
+    "MODEL_CARD.md": {
+     "size": 9152,
+     "sha256": "70ca59606bee0a5fbb1baec80e7e29a93cd7cfbe26ca1910c52a852c4aab09d0"
+    },
+    "README.md": {
+     "size": 27929,
+     "sha256": "8908d70389f303d01d4bd64c87e230a4c8d99358df2a3184206aacf69cbab252"
+    },
+    "conda-extras.yaml": {
+     "size": 495,
+     "sha256": "14b710eedcad4c36d480cf8852bf8862d77aed8038de21dec538704953205394"
+    },
+    "conda.yaml": {
+     "size": 436,
+     "sha256": "4806691bed328df4460ba60b4f2be549529a414bd9137867a7c1cc600b218f21"
+    },
+    "dinov2/__init__.py": {
+     "size": 218,
+     "sha256": "0d2b87b7e71c7f7279ccc4b4f8b541d26071425284a0ea01a5a435fac4511cfe"
+    },
+    "dinov2/configs/__init__.py": {
+     "size": 681,
+     "sha256": "be6503fea5e43bf81c504247a35f731f12541e567b18607152eff102137f8dc0"
+    },
+    "dinov2/configs/eval/vitb14_pretrain.yaml": {
+     "size": 151,
+     "sha256": "03d40aabe4f9bc261a9a78c1e25970943c9675a7fe76eeb2c6068a6f98d6ac2e"
+    },
+    "dinov2/configs/eval/vitb14_reg4_pretrain.yaml": {
+     "size": 232,
+     "sha256": "682d34d1c90c1533e32dc5afa26cc51541d6e4308d4a11b793c6e702e5823c7e"
+    },
+    "dinov2/configs/eval/vitg14_pretrain.yaml": {
+     "size": 178,
+     "sha256": "9723c21852aa1ccf6eb822636f39221bc803e666f325a6837271a99ef1dbf95c"
+    },
+    "dinov2/configs/eval/vitg14_reg4_pretrain.yaml": {
+     "size": 259,
+     "sha256": "3da0e06003ee5d6320d66ab9d3a189cd3f088e726ab751d544838e967b767742"
+    },
+    "dinov2/configs/eval/vitl14_pretrain.yaml": {
+     "size": 152,
+     "sha256": "3ac4306146a1ecdd172cc40a957129cfbbc39e4151f189dfaab2ece539b7d46f"
+    },
+    "dinov2/configs/eval/vitl14_reg4_pretrain.yaml": {
+     "size": 233,
+     "sha256": "b9fedf1dc4b0d1c3a16cf74cafd7962fd8960d5944de7077291e862555861c60"
+    },
+    "dinov2/configs/eval/vits14_pretrain.yaml": {
+     "size": 152,
+     "sha256": "d9479987edb86fc9c65091133a377a9b06d90603a7649f4d89fd355f50be351f"
+    },
+    "dinov2/configs/eval/vits14_reg4_pretrain.yaml": {
+     "size": 233,
+     "sha256": "91e1df34dc74d7ead96be9b0d0087fea0e9b5d687782964e192e8fa44919254c"
+    },
+    "dinov2/configs/ssl_default_config.yaml": {
+     "size": 2650,
+     "sha256": "3f731d37e69b1a94c194cf1de9a6e2dfd117bd3c24910334a31122f053ae5979"
+    },
+    "dinov2/configs/train/vitg14.yaml": {
+     "size": 528,
+     "sha256": "55dc02f08ecc75e6b92da3b60f90cd7ebcb43f37ee5bfd8bb009c7d05eeff213"
+    },
+    "dinov2/configs/train/vitl14.yaml": {
+     "size": 527,
+     "sha256": "825c11b9a9bfbfe327b0adcd21838e7a1aafa621e3a0b9e4e4787fe260b0378b"
+    },
+    "dinov2/configs/train/vitl16_short.yaml": {
+     "size": 137,
+     "sha256": "ad77b37189f2def02b1aba4b75c23dfce57c612394830689de69d10b58891e8f"
+    },
+    "dinov2/data/__init__.py": {
+     "size": 441,
+     "sha256": "e617d853000f6f7d12c178fa50f116301a12d25391adc6663d442fc502b37a80"
+    },
+    "dinov2/data/adapters.py": {
+     "size": 889,
+     "sha256": "3a4133891cf4c613b7332c7d7bdd7e7b7c4138032fe6f69cceb148224daf3e5f"
+    },
+    "dinov2/data/augmentations.py": {
+     "size": 3977,
+     "sha256": "10e949f266c7cffa57ffc8c5cf9dc094a8e701cdc74f1a3fefd2e02f78f8cdf7"
+    },
+    "dinov2/data/collate.py": {
+     "size": 1998,
+     "sha256": "0d2bb0060094b8c86838ad5af2572a9ff0e66c73660b61be70d60f64b9508570"
+    },
+    "dinov2/data/datasets/__init__.py": {
+     "size": 267,
+     "sha256": "8ad20cf17e0cc22434c4fe6188fede01ac8a744d15c2c6202e4b7e10126f5cf0"
+    },
+    "dinov2/data/datasets/decoders.py": {
+     "size": 745,
+     "sha256": "3f56d3ac58a4faa25c2c8e46500a0dfab462794786ae4c793f2b4d6bba1055c0"
+    },
+    "dinov2/data/datasets/extended.py": {
+     "size": 1224,
+     "sha256": "29c4caf124962b78ccfe7fd6cff1c4f1ee6eb054f7213d53f332052f797ea12d"
+    },
+    "dinov2/data/datasets/image_net.py": {
+     "size": 10831,
+     "sha256": "748a6d9f39b1ca9e94a2bdd61a78c40d1655508fcfae40057057fe8c74bb611b"
+    },
+    "dinov2/data/datasets/image_net_22k.py": {
+     "size": 10241,
+     "sha256": "e94c0bffc3f1aa78d770c871ecb72fbbf66a5dfcd0703f8319b263708698e351"
+    },
+    "dinov2/data/loaders.py": {
+     "size": 6711,
+     "sha256": "97ca58d671e719f5ec87abf26f7c04cfbd3c6c76e7970f475bea7c5c0d8a192c"
+    },
+    "dinov2/data/masking.py": {
+     "size": 2945,
+     "sha256": "4fcbc5aa4cfa069a32200b3eb39f86e09de3ac476afa7a12a2fbdfb160a892c3"
+    },
+    "dinov2/data/samplers.py": {
+     "size": 7645,
+     "sha256": "5f19029f6da99de6c81ec5e8d313d85739c66020cf8447b5b35e7f80c9071ebb"
+    },
+    "dinov2/data/transforms.py": {
+     "size": 3056,
+     "sha256": "725823be317c6a549810740c6566a2a448ba1eba85eea87769c10b986dda2e5b"
+    },
+    "dinov2/distributed/__init__.py": {
+     "size": 8576,
+     "sha256": "b6aaa4151999c88a4ff031e786dc66bb2ecbc8b5421ffe72169c9c305c1414e5"
+    },
+    "dinov2/eval/__init__.py": {
+     "size": 195,
+     "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "dinov2/eval/depth/__init__.py": {
+     "size": 195,
+     "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "dinov2/eval/depth/models/__init__.py": {
+     "size": 460,
+     "sha256": "6d2d9aa7396eafa2c3d04d5609b39c068b210a5ca8368d2f7cd47f5fc3e7d152"
+    },
+    "dinov2/eval/depth/models/backbones/__init__.py": {
+     "size": 250,
+     "sha256": "e6e25365ad291aad30d8bce4c9f9b906580f204c141d62be4bcc3699e563d901"
+    },
+    "dinov2/eval/depth/models/backbones/vision_transformer.py": {
+     "size": 435,
+     "sha256": "9aa72220970247ccb8399e5a95d82721679c479e0f0c0096c4ef0bdff4fe6735"
+    },
+    "dinov2/eval/depth/models/builder.py": {
+     "size": 1420,
+     "sha256": "0b1dcd672ba5a6b5acec2fa70cfea70ee280aba264a3236e7c1139976b2d02dc"
+    },
+    "dinov2/eval/depth/models/decode_heads/__init__.py": {
+     "size": 258,
+     "sha256": "38268a3d08272273b7a1cf03b88b1eff6604cbef519637476e9652dcef4f43bc"
+    },
+    "dinov2/eval/depth/models/decode_heads/decode_head.py": {
+     "size": 8653,
+     "sha256": "4d163967518b4ef251dbd400792a295033983a7c3eb9ce2b362df32f1bc57046"
+    },
+    "dinov2/eval/depth/models/decode_heads/dpt_head.py": {
+     "size": 10434,
+     "sha256": "4de04fd7fd8681d0bb5977f250be89d76314f97d626f717d1d09eeff14e059f7"
+    },
+    "dinov2/eval/depth/models/decode_heads/linear_head.py": {
+     "size": 3233,
+     "sha256": "bf6c448f2635a5db0eb0423bf7854899c1e36f0e0897107c14dfb2bf064d0160"
+    },
+    "dinov2/eval/depth/models/depther/__init__.py": {
+     "size": 275,
+     "sha256": "a00bcccdea87b79d23b0085ad3db9728169103c236749dfda09184dc0fefa8aa"
+    },
+    "dinov2/eval/depth/models/depther/base.py": {
+     "size": 7697,
+     "sha256": "59233aeb2bdf0266937213d5d1f12628835bc5a204f11a7b6982838f61adf28f"
+    },
+    "dinov2/eval/depth/models/depther/encoder_decoder.py": {
+     "size": 8925,
+     "sha256": "96d0d2ff321707888191b52ee9180ef6f38d6b7212f5d604891c764b4b46d248"
+    },
+    "dinov2/eval/depth/models/losses/__init__.py": {
+     "size": 264,
+     "sha256": "5dacc4c02607b64ee63906bbda9de9158d59d50fc2d1e4cf360455f6f749bee0"
+    },
+    "dinov2/eval/depth/models/losses/gradientloss.py": {
+     "size": 2540,
+     "sha256": "61d625dd618ca3fb2443d1e831949f1e79c2bc4081d72355ff932a41c8b47f89"
+    },
+    "dinov2/eval/depth/models/losses/sigloss.py": {
+     "size": 2286,
+     "sha256": "97ff67edf57ebfd6570be45859545580171cfbca489803429005529ccc0e4135"
+    },
+    "dinov2/eval/depth/ops/__init__.py": {
+     "size": 225,
+     "sha256": "1640dd76d0d09a1db46df8a1c767ff04d2a0d6004d9c9b6134d80a0f53f6c4e7"
+    },
+    "dinov2/eval/depth/ops/wrappers.py": {
+     "size": 1229,
+     "sha256": "85d58e303eff9a0a306d97101c8b35c24196bfe55e8da019df1e4817411a4dc7"
+    },
+    "dinov2/eval/knn.py": {
+     "size": 14455,
+     "sha256": "5f59977c5d697579d64b1acb19244d819c54a253cdcf1b023b818418bdf841e1"
+    },
+    "dinov2/eval/linear.py": {
+     "size": 21426,
+     "sha256": "cd6cb057561ab180557711b20d2f5f4916393a848375b0cefae11ff61d339865"
+    },
+    "dinov2/eval/log_regression.py": {
+     "size": 15138,
+     "sha256": "273648c0937183af4b2f516b8009e7ef4ffda91b599e8512422e2c3b51829615"
+    },
+    "dinov2/eval/metrics.py": {
+     "size": 3905,
+     "sha256": "50cd935cc50f47cf55227fa57431e3e0034143badf8255b23cc808f05e65a8c5"
+    },
+    "dinov2/eval/segmentation/__init__.py": {
+     "size": 195,
+     "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "dinov2/eval/segmentation/hooks/__init__.py": {
+     "size": 237,
+     "sha256": "590638a03129a24077f4dff2477b3d9326e234f23590d5c5715c37dff26b5638"
+    },
+    "dinov2/eval/segmentation/hooks/optimizer.py": {
+     "size": 1415,
+     "sha256": "1c116c35dfad8fa9abdfa5738c7e621e75c9277304fd009f48c2592571204ab1"
+    },
+    "dinov2/eval/segmentation/models/__init__.py": {
+     "size": 277,
+     "sha256": "8d3601782bc10c5477243d1d6760c94e78a8ef8e7028476c70ee4781a693fd36"
+    },
+    "dinov2/eval/segmentation/models/backbones/__init__.py": {
+     "size": 250,
+     "sha256": "e6e25365ad291aad30d8bce4c9f9b906580f204c141d62be4bcc3699e563d901"
+    },
+    "dinov2/eval/segmentation/models/backbones/vision_transformer.py": {
+     "size": 476,
+     "sha256": "ed687476a2381bc708c6035b5f77e7b2560baaee36313c55f5e26aa5253adbb7"
+    },
+    "dinov2/eval/segmentation/models/decode_heads/__init__.py": {
+     "size": 228,
+     "sha256": "f440e7a342f485db7c5766359f5b747f0ed810172e89521b218e50057a94c5e4"
+    },
+    "dinov2/eval/segmentation/models/decode_heads/linear_head.py": {
+     "size": 3292,
+     "sha256": "14500d7aa301797f77774348bd6912ee2ee3e68909c9f511a2730ff340349340"
+    },
+    "dinov2/eval/segmentation/utils/__init__.py": {
+     "size": 195,
+     "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "dinov2/eval/segmentation/utils/colormaps.py": {
+     "size": 7685,
+     "sha256": "5c421de6f63e74b098fa9bd75f5410d816336bb3bcee0194e483682766aa4036"
+    },
+    "dinov2/eval/segmentation_m2f/__init__.py": {
+     "size": 299,
+     "sha256": "7fb45f0041dd007542578ecf31414a883a9e028a591f9570eec0d25afd928e9d"
+    },
+    "dinov2/eval/segmentation_m2f/core/__init__.py": {
+     "size": 394,
+     "sha256": "99e3920edbb8635012e51b583c4264556f540f098a80dee90534a454c34b4c68"
+    },
+    "dinov2/eval/segmentation_m2f/core/anchor/__init__.py": {
+     "size": 258,
+     "sha256": "cd269c97e28579d99706f3f31241173b22210429249742005b8a00bc8528d366"
+    },
+    "dinov2/eval/segmentation_m2f/core/anchor/builder.py": {
+     "size": 714,
+     "sha256": "fa8456a4f2941fb3b6bc88d210c6ce43298d0b081d00af9ac0ea9050edf6d16e"
+    },
+    "dinov2/eval/segmentation_m2f/core/anchor/point_generator.py": {
+     "size": 8814,
+     "sha256": "23ff9cf80fef4472cf8a361d2df8f211fab4092925d6bb9cce18bb68a60cd6f0"
+    },
+    "dinov2/eval/segmentation_m2f/core/box/__init__.py": {
+     "size": 287,
+     "sha256": "7b0b68761110103819b5e8ef0733327021bcca5ac78168e8f27a5a721b1bfa43"
+    },
+    "dinov2/eval/segmentation_m2f/core/box/builder.py": {
+     "size": 594,
+     "sha256": "93ad53a18707547dc53c28c52ae616da19e43064d7e4f30240d08ea50dfb955f"
+    },
+    "dinov2/eval/segmentation_m2f/core/box/samplers/__init__.py": {
+     "size": 261,
+     "sha256": "b3383233672410d9f13fdfb9dc47ae4543a98c45ee2361a0cc825afc5dd00e32"
+    },
+    "dinov2/eval/segmentation_m2f/core/box/samplers/base_sampler.py": {
+     "size": 3819,
+     "sha256": "91fd7bc656e0519b6f732a55a0f00457ba339bd98c6d3393d7ba35280442a1ed"
+    },
+    "dinov2/eval/segmentation_m2f/core/box/samplers/mask_pseudo_sampler.py": {
+     "size": 1647,
+     "sha256": "3ac44707526239d782a1653ad641d447ecb1003eea399e0a718790a92a476305"
+    },
+    "dinov2/eval/segmentation_m2f/core/box/samplers/mask_sampling_result.py": {
+     "size": 2163,
+     "sha256": "527d952b5001c86ca285a3f7895d804d12dd47b9d3c07535b6494a8b35e21d39"
+    },
+    "dinov2/eval/segmentation_m2f/core/box/samplers/sampling_result.py": {
+     "size": 5415,
+     "sha256": "c4b34191ab9589a098b0e46116ca9a53eedeae3adda515b8078f635096b1d492"
+    },
+    "dinov2/eval/segmentation_m2f/core/utils/__init__.py": {
+     "size": 274,
+     "sha256": "17ecc2ee748e92194c272e63a0db74dae0bb2ef921cecedc9cffe5c23b86dea9"
+    },
+    "dinov2/eval/segmentation_m2f/core/utils/dist_utils.py": {
+     "size": 519,
+     "sha256": "a3747a307397dbc10c09838d44fa90438f758977254ed305647ce96bd16bd045"
+    },
+    "dinov2/eval/segmentation_m2f/core/utils/misc.py": {
+     "size": 1324,
+     "sha256": "97409a32ac290d34da2bb7d28a3f6ecbc975537a3aa76060fd16ab5924de400f"
+    },
+    "dinov2/eval/segmentation_m2f/models/__init__.py": {
+     "size": 485,
+     "sha256": "2c8e40b6362d507e4d1ad18700feb53897ec7403e32033065d7927dae6ccf818"
+    },
+    "dinov2/eval/segmentation_m2f/models/backbones/__init__.py": {
+     "size": 232,
+     "sha256": "f35535dbddb96f998a9bd1a7734cbc02abb652c18a5c6df7a47e7548ac33440c"
+    },
+    "dinov2/eval/segmentation_m2f/models/backbones/adapter_modules.py": {
+     "size": 14983,
+     "sha256": "e103c8bdff5c3427a59a0bf84dc70677d5fef5ac9d43445815da16537944ccbe"
+    },
+    "dinov2/eval/segmentation_m2f/models/backbones/drop_path.py": {
+     "size": 1145,
+     "sha256": "068b166f953c0939f5479ef1735736116d91bc9942990472b60d104d95f9c83a"
+    },
+    "dinov2/eval/segmentation_m2f/models/backbones/vit.py": {
+     "size": 20135,
+     "sha256": "7ad30e14310c5bee54743459f128b076195554760eefd60e1593fbfde2234021"
+    },
+    "dinov2/eval/segmentation_m2f/models/backbones/vit_adapter.py": {
+     "size": 7938,
+     "sha256": "cb89b1d4943049c0ee3e3993738fb56806239221dce72345ea054fc7fa8785b0"
+    },
+    "dinov2/eval/segmentation_m2f/models/builder.py": {
+     "size": 619,
+     "sha256": "e96e68e45a5139d16e3238c7f5690d72d4e7838c9fe9fc85273215a3b7a0115f"
+    },
+    "dinov2/eval/segmentation_m2f/models/decode_heads/__init__.py": {
+     "size": 242,
+     "sha256": "8bea632762d84b954373d0fb2e35a224786eb4692f2bf6acf4b61b0c5fc89c06"
+    },
+    "dinov2/eval/segmentation_m2f/models/decode_heads/mask2former_head.py": {
+     "size": 25331,
+     "sha256": "c7b5d0d307da7737ac087b368de5d8160053d2e7fb9c705e805e7930ad9446ad"
+    },
+    "dinov2/eval/segmentation_m2f/models/losses/__init__.py": {
+     "size": 410,
+     "sha256": "ca75161c95771d281968c329697642f7f84e0deaa6ec780262f4fe2c4a33fd4c"
+    },
+    "dinov2/eval/segmentation_m2f/models/losses/cross_entropy_loss.py": {
+     "size": 11292,
+     "sha256": "b5cf193e70a20c9a0936222dab0546918940b9dee714cac2c4836197ed6bf940"
+    },
+    "dinov2/eval/segmentation_m2f/models/losses/dice_loss.py": {
+     "size": 6339,
+     "sha256": "d6dc52a33494d569b98dc165f176c1444060d2f6bd8c8f458aabcea72d2edeee"
+    },
+    "dinov2/eval/segmentation_m2f/models/losses/match_costs.py": {
+     "size": 5348,
+     "sha256": "4cccb76ea151a0c38581f73d4da727ecb1d95a4b92ac294680adb588e6534046"
+    },
+    "dinov2/eval/segmentation_m2f/models/plugins/__init__.py": {
+     "size": 261,
+     "sha256": "80ed4eab0a7f3c8a03c96a328a94cd972fb804cff30ccfc68e87b066ffb08fb5"
+    },
+    "dinov2/eval/segmentation_m2f/models/plugins/msdeformattn_pixel_decoder.py": {
+     "size": 10706,
+     "sha256": "66fc2f5a58638747576492250ce43e076bb119fe54a5e82569f4e6bd88a5a95b"
+    },
+    "dinov2/eval/segmentation_m2f/models/segmentors/__init__.py": {
+     "size": 263,
+     "sha256": "02bc4c748360de2f9b4fe61b112fbd49cfcd943265f0c6f78afc2802b0d11a96"
+    },
+    "dinov2/eval/segmentation_m2f/models/segmentors/encoder_decoder_mask2former.py": {
+     "size": 10632,
+     "sha256": "06fdad9b0f24a0a3af4e4213bc1beb288fca7ad9010b24b3284103f2b9ea4e04"
+    },
+    "dinov2/eval/segmentation_m2f/models/utils/__init__.py": {
+     "size": 495,
+     "sha256": "091931518ac32103e9ef30be7a7b57839c1970bb4a8658f5bce0643735c73bb2"
+    },
+    "dinov2/eval/segmentation_m2f/models/utils/assigner.py": {
+     "size": 6368,
+     "sha256": "47d015ce3a022c720fa5c8d37260c1bd39b19f77808b51dae25a0a9c7fdd70f3"
+    },
+    "dinov2/eval/segmentation_m2f/models/utils/point_sample.py": {
+     "size": 3889,
+     "sha256": "e4f2dc0a1a4d5db984a590a85a0fb4ef224cfbfa013c1a212ee9cbcb8b49a9ae"
+    },
+    "dinov2/eval/segmentation_m2f/models/utils/positional_encoding.py": {
+     "size": 6424,
+     "sha256": "3b07f2b2127f03048dcd10266e3d14818334becb56970a8cfe9ac680ec0b8753"
+    },
+    "dinov2/eval/segmentation_m2f/models/utils/transformer.py": {
+     "size": 41364,
+     "sha256": "6bc659898dd0d4e75bbb941bb1720f696eb840667cda52fbac46feab1eac20ab"
+    },
+    "dinov2/eval/segmentation_m2f/ops/modules/__init__.py": {
+     "size": 425,
+     "sha256": "2b1c15f2a30741376faebf09ac22e3fdf672b768c1717a3b7bbffaa844c0f111"
+    },
+    "dinov2/eval/segmentation_m2f/ops/modules/ms_deform_attn.py": {
+     "size": 8296,
+     "sha256": "ef8d800b0e3139b6ec2dbe22de3a39da653dcc88129bc246239fc47abf6524ec"
+    },
+    "dinov2/eval/setup.py": {
+     "size": 2069,
+     "sha256": "629eea62ca20ad2694b4979a91fb85e644cda429049580360a3a86be4bbe477c"
+    },
+    "dinov2/eval/utils.py": {
+     "size": 5205,
+     "sha256": "3eb42fa16c97b21c8e69c229e71388b2db04923097912e42c29676c82f03ed44"
+    },
+    "dinov2/fsdp/__init__.py": {
+     "size": 5115,
+     "sha256": "672fc23d385c86530e439c42f8c73abb585a5bb96ce87c6ad5e8fb004e631efa"
+    },
+    "dinov2/hub/__init__.py": {
+     "size": 195,
+     "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "dinov2/hub/backbones.py": {
+     "size": 4991,
+     "sha256": "11c3b7e3da2a843ba5953191e8fc2027b37490313dfb315c0d4ad1a0ea31d27d"
+    },
+    "dinov2/hub/classifiers.py": {
+     "size": 8195,
+     "sha256": "e9a178f9f3be659e4b463885453d2d5f9af0c068ac71fb3890d24796e659fd4b"
+    },
+    "dinov2/hub/depth/__init__.py": {
+     "size": 287,
+     "sha256": "de8f3fbecabae6552ebb8f3d7dee27987b1dbc11e94143c95137c438e86a9123"
+    },
+    "dinov2/hub/depth/decode_heads.py": {
+     "size": 29268,
+     "sha256": "04eb9639a4441409b80651c3d019a6e850c32b7e709236ceb6dbbaeb9fa17713"
+    },
+    "dinov2/hub/depth/encoder_decoder.py": {
+     "size": 13909,
+     "sha256": "1baf6f59269fb99faf274900f12910a22e038a3bb6d81c6fc712c0c482041a57"
+    },
+    "dinov2/hub/depth/ops.py": {
+     "size": 1229,
+     "sha256": "85d58e303eff9a0a306d97101c8b35c24196bfe55e8da019df1e4817411a4dc7"
+    },
+    "dinov2/hub/depthers.py": {
+     "size": 8149,
+     "sha256": "55e47611dccc5d000574f9837accdb0babd02abe4eba998bd3bf01361143f0a6"
+    },
+    "dinov2/hub/dinotxt.py": {
+     "size": 2808,
+     "sha256": "e64f63bd9c59555d8110054d9263fff4c6236fa929d51992a7eb483618eb3087"
+    },
+    "dinov2/hub/text/dinotxt_model.py": {
+     "size": 5461,
+     "sha256": "4c36d36101408d2ff1b5c2c2c4b47a4699e0e5d4c762a44ed5987d3a4938519f"
+    },
+    "dinov2/hub/text/dinov2_wrapper.py": {
+     "size": 2404,
+     "sha256": "83ed03cdc5835fa9db897aff63ba248cd097a448f176633ce2f4241c7ebc1aec"
+    },
+    "dinov2/hub/text/text_tower.py": {
+     "size": 3317,
+     "sha256": "2dbd259ca9f934e5ba104b592ee55ab6dcf5a3c19d3b52fc3d6fcf506a854837"
+    },
+    "dinov2/hub/text/text_transformer.py": {
+     "size": 2228,
+     "sha256": "941cc465bbe56fbef1bb59313da309ab2df4657291a579a81691831adddd3430"
+    },
+    "dinov2/hub/text/tokenizer.py": {
+     "size": 1466,
+     "sha256": "7ee794173c346a42fcbf0d7ef585cb854ecaffb3dddf6e923a4aa92b5dc081e9"
+    },
+    "dinov2/hub/text/vision_tower.py": {
+     "size": 6648,
+     "sha256": "18de986ab958c62724a9bb6eda18fac397ea2d009db400200cb7b1b344884352"
+    },
+    "dinov2/hub/utils.py": {
+     "size": 1260,
+     "sha256": "c0533919016531b320bf9aef7cd7001249bc8ef8957cdb29246c15b67d5abdf8"
+    },
+    "dinov2/layers/__init__.py": {
+     "size": 498,
+     "sha256": "1b55deed39d5ab0b589bef421bbfe06f24a10cd590a0f8403234c9ee4e34109d"
+    },
+    "dinov2/layers/attention.py": {
+     "size": 3298,
+     "sha256": "79c7be7a452b3aad96698ec38d5d5150b9f4d8ac084fa93324510dc9f624775d"
+    },
+    "dinov2/layers/block.py": {
+     "size": 11609,
+     "sha256": "60c0ac7dfa4474be313fabfa5a23d82faf6f0cecd4e720a88be35de9788cb636"
+    },
+    "dinov2/layers/dino_head.py": {
+     "size": 2007,
+     "sha256": "9fdb1fa61c0609dc0876f711f9d0d828c33bf9fd972aab3d9c968d44e16b98d1"
+    },
+    "dinov2/layers/drop_path.py": {
+     "size": 1157,
+     "sha256": "b9f8236e86054b9d9a71275efcad2a9ecaa1f86b529d4b8d6109ddb5e806f67a"
+    },
+    "dinov2/layers/layer_scale.py": {
+     "size": 1097,
+     "sha256": "dadd5aafe178f1bf72a205a02a6645c7e635cacbad585d4a7369c200c6e89135"
+    },
+    "dinov2/layers/mlp.py": {
+     "size": 1269,
+     "sha256": "255825c73b60a916dd00eb1e38aacbcdbf316e40d6a005efb46e245b7edb43aa"
+    },
+    "dinov2/layers/patch_embed.py": {
+     "size": 2829,
+     "sha256": "40da6add3d811198ea3e17cb99cdd4e5cda59e369efbbe3d18d89308618cf142"
+    },
+    "dinov2/layers/swiglu_ffn.py": {
+     "size": 3200,
+     "sha256": "e46d2948fb97e497cf991ff82ce30cb59b59fdf2e12a19568417113716b4f119"
+    },
+    "dinov2/logging/__init__.py": {
+     "size": 3284,
+     "sha256": "fff00c7e5d5381b55d8f820ba3a1f8f0902af15dacb3159fe5c6e3b542771c40"
+    },
+    "dinov2/logging/helpers.py": {
+     "size": 6220,
+     "sha256": "5c2ee4b35f6c160836c7f5e7f3db1246662499ecc6ec8e53d06f14fef71504ae"
+    },
+    "dinov2/loss/__init__.py": {
+     "size": 314,
+     "sha256": "e5ae2143dd98108f81d26c276e2048fa339cde5f5fe369e2d6797acea09912bf"
+    },
+    "dinov2/loss/dino_clstoken_loss.py": {
+     "size": 3647,
+     "sha256": "49f0b2b75c2feba83b3fc9dfb40ef5eb4e3db350ab1e12a63d75d3060a88f7df"
+    },
+    "dinov2/loss/ibot_patch_loss.py": {
+     "size": 5718,
+     "sha256": "19c0ffc85c8af01657ad2e6cffc2d4d311415b10807f63c2d6341195c7a62ddb"
+    },
+    "dinov2/loss/koleo_loss.py": {
+     "size": 1608,
+     "sha256": "ddccd75b7985d5e584f0fe6f3fb1ac474b9cbd9a6fd6fb6c6ae471ca479085d1"
+    },
+    "dinov2/models/__init__.py": {
+     "size": 1486,
+     "sha256": "87b360c71997314f41be1c497cc42326fc32617d3a2840f2f19d3795ca8b85ee"
+    },
+    "dinov2/models/vision_transformer.py": {
+     "size": 14842,
+     "sha256": "495c685c6da47452fd6b2ef0d2e04563e6cfc9a090ff5dec3c5b4386bb7cdf30"
+    },
+    "dinov2/run/__init__.py": {
+     "size": 195,
+     "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "dinov2/run/eval/knn.py": {
+     "size": 1660,
+     "sha256": "21d1ed25bc9206b412e2d17bac150549f69929f5d0c924b7400a72d1bd295c31"
+    },
+    "dinov2/run/eval/linear.py": {
+     "size": 1689,
+     "sha256": "f89eb0a2eccdd2f35e27f7a5ca91ded95e4a5699f57e8e568c58547625f87ac5"
+    },
+    "dinov2/run/eval/log_regression.py": {
+     "size": 1755,
+     "sha256": "b4c4ddd086408c681b8b5642a26858b6c9e1a798c483a5283a983f2cd2b44c46"
+    },
+    "dinov2/run/submit.py": {
+     "size": 3304,
+     "sha256": "64597db2041e9c16a7640eeac00a299cb2761329af980f33f26a6dd025ffb541"
+    },
+    "dinov2/run/train/train.py": {
+     "size": 1665,
+     "sha256": "b469e29aaa460e509d52f19c787aad50963265d242200cad5f9ee3ce85938ba5"
+    },
+    "dinov2/thirdparty/CLIP/LICENSE": {
+     "size": 1063,
+     "sha256": "893951b3bf94db8df1b13e05da5cdeb499400960e4d44a3962a8b33ed0b4f28e"
+    },
+    "dinov2/thirdparty/CLIP/clip/simple_tokenizer.py": {
+     "size": 4704,
+     "sha256": "dfdcb47fbd00f18a70010d4b4735ae89df12661b5c6be7d7effcab88a50e7d1a"
+    },
+    "dinov2/train/__init__.py": {
+     "size": 276,
+     "sha256": "64dde70804b782a876524b529b00b9775559314a88d738cf4aee914bd4dbb9c4"
+    },
+    "dinov2/train/ssl_meta_arch.py": {
+     "size": 18616,
+     "sha256": "a97cdcc721e9312f5e088f78257dbbeb98cb3af40e3e3b975aefbd6bfd1996c4"
+    },
+    "dinov2/train/train.py": {
+     "size": 10681,
+     "sha256": "1c77814938c932eed97e1ba34e18768bf308cd47390d68a97e5a793e24338b03"
+    },
+    "dinov2/utils/__init__.py": {
+     "size": 195,
+     "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "dinov2/utils/cluster.py": {
+     "size": 3010,
+     "sha256": "ea195476b1f5316520c07233eb73ff4b0e5fe3f7a2645aacec5b416e7bed157c"
+    },
+    "dinov2/utils/config.py": {
+     "size": 2211,
+     "sha256": "588574a78951ccfe7ffaad9ef7cab53d37e837e3ae98cfc1b6a976189073d87c"
+    },
+    "dinov2/utils/dtype.py": {
+     "size": 1104,
+     "sha256": "610251537bcf55de8961a17dd625560eae5cfa5082e9382bbd9ded86db92e1c6"
+    },
+    "dinov2/utils/param_groups.py": {
+     "size": 3761,
+     "sha256": "ec1daae9eb7c50492091504f97087e3179d46a080d7b7f131967c07cb15cf6d4"
+    },
+    "dinov2/utils/utils.py": {
+     "size": 3240,
+     "sha256": "10bfc824fdb00cf0c4afc0a875b5763ad4c5f33ec38c2515b12528307b789305"
+    },
+    "hubconf.py": {
+     "size": 930,
+     "sha256": "e8926c8d01f93e27a6a687a39a1d78716690037fa79153c6483141526ef2a7c2"
+    },
+    "notebooks/depth_estimation.ipynb": {
+     "size": 671818,
+     "sha256": "6e11d2fba89cf4c4ad10d4a63097ca11ecda1e0c345c6e168936495f688eab18"
+    },
+    "notebooks/dinotxt.ipynb": {
+     "size": 30329,
+     "sha256": "ed63fa225501984935b7a8f9ee125f0d27d24319598946bbd371e5eed74d7a77"
+    },
+    "notebooks/semantic_segmentation.ipynb": {
+     "size": 598694,
+     "sha256": "8ab867e5673d0daf6fa29e0fd231c572cba2c61c1347a786401f0469286a6888"
+    },
+    "pyproject.toml": {
+     "size": 417,
+     "sha256": "02704adaed03163d96bfb301c080fd80fddf35b3145093d404d4390a27e1992c"
+    },
+    "requirements-dev.txt": {
+     "size": 43,
+     "sha256": "fe970368414b041da0776bacee267fd633a30b23d82052f9071c29cf936a041d"
+    },
+    "requirements-extras.txt": {
+     "size": 40,
+     "sha256": "1b3750ae8652a54863a2d6d7d0c708f6b7ced787f57c951aa11f1a9444feaacd"
+    },
+    "requirements.txt": {
+     "size": 213,
+     "sha256": "553faa42e1ad3975631e46df26bcfd76ec3add6beacb9ede3f8ef22393f5eefc"
+    },
+    "scripts/lint.sh": {
+     "size": 303,
+     "sha256": "b75d302b0b33b8dffa2c5f054574efd6de79897fa6a9b2efc374a3abeebfdfff"
+    },
+    "setup.cfg": {
+     "size": 130,
+     "sha256": "b786579a6174d03c4616cc92b016673fefaa440f4556ba7ab961f7de193ed938"
+    },
+    "setup.py": {
+     "size": 2751,
+     "sha256": "8ec72d3be027aee099a7b7b1c36c874be6d7ade4dd9eb69baff3975b586820ae"
+    }
+   }
+  },
+  "utils3d": {
+   "repo": "EasternJournalist/utils3d",
+   "commit": "9a4eb15e4021b67b12c460c7057d642626897ec8",
+   "license": "MIT",
+   "url": "https://github.com/EasternJournalist/utils3d/archive/9a4eb15e4021b67b12c460c7057d642626897ec8.zip",
+   "archive_prefix": "utils3d-9a4eb15e4021b67b12c460c7057d642626897ec8/",
+   "archive_size": null,
+   "archive_sha256": "e11843922c771f8900926bbcc2f37efdbf3adfb5282b4db0f9973069923e43d0",
+   "total_bytes": 532179,
+   "files": {
+    ".gitattributes": {
+     "size": 66,
+     "sha256": "1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b"
+    },
+    ".gitignore": {
+     "size": 1349,
+     "sha256": "e18018644fe290ca086637bf456c01a921606a5a2c63e87d690613c4cfebb5cc"
+    },
+    "LICENSE": {
+     "size": 1074,
+     "sha256": "197b6e9eeec3ebf5ff80edc89c0eecc9f33fff0b9074500c042ce67ff6665d3d"
+    },
+    "README.md": {
+     "size": 1272,
+     "sha256": "5714ea959f4572a9eee08aa4fb000cac76bedcb35c0dcd5bfbb34ebfd5ef03a2"
+    },
+    "gen_unified_interface.py": {
+     "size": 3963,
+     "sha256": "1983738f6a6b80674786ab40039839f1c86835212b604ebc6539f78b0605ae0b"
+    },
+    "pyproject.toml": {
+     "size": 711,
+     "sha256": "258c0681ca4ac9611be739237c345fef9def66baeb4c621dbfa71839c57fe658"
+    },
+    "test/io_/write_ply.py": {
+     "size": 986,
+     "sha256": "7bee0ec76e771eb4fd9bb85c3ad376447108d209b312a7a04c2edda6bc3cf4db"
+    },
+    "test/numpy_/mesh/compute_face_angle.py": {
+     "size": 1941,
+     "sha256": "7a2070606933b9f4f4ffd2cd56dda9638173c81149f0f840f2954155a5dd4ff5"
+    },
+    "test/numpy_/mesh/compute_face_normal.py": {
+     "size": 1670,
+     "sha256": "3a72788eab257d016cdb07a6cead51312dac23ae174b8138e76ee61131f028f8"
+    },
+    "test/numpy_/mesh/compute_vertex_normal.py": {
+     "size": 1673,
+     "sha256": "bc69f952075f1b119360f7187bd405260f6e050fcc6b5cdd935b2471befcd2fc"
+    },
+    "test/numpy_/mesh/compute_vertex_normal_weighted.py": {
+     "size": 1867,
+     "sha256": "95e5dc983de78f4fc9f360252802da1fc72408a02988879b58016139a5b7d85f"
+    },
+    "test/numpy_/mesh/merge_duplicate_vertices.py": {
+     "size": 1562,
+     "sha256": "57ce8da4497c049b6c07a66fefce46e394adf268b6400f1a628db395abd1365a"
+    },
+    "test/numpy_/mesh/remove_corrupted_faces.py": {
+     "size": 1049,
+     "sha256": "0f0d61e9dbc97728cbecab18991594715dc215e2e66f4265530efebb18c18ed2"
+    },
+    "test/numpy_/mesh/triangulate.py": {
+     "size": 1097,
+     "sha256": "6a0b315c52d13cf78d57b58f805c79c1e00c3e12ddbe65ae54f3550c1c6224c1"
+    },
+    "test/numpy_/rasterization/warp_image_by_depth.py": {
+     "size": 1184,
+     "sha256": "87abaffdca7e1cb5d9d9577a8cbb0a65f123ddbde063705cb709c29fbeb4b259"
+    },
+    "test/numpy_/transforms/crop_intrinsic.py": {
+     "size": 1966,
+     "sha256": "e5a711ce145105e79d8a2f2682ba3c04c0711dd24724f3d7f2fdfc0b3972918c"
+    },
+    "test/numpy_/transforms/extrinsic_look_at.py": {
+     "size": 1407,
+     "sha256": "5f5d416079a18e66575d45af0f36d5ea6392872dfaeb64f2138d5a53367b15ee"
+    },
+    "test/numpy_/transforms/extrinsic_to_view.py": {
+     "size": 1082,
+     "sha256": "857b41cdaeeb6075e48b4a7d311b9bb731e13486afb564ad79cf6043883100fe"
+    },
+    "test/numpy_/transforms/intrinsic.py": {
+     "size": 1268,
+     "sha256": "e28e84914494828452efbb85179d30febf66c203fc1a50161c432ac1a94eca61"
+    },
+    "test/numpy_/transforms/intrinsic_from_fov.py": {
+     "size": 1248,
+     "sha256": "f2f6ff0d7aae7b957dd1b51ff190a545303b383f3e97777eb3ef4c0a1d4d374d"
+    },
+    "test/numpy_/transforms/intrinsic_from_fov_xy.py": {
+     "size": 1180,
+     "sha256": "81d0013666ff530b66562df31c6bd059a3077a72cdf4a49306423e9fbfa073ab"
+    },
+    "test/numpy_/transforms/intrinsic_to_perspective.py": {
+     "size": 1238,
+     "sha256": "c026e9a7f7a39ef021f82a8cc9844907e998b7ca16a2cae2e4f1c650607575b6"
+    },
+    "test/numpy_/transforms/linearize_depth.py": {
+     "size": 1027,
+     "sha256": "b5dd3efad63d5b7653ad0b6399f6d6d365c55d2e77e216b7295c40c90825f24f"
+    },
+    "test/numpy_/transforms/normalize_intrinsic.py": {
+     "size": 1232,
+     "sha256": "cf58cc6e130d5c1614a7887ec9de1935475888dc306b137d6667f82802660713"
+    },
+    "test/numpy_/transforms/perspective.py": {
+     "size": 1310,
+     "sha256": "9f0ecc63adbf937a8c92021c596db94f9e7ca46b9be27be2fffc6cfc4721761d"
+    },
+    "test/numpy_/transforms/perspective_from_fov.py": {
+     "size": 1505,
+     "sha256": "23dca7df91b59b64e86ed36edb7679ccc5aa9d37ed319c9e5d2b990892b8d400"
+    },
+    "test/numpy_/transforms/perspective_from_fov_xy.py": {
+     "size": 1387,
+     "sha256": "5c92d2e154a8f6ab126c01e1d6b8d787323c1f81f2fae1cdbf4d83ac1c1b6277"
+    },
+    "test/numpy_/transforms/perspective_to_intrinsic.py": {
+     "size": 1185,
+     "sha256": "a4581a7f1382e4b69a19b0bf3679403a47018071d415794c4174433be9e446c8"
+    },
+    "test/numpy_/transforms/pixel_to_ndc.py": {
+     "size": 950,
+     "sha256": "b1152c708e2040529b85da1ee53477363cfcbc032d20183050c3b8f399f0072f"
+    },
+    "test/numpy_/transforms/pixel_to_uv.py": {
+     "size": 947,
+     "sha256": "f4afd56a29172fa316e110cc5e6fffcc1a3ddf6bae43d11fa38f83ad8e52474e"
+    },
+    "test/numpy_/transforms/project_cv.py": {
+     "size": 2367,
+     "sha256": "a57fb34f3663c67a91599e3a262e09339c3080919295d9cc4a04fe1d62107d3a"
+    },
+    "test/numpy_/transforms/project_depth.py": {
+     "size": 1074,
+     "sha256": "02e944136c7f74ae6682ec6522e03e68c7a024a1d46461be537e72d836bed84b"
+    },
+    "test/numpy_/transforms/project_gl.py": {
+     "size": 2458,
+     "sha256": "b6621b5f050972bb66fdaf7aa956c52020d2ec2589b6d6b0d3c235a5b85d2276"
+    },
+    "test/numpy_/transforms/project_gl_cv.py": {
+     "size": 2057,
+     "sha256": "56cb2c69b76e97b10efd83bd75dca3fb70ea8c1295b1dc39702b8c6ed0a8986c"
+    },
+    "test/numpy_/transforms/unproject_cv.py": {
+     "size": 1917,
+     "sha256": "ad48b3ad5cdfe3f991690673fbde439c7892de5d9b431fd407f45d018bc7269a"
+    },
+    "test/numpy_/transforms/unproject_gl.py": {
+     "size": 1871,
+     "sha256": "d72f9425f8f0f84270b41112fcb5a65a2512df8e7c16de4b59da61289b43ec8f"
+    },
+    "test/numpy_/transforms/view_look_at.py": {
+     "size": 1367,
+     "sha256": "b43cae2777e9d9731a7e907ab18f2365d95dfb9fcd26246010c241e40a6d8d79"
+    },
+    "test/numpy_/transforms/view_to_extrinsic.py": {
+     "size": 1082,
+     "sha256": "0f56299a57b3401d4d2dbd5ef112cf8786d94ac4ed47d9a62b5afb10b326b1e0"
+    },
+    "test/numpy_/utils/image_mesh.py": {
+     "size": 987,
+     "sha256": "fa582919ec34e83963b99b2e2f62d74d3995af3c88f1932892adacb0b2e36c24"
+    },
+    "test/rasterization_/gl/basic.py": {
+     "size": 1773,
+     "sha256": "8610947b2cc7d671039be7d0ac16cb6f9c025787e8bff5616d377e462b17d9f2"
+    },
+    "test/rasterization_/gl/rasterize_uv.py": {
+     "size": 1669,
+     "sha256": "7d62e8b289b29eeb1e5a5c330a687e239385d4aefd3afb5ddd65cd3cc02db995"
+    },
+    "test/test.py": {
+     "size": 1356,
+     "sha256": "32f5ee2d244e5b239d86411752efe0eb144d56fd8076f5d6af5f4e2ca055a8b9"
+    },
+    "test/torch_/mesh/compute_face_angle.py": {
+     "size": 1450,
+     "sha256": "77669c3b8ecf42d2d979e0df111f9c2d1401da1cb7531ceda98d7ded387085dd"
+    },
+    "test/torch_/mesh/compute_face_normal.py": {
+     "size": 1426,
+     "sha256": "d02ff9c3812659c83167b24437ea1b5d6de195a62ec4d5489be468181979fb68"
+    },
+    "test/torch_/mesh/compute_vertex_normal.py": {
+     "size": 1452,
+     "sha256": "7b7b29e9907fdb29d4bff0148920fc35f04af1d3a03ece8253344039aaf6caf7"
+    },
+    "test/torch_/mesh/compute_vertex_normal_weighted.py": {
+     "size": 1462,
+     "sha256": "c06a13616cddb48af088cad95801288d88620617e17a904039ddf92131e4d910"
+    },
+    "test/torch_/mesh/merge_duplicate_vertices.py": {
+     "size": 1790,
+     "sha256": "f7ae51b2c73f3212dd20f53324d6dc1ed065080fbbf76571de726b12b71b0512"
+    },
+    "test/torch_/mesh/remove_corrupted_faces.py": {
+     "size": 1111,
+     "sha256": "3764305d62541684abae7c6efdd1a787ccb13109d13475774b331405316f75a9"
+    },
+    "test/torch_/mesh/triangulate.py": {
+     "size": 1167,
+     "sha256": "16395b0de6069d99000d944fd86d2c82aaa019d41dbf1344e4430cc45e622725"
+    },
+    "test/torch_/rasterization/warp_image_by_depth.py": {
+     "size": 1243,
+     "sha256": "f904b8494b6b149a64aec56d49d1e0a9a7d5c2bb5cee57e90095042de2de6b7b"
+    },
+    "test/torch_/transforms/crop_intrinsic.py": {
+     "size": 2303,
+     "sha256": "b0743b8a7ee2ed0bd23b2c7e852bbff2b2c089f9b429bbdbadb9325bbc0a79a0"
+    },
+    "test/torch_/transforms/extrinsic_look_at.py": {
+     "size": 1299,
+     "sha256": "7949f2fd25d4d030147774f4042f1b8600c4b3c90df2fad17054b8cbf827fae4"
+    },
+    "test/torch_/transforms/extrinsic_to_view.py": {
+     "size": 1367,
+     "sha256": "b2aba1e47337dbba22a2b6853b1d00ec9137f5352caada0e12ccce426d4ee130"
+    },
+    "test/torch_/transforms/intrinsic.py": {
+     "size": 1451,
+     "sha256": "6409573b03c76db58f4b4989edcc1b21205d43d77b4f1689e71120c816120f30"
+    },
+    "test/torch_/transforms/intrinsic_from_fov.py": {
+     "size": 1254,
+     "sha256": "9e54e9483438c009cdc44956c1358224246bab6ecf6afb243eb05c5194d2e2ba"
+    },
+    "test/torch_/transforms/intrinsic_from_fov_xy.py": {
+     "size": 1137,
+     "sha256": "0747acfd14fbb652330c23c0c32b5dff70a301c4ae278bb992613580fa1ec0d3"
+    },
+    "test/torch_/transforms/intrinsic_to_perspective.py": {
+     "size": 1622,
+     "sha256": "6daff8feb4edb8eb1fb3c08ae3fdaaecb03952709cefae6e0e5e9a378ec6a2cb"
+    },
+    "test/torch_/transforms/linearize_depth.py": {
+     "size": 1274,
+     "sha256": "b213f4083a598b62d35d48b251be5e5b1a63020dd80f6d9cb4768651d66520eb"
+    },
+    "test/torch_/transforms/matrix_to_quaternion.py": {
+     "size": 1373,
+     "sha256": "3a55c0d3eed1f9da13bc663b92571ce1a9688bb3d3061b9ba75ed1fc84f80a29"
+    },
+    "test/torch_/transforms/normalize_intrinsic.py": {
+     "size": 1548,
+     "sha256": "aae0d572cba36b14a89fb81c114af303a1932ab0f2c9574b9b7a66f571661e98"
+    },
+    "test/torch_/transforms/perspective.py": {
+     "size": 1401,
+     "sha256": "de7e9f1a7306874339b2e07cf207ea2b0bea3a87bcbfb17aebdfcfb9f05523e5"
+    },
+    "test/torch_/transforms/perspective_from_fov.py": {
+     "size": 1567,
+     "sha256": "2367140354173311f89c8d7ec90c784dff11799cbd81bfcfdd9d9d93f971ed1c"
+    },
+    "test/torch_/transforms/perspective_from_fov_xy.py": {
+     "size": 1442,
+     "sha256": "2d76a326f356340c47ed2d693c6529006bd67a43777b7a37e09ae110e206c28f"
+    },
+    "test/torch_/transforms/perspective_to_intrinsic.py": {
+     "size": 1576,
+     "sha256": "7b54abc819a9afd6de0421dbf1ee5bda9d8fd128aa6dc2811b5ed101ec285289"
+    },
+    "test/torch_/transforms/pixel_to_ndc.py": {
+     "size": 1029,
+     "sha256": "7098c228a5ff9b65351e0e3d0c4779425af9a0706555c3be956bcf65ff5b4943"
+    },
+    "test/torch_/transforms/pixel_to_uv.py": {
+     "size": 1008,
+     "sha256": "03813266617bfd057497a0dfb3121813b3baa56f89a3036f8e95ed482f9bc9f6"
+    },
+    "test/torch_/transforms/project_cv.py": {
+     "size": 2476,
+     "sha256": "4f2c07ef2c5d9a3c2bc3339df837106d85426d23e3b78eb264e08c3204b72603"
+    },
+    "test/torch_/transforms/project_depth.py": {
+     "size": 1223,
+     "sha256": "93340f5c05085f6250f8433a0b220123b5dc45f12bee8c0d3969a7a937418ded"
+    },
+    "test/torch_/transforms/project_gl.py": {
+     "size": 2419,
+     "sha256": "e0c11fb90cedee62711815dc2add4af403abdba7baad4044e60b9e8ed38dbb5d"
+    },
+    "test/torch_/transforms/project_gl_cv.py": {
+     "size": 2683,
+     "sha256": "05f65d4182fa7370050564cb146b35fdefa13871d63b163472807fbeb75f3384"
+    },
+    "test/torch_/transforms/quaternion_to_matrix.py": {
+     "size": 1182,
+     "sha256": "68107a148132abf3dd6c8d254ffb112ed4b92f7c39f1f6c59c22a0cc2412e9e2"
+    },
+    "test/torch_/transforms/slerp.py": {
+     "size": 757,
+     "sha256": "e399906a2916bf81729d109062aad56710b2113cbf06d4ebcdc2b6c0573b3305"
+    },
+    "test/torch_/transforms/unproject_cv.py": {
+     "size": 2824,
+     "sha256": "052b1963485f4521c11b8e254cbb36cb26d9f03c8d3afb90f8506da497470385"
+    },
+    "test/torch_/transforms/unproject_gl.py": {
+     "size": 2788,
+     "sha256": "def9e311e93e6e87557fb327e7b7a64c1b2876058878e8f02576ebd876d28b3b"
+    },
+    "test/torch_/transforms/view_look_at.py": {
+     "size": 1287,
+     "sha256": "6645eae76f1c957b8a8051e1ae79337fa3d7092a6b62d52a22492061977c3a20"
+    },
+    "test/torch_/transforms/view_to_extrinsic.py": {
+     "size": 1355,
+     "sha256": "3ff8d0fcb045b51124d550d8a36b4ba14cde2c033a30d5f9194f0dc2c1529b02"
+    },
+    "test/torch_/utils/image_mesh.py": {
+     "size": 1026,
+     "sha256": "54ae2d9b202ff79e8b4bf5884648f3ba79d8de7f346d0633209d45cc64e9441b"
+    },
+    "utils3d/__init__.py": {
+     "size": 548,
+     "sha256": "6df721fa38321491f1008870b4614aaeeead0fbd64408effb141faebd8059181"
+    },
+    "utils3d/_helpers.py": {
+     "size": 288,
+     "sha256": "083ff43c5dc2589766d7939eff356465e01482cfc0b04b330f19c2181b82f8c2"
+    },
+    "utils3d/_unified/__init__.py": {
+     "size": 32333,
+     "sha256": "333e9eab378c445301c0fdb882a5ef005485a6ef15202d73ca253c362f166174"
+    },
+    "utils3d/_unified/__init__.pyi": {
+     "size": 103505,
+     "sha256": "32931c9ca553416194b30faac23fa975042138ef63a96ef838e0315e1689f3f9"
+    },
+    "utils3d/io/__init__.py": {
+     "size": 60,
+     "sha256": "1150ee40ae5ab64d1e43672d109689744851c8eb6c5c008cacdc721724e4d2a1"
+    },
+    "utils3d/io/colmap.py": {
+     "size": 6453,
+     "sha256": "a86d5b716c4264440f005e869ea19f6a74e0a815742b035708565aa2e1ebf7da"
+    },
+    "utils3d/io/obj.py": {
+     "size": 5197,
+     "sha256": "42e0413b4e053ba91d30f365cb6364d469ab4a3c17404577d2c2579655014471"
+    },
+    "utils3d/io/ply.py": {
+     "size": 3885,
+     "sha256": "d9015dc2c996a9d73d5006dd62ec3d141fcc3c8ca0dbbcd107d607a6e437270f"
+    },
+    "utils3d/numpy/__init__.py": {
+     "size": 3605,
+     "sha256": "9ae58e04c5f7770599a330a1a0076b8da70470c56994125ed9d3ac2c477eeb2a"
+    },
+    "utils3d/numpy/_helpers.py": {
+     "size": 3920,
+     "sha256": "96204874910696762d7584630ad6fec21791c088d3d9cde9c56cd8437dab6c25"
+    },
+    "utils3d/numpy/mesh.py": {
+     "size": 13218,
+     "sha256": "a407c3986dd59db175fc4d38fc145167466ee034c7991b558e8b75655f0a552c"
+    },
+    "utils3d/numpy/quadmesh.py": {
+     "size": 20272,
+     "sha256": "7b78f05de89b0f3095f169d5f9b11c13a69556948f57e2156f1b019ae4fec7e3"
+    },
+    "utils3d/numpy/rasterization.py": {
+     "size": 17826,
+     "sha256": "89833bb0b46e3adbfd23574a37893744127a9174beccd5dd3205355bd3fd4dfa"
+    },
+    "utils3d/numpy/shaders/texture.fsh": {
+     "size": 178,
+     "sha256": "aae3cd009519b5d076da9097a99077e19c240081756d2ab44d17364c70c0e94e"
+    },
+    "utils3d/numpy/shaders/texture.vsh": {
+     "size": 151,
+     "sha256": "ae0ec354277ce6d3103d3580b14cde921b48397d3af729580298849213a171b0"
+    },
+    "utils3d/numpy/shaders/vertex_attribute.fsh": {
+     "size": 86,
+     "sha256": "6a6559a1a11be53ce89161c2383a879622af6af23eb3e5c079213714933ad413"
+    },
+    "utils3d/numpy/shaders/vertex_attribute.vsh": {
+     "size": 176,
+     "sha256": "4768a3862105f2bfd519e9d83becfa9144aacd5110d6d2a2d576f3989db3cb96"
+    },
+    "utils3d/numpy/spline.py": {
+     "size": 3313,
+     "sha256": "1c4bd913a12e079bcfd27d51caf6a5fffe10b030673581dfdc3b9fc5a07d4c1a"
+    },
+    "utils3d/numpy/transforms.py": {
+     "size": 36973,
+     "sha256": "05bc88e21698f935a4ffb79d2165233c5471e6cda7f4a45c4acab588a19dfe93"
+    },
+    "utils3d/numpy/utils.py": {
+     "size": 23952,
+     "sha256": "54ede6b7fcc03a6e8cd5042cd6197fa140e3eed2b62f3caff428439a4c912376"
+    },
+    "utils3d/torch/__init__.py": {
+     "size": 3702,
+     "sha256": "483d067eda0a09ee438cfacf8e6df4e1eb73174a592e30381a6eed17f489974f"
+    },
+    "utils3d/torch/_helpers.py": {
+     "size": 4389,
+     "sha256": "587f82f141ea003870404a6891c64418ffe66c9de258d6d393637c69bba594ba"
+    },
+    "utils3d/torch/mesh.py": {
+     "size": 27766,
+     "sha256": "a13b6615a79cf0209f68d8d382233cd0ec93c823c1039819727e4d5e4ea6a0e9"
+    },
+    "utils3d/torch/nerf.py": {
+     "size": 35382,
+     "sha256": "19de86924ed9f74ed37d03905f1c9806cb895633b60aaa03f3b16e1c94416acf"
+    },
+    "utils3d/torch/rasterization.py": {
+     "size": 15686,
+     "sha256": "b85263b4721af65186922861b56c364c0948c98e6bdbca0f061ca89a346f58e1"
+    },
+    "utils3d/torch/transforms.py": {
+     "size": 41272,
+     "sha256": "4cb8b018704bb345eefba0d2872dcced2e0f825e3d3234d184c71c5240398294"
+    },
+    "utils3d/torch/utils.py": {
+     "size": 13897,
+     "sha256": "769800ca07121e4458b6ae03c9e4a6ed711bfd9247afb94871a783b6838e9b05"
+    }
+   },
+   "note": "アーカイブ ZIP 自体は照合しない（GitHub が圧縮をやり直すと変わるため）。展開後のファイルごとに照合し、照合したバイトから作り直した ZIP を uv に渡す（setup の source_wheel。点検 C30）。2026-10-17 の作成時は、uv が archive_sha256 で照合して展開したキャッシュの中身から作った（archive_size は未計測。pin_sources.py の再実行で埋まる）"
+  }
+ }
+}

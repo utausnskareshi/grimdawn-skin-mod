@@ -1,0 +1,257 @@
+<UserControl x:Class="GDSkinStudio.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:GDSkinStudio.Localization">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" AutomationProperties.AutomationId="Set_Scroll">
+        <Grid MaxWidth="1180" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="18" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="{l:Tr Set_Title}" Style="{StaticResource PageTitle}" />
+                <TextBlock Text="{l:Tr Set_Subtitle}" Style="{StaticResource PageSub}" />
+
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="{l:Tr Set_GameSection}" Style="{StaticResource SectionTitle}" />
+                        <TextBlock Text="{l:Tr Set_GameDir}" Style="{StaticResource Label}" />
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Set_Detect}" Command="{Binding DetectCommand}" Margin="6,0,0,0" />
+                            <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Gen_Browse}" Command="{Binding BrowseGameCommand}" Margin="6,0,0,0" />
+                            <TextBox Text="{Binding GameDir, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.AutomationId="Set_GameDir" AutomationProperties.Name="{l:Tr Set_GameDir}" />
+                        </DockPanel>
+                        <TextBlock Text="{l:Tr Set_GameDirHint}" Style="{StaticResource Hint}" />
+                        <TextBlock Text="{Binding DetectedGame}" Style="{StaticResource Hint}" Visibility="{Binding DetectedGame, Converter={StaticResource NullVis}}" />
+                        <TextBlock Text="{l:Tr Set_TargetDir}" Style="{StaticResource Label}" />
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Gen_Browse}" Command="{Binding BrowseTargetCommand}" Margin="6,0,0,0" />
+                            <TextBox Text="{Binding InstallTargetDir, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.AutomationId="Set_TargetDir" AutomationProperties.Name="{l:Tr Set_TargetDir}" />
+                        </DockPanel>
+                        <TextBlock Text="{l:Tr Set_TargetDirHint}" Style="{StaticResource Hint}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="{l:Tr Set_GenSection}" Style="{StaticResource SectionTitle}" />
+                        <TextBlock Text="{l:Tr Set_TrellisRoot}" Style="{StaticResource Label}" />
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Gen_Browse}" Command="{Binding BrowseTrellisCommand}" Margin="6,0,0,0" />
+                            <TextBox Text="{Binding TrellisRoot, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.AutomationId="Set_TrellisRoot" AutomationProperties.Name="{l:Tr Set_TrellisRoot}" />
+                        </DockPanel>
+                        <TextBlock Text="{l:Tr Set_TrellisRootHint}" Style="{StaticResource Hint}" />
+                        <TextBlock Text="{l:Tr Set_Refs}" Style="{StaticResource Label}" />
+                        <TextBlock Text="{Binding RefsText}" TextWrapping="Wrap" AutomationProperties.AutomationId="Set_RefsText" />
+                        <ProgressBar Value="{Binding RefsProgress, Mode=OneWay}" Maximum="100" Height="6" Margin="0,6,0,4" Visibility="{Binding RefsBusy, Converter={StaticResource BoolVis}}" />
+                        <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                            <Button Style="{StaticResource Normal}" Content="{l:Tr Set_RefsPrepare}" Command="{Binding PrepareRefsCommand}" AutomationProperties.AutomationId="Set_PrepareRefs" />
+                            <Button Style="{StaticResource Normal}" Content="{l:Tr Common_Cancel}" Command="{Binding CancelRefsCommand}" Margin="8,0,0,0" />
+                        </StackPanel>
+                        <TextBlock Text="{l:Tr Set_RefsHint}" Style="{StaticResource Hint}" />
+                        <TextBlock Text="{l:Tr Set_Consent}" Style="{StaticResource Label}" />
+                        <TextBlock Text="{Binding ConsentText}" TextWrapping="Wrap" />
+                        <Button Style="{StaticResource Small}" Content="{l:Tr Set_ConsentShow}" Command="{Binding ShowConsentCommand}" HorizontalAlignment="Left" Margin="0,6,0,0" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="{l:Tr Set_DataSection}" Style="{StaticResource SectionTitle}" />
+                        <CheckBox IsChecked="{Binding KeepInputImage}" Margin="0,2,0,4"><TextBlock Text="{l:Tr Set_KeepImage}" TextWrapping="Wrap" /></CheckBox>
+                        <CheckBox IsChecked="{Binding KeepDrafts}" Margin="0,2,0,4"><TextBlock Text="{l:Tr Set_KeepDrafts}" TextWrapping="Wrap" /></CheckBox>
+                        <CheckBox IsChecked="{Binding BuildJapanese}" Margin="0,2,0,4"><TextBlock Text="{l:Tr Set_BuildJa}" TextWrapping="Wrap" /></CheckBox>
+                        <CheckBox IsChecked="{Binding IncludeDev}" Margin="0,2,0,4"><TextBlock Text="{l:Tr Set_IncludeDev}" TextWrapping="Wrap" /></CheckBox>
+                        <TextBlock Text="{l:Tr Set_DataHome}" Style="{StaticResource Label}" />
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Style="{StaticResource Small}" Content="{l:Tr Set_Open}" Command="{Binding OpenDataCommand}" Margin="6,0,0,0" />
+                            <TextBlock Text="{Binding DataHome}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                        </DockPanel>
+                        <TextBlock Text="{l:Tr Set_DataHomeHint}" Style="{StaticResource Hint}" />
+                        <TextBlock Text="{l:Tr Set_Language}" Style="{StaticResource Label}" />
+                        <ComboBox ItemsSource="{Binding Languages}" SelectedValue="{Binding Language}" SelectedValuePath="Value" DisplayMemberPath="Label" Width="160" HorizontalAlignment="Left"
+                                  AutomationProperties.Name="{l:Tr Set_Language}" AutomationProperties.AutomationId="Set_Language" />
+                        <TextBlock Text="{l:Tr Set_Python}" Style="{StaticResource Label}" />
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Gen_Browse}" Command="{Binding BrowsePythonCommand}" Margin="6,0,0,0" />
+                            <TextBox Text="{Binding PythonPath, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.Name="{l:Tr Set_Python}" AutomationProperties.AutomationId="Set_Python" />
+                        </DockPanel>
+                        <TextBlock Text="{l:Tr Set_PythonHint}" Style="{StaticResource Hint}" />
+                    </StackPanel>
+                </Border>
+                <!-- 保存の案内は長いことがある（英語・未接続のとき）ので折り返す（点検 UG-R3） -->
+                <DockPanel Margin="0,0,0,20">
+                    <Button DockPanel.Dock="Left" VerticalAlignment="Top" Style="{StaticResource Primary}" Content="{l:Tr Set_Save}" Command="{Binding SaveCommand}" AutomationProperties.AutomationId="Set_Save" />
+                    <TextBlock Text="{Binding SavedText}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="12,0,0,0" Foreground="{StaticResource OkBrush}" AutomationProperties.AutomationId="Set_SavedText" />
+                </DockPanel>
+
+                <!-- データの容量と整理（2026-10-17 機能 SF03。押したときだけ、確認のダイアログで消すもの・残すものを示してから消す） -->
+                <Border Style="{StaticResource Card}" DataContext="{Binding Storage}">
+                    <Expander IsExpanded="{Binding Expanded}" AutomationProperties.AutomationId="Set_StorageExpander"
+                              AutomationProperties.Name="{l:Tr UD1_Storage_Section}">
+                        <Expander.Header>
+                            <TextBlock Text="{l:Tr UD1_Storage_Section}" Style="{StaticResource SectionTitle}" Margin="0" />
+                        </Expander.Header>
+                        <StackPanel Margin="0,6,0,0">
+                            <TextBlock Text="{Binding Summary}" TextWrapping="Wrap" AutomationProperties.AutomationId="Set_StorageSummary" />
+                            <ItemsControl ItemsSource="{Binding Rows}" Margin="0,6,0,0" AutomationProperties.AutomationId="Set_StorageRows">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0,2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="190" />
+                                                <ColumnDefinition Width="80" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding Label}" TextWrapping="Wrap" />
+                                            <TextBlock Grid.Column="1" Text="{Binding SizeText}" HorizontalAlignment="Right" Margin="0,0,12,0"
+                                                       AutomationProperties.AutomationId="{Binding Id, StringFormat=Set_StorageSize_{0}}" />
+                                            <TextBlock Grid.Column="2" Text="{Binding Detail}" TextWrapping="Wrap" Foreground="{StaticResource LabelFg}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock Text="{l:Tr UD1_Storage_CleanLabel}" Style="{StaticResource Label}" />
+                            <WrapPanel Margin="0,4,0,0">
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr UD1_Storage_Btn_builds}" Command="{Binding CleanBuildsCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_StorageBuilds" />
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr UD1_Storage_Btn_backups}" Command="{Binding CleanBackupsCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_StorageBackups" />
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr UD1_Storage_Btn_trash}" Command="{Binding CleanTrashCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_StorageTrash" />
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr UD1_Storage_Btn_input_images}" Command="{Binding CleanInputsCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_StorageInputs" />
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr UD1_Storage_Btn_drafts}" Command="{Binding CleanDraftsCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_StorageDrafts" />
+                                <Button Style="{StaticResource Small}" Content="{l:Tr UD1_Storage_Refresh}" Command="{Binding RefreshCommand}" Margin="0,0,8,6"
+                                        VerticalAlignment="Center" AutomationProperties.AutomationId="Set_StorageRefresh" />
+                            </WrapPanel>
+                            <TextBlock Text="{l:Tr UD1_Storage_Hint}" Style="{StaticResource Hint}" />
+                            <TextBlock Text="{Binding StatusText}" TextWrapping="Wrap" Margin="0,4,0,0" Visibility="{Binding StatusText, Converter={StaticResource NullVis}}"
+                                       AutomationProperties.AutomationId="Set_StorageStatus" />
+                        </StackPanel>
+                    </Expander>
+                </Border>
+
+                <!-- バージョン情報（D-024: MIT） -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="{l:Tr Set_AboutSection}" Style="{StaticResource SectionTitle}" />
+                        <TextBlock Text="{Binding AboutVersion, Mode=OneTime}" FontWeight="SemiBold" AutomationProperties.AutomationId="Set_AboutVersion" />
+                        <TextBlock Text="{Binding AboutCopyright, Mode=OneTime}" Margin="0,2,0,0" AutomationProperties.AutomationId="Set_AboutCopyright" />
+                        <TextBlock Text="{l:Tr Set_AboutLicenseText}" Style="{StaticResource Hint}" />
+                        <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                            <Button Style="{StaticResource Small}" Content="{l:Tr Set_AboutShowLicense}" Command="{Binding ShowToolLicenseCommand}" AutomationProperties.AutomationId="Set_AboutLicense" />
+                            <Button Style="{StaticResource Small}" Content="{l:Tr Set_AboutShowNotices}" Command="{Binding ShowNoticesCommand}" Margin="8,0,0,0" AutomationProperties.AutomationId="Set_AboutNotices" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- 環境チェック -->
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="{l:Tr Set_SetupTitle}" Style="{StaticResource PageTitle}" FontSize="18" Margin="0,6,0,4" />
+                <TextBlock Text="{Binding SetupText}" Style="{StaticResource PageSub}" AutomationProperties.AutomationId="Set_SetupText" />
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding SetupRows}" AutomationProperties.AutomationId="Set_SetupList">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="26" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding Status, Converter={StaticResource StatusGlyph}}" Foreground="{Binding Status, Converter={StaticResource StatusBrush}}"
+                                                   FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="14" Margin="0,2,0,0" />
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="{Binding Name}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                            <TextBlock Text="{Binding StateText}" FontSize="12" Foreground="{StaticResource LabelFg}"
+                                                       AutomationProperties.AutomationId="{Binding Id, StringFormat=Set_SetupState_{0}}" />
+                                            <TextBlock Text="{Binding License}" TextWrapping="Wrap" FontSize="12" Foreground="{StaticResource Muted}" />
+                                            <TextBlock Text="{Binding Badge}" FontSize="11" Foreground="{StaticResource WarnBrush}" FontWeight="SemiBold"
+                                                       Visibility="{Binding Badge, Converter={StaticResource NullVis}}" />
+                                        </StackPanel>
+                                        <Button Grid.Column="2" Style="{StaticResource Small}" Content="{l:Tr Setup_ShowLicense}" VerticalAlignment="Top" Margin="8,0,0,0"
+                                                Command="{Binding DataContext.SetupLicenseCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Button Style="{StaticResource Normal}" Content="{l:Tr Set_SetupOpen}" Command="{Binding OpenSetupCommand}" AutomationProperties.AutomationId="Set_SetupOpen" />
+                            <Button Style="{StaticResource Normal}" Content="{l:Tr Set_SetupRedo}" Command="{Binding RedoSetupCommand}" Margin="8,0,0,0" AutomationProperties.AutomationId="Set_SetupRedo" />
+                        </StackPanel>
+                        <TextBlock Text="{l:Tr Set_SetupHint}" Style="{StaticResource Hint}" />
+                        <!-- 取得中はやり直し・削除・修復を押せない理由（点検 R20A-07） -->
+                        <TextBlock Text="{l:Tr Set_SetupRunning}" TextWrapping="Wrap" Foreground="{StaticResource WarnBrush}" Margin="0,4,0,0"
+                                   Visibility="{Binding Setup.Installing, Converter={StaticResource BoolVis}}" />
+                    </StackPanel>
+                </Border>
+                <!-- TRELLIS 実行環境の管理（点検 SF04・SF16。押したときだけ動く。アプリのセットアップが作った取得先だけが対象） -->
+                <Border Style="{StaticResource Card}">
+                    <Expander IsExpanded="False" AutomationProperties.AutomationId="Set_MaintExpander">
+                        <Expander.Header>
+                            <TextBlock Text="{l:Tr Maint_Section}" Style="{StaticResource SectionTitle}" Margin="0" />
+                        </Expander.Header>
+                        <StackPanel Margin="0,6,0,0">
+                            <TextBlock Text="{Binding MaintText}" TextWrapping="Wrap" AutomationProperties.AutomationId="Set_MaintText" />
+                            <TextBlock Text="{l:Tr Set_SetupRunning}" TextWrapping="Wrap" Foreground="{StaticResource WarnBrush}" Margin="0,4,0,0"
+                                       Visibility="{Binding Setup.Installing, Converter={StaticResource BoolVis}}" />
+                            <TextBlock Text="{l:Tr Maint_RepairLabel}" Style="{StaticResource Label}" />
+                            <WrapPanel Margin="0,4,0,0">
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr Maint_VerifyButton}" Command="{Binding MaintVerifyCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_MaintVerify" />
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr Maint_ReinstallButton}" Command="{Binding MaintReinstallCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_MaintReinstall" />
+                            </WrapPanel>
+                            <TextBlock Text="{l:Tr Maint_RepairHint}" Style="{StaticResource Hint}" />
+                            <TextBlock Text="{l:Tr Maint_RemoveLabel}" Style="{StaticResource Label}" />
+                            <WrapPanel Margin="0,4,0,0">
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr Maint_RemoveTextButton}" Command="{Binding MaintRemoveTextCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_MaintRemoveText" />
+                                <Button Style="{StaticResource Normal}" Content="{l:Tr Maint_RemoveAllButton}" Command="{Binding MaintRemoveAllCommand}" Margin="0,0,8,6"
+                                        AutomationProperties.AutomationId="Set_MaintRemoveAll" />
+                            </WrapPanel>
+                            <TextBlock Text="{l:Tr Maint_RemoveHint}" Style="{StaticResource Hint}" />
+                            <ProgressBar Value="{Binding MaintProgress, Mode=OneWay}" Maximum="100" Height="6" Margin="0,6,0,4"
+                                         Visibility="{Binding MaintBusy, Converter={StaticResource BoolVis}}" />
+                            <DockPanel Visibility="{Binding MaintStatus, Converter={StaticResource NullVis}}" Margin="0,4,0,0">
+                                <Button DockPanel.Dock="Right" Style="{StaticResource Small}" Content="{l:Tr Common_Cancel}" Command="{Binding MaintCancelCommand}"
+                                        Visibility="{Binding MaintBusy, Converter={StaticResource BoolVis}}" Margin="8,0,0,0" />
+                                <TextBlock Text="{Binding MaintStatus}" TextWrapping="Wrap" VerticalAlignment="Center" AutomationProperties.AutomationId="Set_MaintStatus" />
+                            </DockPanel>
+                        </StackPanel>
+                    </Expander>
+                </Border>
+                <TextBlock Text="{l:Tr Set_EnvTitle}" Style="{StaticResource PageTitle}" FontSize="18" Margin="0,10,0,4" />
+                <TextBlock Text="{Binding EnvChecked}" Style="{StaticResource PageSub}" />
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding EnvItems}" AutomationProperties.AutomationId="Set_EnvList">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0,4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="26" />
+                                            <ColumnDefinition Width="170" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding Status, Converter={StaticResource StatusGlyph}}" Foreground="{Binding Status, Converter={StaticResource StatusBrush}}"
+                                                   FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="14" VerticalAlignment="Top" Margin="0,2,0,0" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Label}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                        <TextBlock Grid.Column="2" Text="{Binding Message}" TextWrapping="Wrap" Foreground="{StaticResource LabelFg}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <Button Style="{StaticResource Normal}" Content="{l:Tr Set_Recheck}" Command="{Binding RecheckCommand}" HorizontalAlignment="Left" Margin="0,10,0,0"
+                                AutomationProperties.AutomationId="Set_Recheck" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

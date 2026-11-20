@@ -1,0 +1,455 @@
+<UserControl x:Class="GDSkinStudio.Views.GenerateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:GDSkinStudio.Localization"
+             xmlns:v="clr-namespace:GDSkinStudio.Views">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="470" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,6,0" AutomationProperties.AutomationId="Gen_Scroll">
+            <StackPanel>
+                <TextBlock Text="{l:Tr Gen_Title}" Style="{StaticResource PageTitle}" />
+                <TextBlock Text="{l:Tr Gen_Subtitle}" Style="{StaticResource PageSub}" />
+
+                <!-- 再生成の対象 -->
+                <Border Style="{StaticResource Banner}" Visibility="{Binding IsReplacing, Converter={StaticResource BoolVis}}"
+                        AutomationProperties.AutomationId="Gen_ReplaceBanner">
+                    <DockPanel>
+                        <Button DockPanel.Dock="Right" Style="{StaticResource Small}" Content="{l:Tr Gen_ReplaceCancel}" Command="{Binding CancelReplaceCommand}" />
+                        <TextBlock Text="{Binding ReplaceLabel}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                    </DockPanel>
+                </Border>
+
+                <!-- 見た目の作り直しの元の装備（形を使う。SF10。2026-10-17 U-A3） -->
+                <Border Style="{StaticResource Banner}" Visibility="{Binding IsVariant, Converter={StaticResource BoolVis}}"
+                        AutomationProperties.AutomationId="Gen_VariantBanner">
+                    <DockPanel>
+                        <Button DockPanel.Dock="Right" Style="{StaticResource Small}" Content="{l:Tr UA3_Cancel}" Command="{Binding CancelVariantCommand}"
+                                VerticalAlignment="Top" Margin="8,0,0,0" AutomationProperties.AutomationId="Gen_VariantCancel" />
+                        <StackPanel>
+                            <TextBlock Text="{Binding VariantLabel}" TextWrapping="Wrap" FontWeight="SemiBold" AutomationProperties.AutomationId="Gen_VariantLabel" />
+                            <TextBlock Text="{l:Tr UA3_BannerHint}" TextWrapping="Wrap" Style="{StaticResource Hint}" AutomationProperties.AutomationId="Gen_VariantHint" />
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- 入力 -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="{l:Tr Gen_Input}" Style="{StaticResource SectionTitle}" />
+                        <WrapPanel Margin="0,0,0,8" IsEnabled="{Binding InputKindSelectable}">
+                            <RadioButton Content="{l:Tr Gen_InputImage}" IsChecked="{Binding IsImage}" Margin="0,0,16,0" AutomationProperties.AutomationId="Gen_KindImage" />
+                            <RadioButton Content="{l:Tr Gen_InputText}" IsChecked="{Binding IsText}" Margin="0,0,16,0" AutomationProperties.AutomationId="Gen_KindText" />
+                            <RadioButton Content="{l:Tr Gen_InputGlb}" IsChecked="{Binding IsGlb}" AutomationProperties.AutomationId="Gen_KindGlb" />
+                        </WrapPanel>
+
+                        <!-- 画像（1〜4 枚。既定は正面の 1 枚） -->
+                        <StackPanel Visibility="{Binding IsImage, Converter={StaticResource BoolVis}}">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
+                                <TextBlock Text="{l:Tr Gen_ImageCount}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                                <ComboBox ItemsSource="{Binding ImageCountChoices}" SelectedValue="{Binding ImageCount}" SelectedValuePath="Value"
+                                          DisplayMemberPath="Label" Width="170" AutomationProperties.AutomationId="Gen_ImageCount"
+                                          AutomationProperties.Name="{l:Tr Gen_ImageCount}" />
+                            </StackPanel>
+                            <TextBlock Text="{l:Tr Gen_ImageHint}" Style="{StaticResource Hint}" />
+                            <Border Visibility="{Binding MultiNotice, Converter={StaticResource NullVis}}" AutomationProperties.AutomationId="Gen_MultiNotice">
+                                <Border.Style>
+                                    <Style TargetType="Border" BasedOn="{StaticResource Banner}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding MultiNoticeIsWarning}" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource WarnBg}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <TextBlock Text="{Binding MultiNotice}" TextWrapping="Wrap" AutomationProperties.AutomationId="Gen_MultiNoticeText" />
+                            </Border>
+                            <ItemsControl ItemsSource="{Binding Slots}" Focusable="False">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderBrush="{StaticResource CardBorder}" BorderThickness="0,1,0,0" Padding="0,8,0,4" Margin="0,4,0,0">
+                                            <StackPanel>
+                                                <DockPanel Margin="0,0,0,4">
+                                                    <TextBlock DockPanel.Dock="Left" Text="{Binding Index, StringFormat={}{0}.}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,6,0" />
+                                                    <TextBox DockPanel.Dock="Left" Text="{Binding Label, UpdateSourceTrigger=PropertyChanged}" Width="110" MaxLength="32"
+                                                             ToolTip="{l:Tr Gen_ImageLabelTip}" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ImageLabel_{0}}"
+                                                             AutomationProperties.Name="{l:Tr Gen_ImageLabel}" />
+                                                    <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Gen_Browse}" Command="{Binding BrowseCommand}"
+                                                            Margin="6,0,0,0" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_BrowseImage_{0}}" />
+                                                    <TextBox Text="{Binding Path, UpdateSourceTrigger=PropertyChanged}" Margin="6,0,0,0"
+                                                             AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ImagePath_{0}}"
+                                                             AutomationProperties.Name="{l:Tr Gen_ImagePath}" />
+                                                </DockPanel>
+                                                <!-- 元の画像 / 背景除去後（D-020。背景除去を確認したとき、または生成した後） -->
+                                                <StackPanel Orientation="Horizontal" Margin="0,2,0,2" Visibility="{Binding HasProcessed, Converter={StaticResource BoolVis}}">
+                                                    <RadioButton Content="{l:Tr Gen_ShowOriginal}" IsChecked="{Binding ShowOriginal}" GroupName="{Binding Index, StringFormat=genImageView{0}}"
+                                                                 Margin="0,0,16,0" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ShowOriginal_{0}}" />
+                                                    <RadioButton Content="{l:Tr Gen_ShowProcessed}" IsChecked="{Binding ShowProcessed}" GroupName="{Binding Index, StringFormat=genImageView{0}}"
+                                                                 AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ShowProcessed_{0}}" />
+                                                </StackPanel>
+                                                <Border BorderBrush="{StaticResource CardBorder}" BorderThickness="1" CornerRadius="6" Height="190" Margin="0,2,0,0"
+                                                        Background="{StaticResource Checker}">
+                                                    <Grid>
+                                                        <Image Source="{Binding DisplayedImage}" Stretch="Uniform" Margin="6"
+                                                               AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ImagePreview_{0}}" />
+                                                        <TextBlock Text="{l:Tr Gen_NoImage}" Foreground="{StaticResource Muted}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                                   Visibility="{Binding Preview, Converter={StaticResource NullVisInv}}" />
+                                                    </Grid>
+                                                </Border>
+                                                <TextBlock Text="{Binding Info}" Style="{StaticResource Hint}" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ImageInfo_{0}}" />
+                                                <TextBlock Text="{Binding ProcessedInfo}" Style="{StaticResource Hint}" Visibility="{Binding ProcessedInfo, Converter={StaticResource NullVis}}"
+                                                           AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ProcessedInfo_{0}}" />
+                                                <Border Visibility="{Binding BgNotice, Converter={StaticResource NullVis}}">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border" BasedOn="{StaticResource Banner}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding BgNoticeIsWarning}" Value="True">
+                                                                    <Setter Property="Background" Value="{StaticResource WarnBg}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+                                                    <TextBlock Text="{Binding BgNotice}" TextWrapping="Wrap" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_BgNoticeText_{0}}" />
+                                                </Border>
+                                                <!-- 被写体の検査（SF21。注意だけで生成は止めない。2026-10-17 U-B） -->
+                                                <Border Style="{StaticResource Banner}" Background="{StaticResource WarnBg}"
+                                                        Visibility="{Binding SubjectNotice, Converter={StaticResource NullVis}}">
+                                                    <TextBlock Text="{Binding SubjectNotice}" TextWrapping="Wrap" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_SubjectNotice_{0}}" />
+                                                </Border>
+                                                <!-- この画像の詳細設定: 背景除去の強制（SF19。既定オフ。透明部分のある画像だけ。2026-10-17 U-B） -->
+                                                <Expander IsExpanded="False" Margin="0,2,0,0" Visibility="{Binding CanForceBg, Converter={StaticResource BoolVis}}"
+                                                          AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_SlotAdvanced_{0}}">
+                                                    <Expander.Header>
+                                                        <TextBlock Text="{Binding SlotAdvancedHeader}" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_SlotAdvancedHeader_{0}}" />
+                                                    </Expander.Header>
+                                                    <StackPanel Margin="0,4,0,0">
+                                                        <CheckBox IsChecked="{Binding ForceBgRemoval}" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_ForceBg_{0}}"
+                                                                  AutomationProperties.Name="{l:Tr UB_ForceBg}">
+                                                            <TextBlock Text="{l:Tr UB_ForceBg}" TextWrapping="Wrap" />
+                                                        </CheckBox>
+                                                        <TextBlock Text="{l:Tr UB_ForceBgHint}" Style="{StaticResource Hint}" />
+                                                    </StackPanel>
+                                                </Expander>
+                                                <Button Style="{StaticResource Small}" Content="{l:Tr Gen_BgCheck}" Command="{Binding CheckBackgroundCommand}" HorizontalAlignment="Left"
+                                                        Margin="0,2,0,0" ToolTip="{l:Tr Gen_BgCheckTip}" AutomationProperties.AutomationId="{Binding Index, StringFormat=Gen_CheckBg_{0}}" />
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+
+                        <!-- テキスト -->
+                        <StackPanel Visibility="{Binding IsText, Converter={StaticResource BoolVis}}">
+                            <TextBox Text="{Binding PromptText, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap"
+                                     Height="110" VerticalScrollBarVisibility="Auto" AutomationProperties.AutomationId="Gen_Prompt"
+                                     AutomationProperties.Name="{l:Tr Gen_InputText}" />
+                            <!-- 入力の補助（SF07。2026-10-17 U-A4）: ひな形・生成 AI が読む長さの目安。生成の処理は変えない -->
+                            <DockPanel Margin="0,6,0,0">
+                                <TextBlock DockPanel.Dock="Left" Text="{l:Tr UA4_TplLabel}" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                <Button DockPanel.Dock="Right" Style="{StaticResource Small}" Content="{l:Tr UA4_TplInsert}" Command="{Binding InsertTemplateCommand}"
+                                        Margin="6,0,0,0" ToolTip="{l:Tr UA4_TplInsertTip}" AutomationProperties.AutomationId="UA4_TplInsert" />
+                                <ComboBox ItemsSource="{Binding PromptTemplates}" SelectedValue="{Binding SelectedPromptTemplate}" SelectedValuePath="Value"
+                                          DisplayMemberPath="Label" AutomationProperties.AutomationId="UA4_Tpl" AutomationProperties.Name="{l:Tr UA4_TplLabel}" />
+                            </DockPanel>
+                            <TextBlock Text="{l:Tr UA4_TplHint}" Style="{StaticResource Hint}" />
+                            <TextBlock Text="{Binding PromptTokenText}" Style="{StaticResource Hint}" Visibility="{Binding PromptTokenText, Converter={StaticResource NullVis}}"
+                                       AutomationProperties.AutomationId="UA4_Tokens" />
+                            <Border Style="{StaticResource Banner}" Background="{StaticResource WarnBg}" Visibility="{Binding PromptTokenWarning, Converter={StaticResource NullVis}}">
+                                <TextBlock Text="{Binding PromptTokenWarning}" TextWrapping="Wrap" AutomationProperties.AutomationId="UA4_TokenWarning" />
+                            </Border>
+                            <TextBlock Text="{l:Tr Gen_PromptHint}" Style="{StaticResource Hint}" />
+                            <!-- 色を書かない文は白・灰色の体になりやすい（B-040） -->
+                            <TextBlock Text="{l:Tr Gen_PromptColorHint}" Style="{StaticResource Hint}" AutomationProperties.AutomationId="Gen_PromptColorHint" />
+                            <!-- CLIP が読むのは先頭の 77 トークンまで（超えた分は使われない。「武器なし」は生成側が残す） -->
+                            <TextBlock Text="{l:Tr Gen_PromptLengthHint}" Style="{StaticResource Hint}" AutomationProperties.AutomationId="Gen_PromptLengthHint" />
+                            <Border Style="{StaticResource Banner}" Background="{StaticResource WarnBg}" Visibility="{Binding PromptNotice, Converter={StaticResource NullVis}}">
+                                <TextBlock Text="{Binding PromptNotice}" TextWrapping="Wrap" AutomationProperties.AutomationId="Gen_PromptNotice" />
+                            </Border>
+                            <Border Style="{StaticResource Banner}" Background="{StaticResource WarnBg}" Visibility="{Binding PromptForeignNote, Converter={StaticResource NullVis}}">
+                                <TextBlock Text="{Binding PromptForeignNote}" TextWrapping="Wrap" AutomationProperties.AutomationId="UA4_ForeignNote" />
+                            </Border>
+                            <Border Style="{StaticResource Banner}" Background="{StaticResource WarnBg}" Visibility="{Binding ConsentNeeded, Converter={StaticResource BoolVis}}">
+                                <StackPanel>
+                                    <TextBlock Text="{l:Tr Gen_ConsentNeeded}" TextWrapping="Wrap" />
+                                    <Button Style="{StaticResource Small}" Content="{l:Tr Gen_ConsentShow}" Command="{Binding ShowConsentCommand}" HorizontalAlignment="Left"
+                                            Margin="0,6,0,0" AutomationProperties.AutomationId="Gen_ShowConsent" />
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- GLB -->
+                        <StackPanel Visibility="{Binding IsGlb, Converter={StaticResource BoolVis}}">
+                            <DockPanel>
+                                <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Gen_Browse}" Command="{Binding BrowseGlbCommand}" Margin="6,0,0,0" />
+                                <TextBox Text="{Binding GlbPath, UpdateSourceTrigger=PropertyChanged}" AutomationProperties.AutomationId="Gen_GlbPath"
+                                         AutomationProperties.Name="{l:Tr Gen_GlbPath}" />
+                            </DockPanel>
+                            <TextBlock Text="{l:Tr Gen_GlbHint}" Style="{StaticResource Hint}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- 生成設定 -->
+                <Border Style="{StaticResource Card}">
+                    <Expander IsExpanded="False" AutomationProperties.AutomationId="Gen_SettingsExpander">
+                        <Expander.Header>
+                            <TextBlock Text="{l:Tr Gen_Settings}" Style="{StaticResource SectionTitle}" Margin="0" />
+                        </Expander.Header>
+                        <StackPanel>
+                        <Grid Margin="0,8,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="140" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{l:Tr Gen_Provider}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Column="1" ItemsSource="{Binding Providers}" SelectedValue="{Binding Provider}" SelectedValuePath="Value"
+                                      DisplayMemberPath="Label" Margin="0,3" IsEnabled="{Binding IsGlb, Converter={StaticResource InvBool}}"
+                                      AutomationProperties.Name="{l:Tr Gen_Provider}" />
+                            <TextBlock Grid.Row="1" Text="{l:Tr Gen_Model}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ModelText}" VerticalAlignment="Center" Margin="0,6" TextWrapping="Wrap"
+                                       AutomationProperties.AutomationId="Gen_ModelText" />
+                            <TextBlock Grid.Row="2" Text="{l:Tr Gen_Seed}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Seed, UpdateSourceTrigger=LostFocus}" Width="120" HorizontalAlignment="Left" Margin="0,3"
+                                     AutomationProperties.AutomationId="Gen_Seed" AutomationProperties.Name="{l:Tr Gen_Seed}" />
+                            <TextBlock Grid.Row="3" Text="{l:Tr Gen_SelectPose}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,3">
+                                <CheckBox IsChecked="{Binding SelectPoseShown}" IsEnabled="{Binding SelectPoseEnabled}" AutomationProperties.AutomationId="Gen_SelectPose"><TextBlock Text="{l:Tr Gen_SelectPoseOn}" TextWrapping="Wrap" /></CheckBox>
+                                <StackPanel Orientation="Horizontal" Margin="28,4,0,0" IsEnabled="{Binding CandidatesEnabled}">
+                                    <TextBox Text="{Binding Candidates, UpdateSourceTrigger=LostFocus}" Width="56" AutomationProperties.AutomationId="Gen_Candidates"
+                                             AutomationProperties.Name="{l:Tr Gen_Candidates}" />
+                                    <TextBlock Text="{l:Tr Gen_CandidatesUnit}" VerticalAlignment="Center" Margin="6,0,0,0" />
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Grid.Row="4" Text="{l:Tr Gen_Weapons}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <CheckBox Grid.Row="4" Grid.Column="1" IsChecked="{Binding AllowWeapons}" Margin="0,3"><TextBlock Text="{l:Tr Gen_AllowWeapons}" TextWrapping="Wrap" /></CheckBox>
+                            <TextBlock Grid.Row="5" Text="{l:Tr Gen_Detail}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding DetailChoices}" SelectedValue="{Binding Simplify}" SelectedValuePath="Value"
+                                      DisplayMemberPath="Label" Margin="0,3" AutomationProperties.Name="{l:Tr Gen_Detail}" />
+                            <TextBlock Grid.Row="6" Text="{l:Tr Gen_Texture}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <ComboBox Grid.Row="6" Grid.Column="1" ItemsSource="{Binding TextureChoices}" SelectedValue="{Binding TextureSize}" SelectedValuePath="Value"
+                                      DisplayMemberPath="Label" Width="120" HorizontalAlignment="Left" Margin="0,3" AutomationProperties.Name="{l:Tr Gen_Texture}"
+                                      AutomationProperties.AutomationId="Gen_TextureSize" />
+                            <TextBlock Grid.Row="7" Text="{l:Tr Gen_TargetVertices}" Style="{StaticResource Label}" VerticalAlignment="Center" />
+                            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding TargetVertices, UpdateSourceTrigger=LostFocus}" Width="120" HorizontalAlignment="Left" Margin="0,3" AutomationProperties.AutomationId="Gen_TargetVertices"
+                                     AutomationProperties.Name="{l:Tr Gen_TargetVertices}" />
+                            <TextBlock Grid.Row="8" Text="{l:Tr Gen_MultiMode}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,8,0,3" />
+                            <StackPanel Grid.Row="8" Grid.Column="1" Margin="0,3">
+                                <ComboBox ItemsSource="{Binding MultiModeChoices}" SelectedValue="{Binding MultiMode}" SelectedValuePath="Value"
+                                          DisplayMemberPath="Label" IsEnabled="{Binding IsMulti}" AutomationProperties.AutomationId="Gen_MultiMode"
+                                          AutomationProperties.Name="{l:Tr Gen_MultiMode}" />
+                                <TextBlock Text="{l:Tr Gen_MultiModeHint}" Style="{StaticResource Hint}" />
+                            </StackPanel>
+                        </Grid>
+                        <!-- 詳細設定（既定はどれも今までと同じ動き。SF05 サンプリング・SF15 低 VRAM・SF17 通信の遮断・SF24 MOD のテクスチャ） -->
+                        <Expander IsExpanded="False" Margin="0,10,0,0" AutomationProperties.AutomationId="Gen_AdvancedExpander">
+                            <Expander.Header>
+                                <TextBlock Text="{Binding AdvancedHeader}" FontWeight="SemiBold" AutomationProperties.AutomationId="Gen_AdvancedHeader" />
+                            </Expander.Header>
+                            <StackPanel Margin="0,6,0,0">
+                                <TextBlock Text="{l:Tr GenAdv_Intro}" Style="{StaticResource Hint}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="140" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{l:Tr GenAdv_Sampler}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,8,0,3" />
+                                    <StackPanel Grid.Column="1" Margin="0,3">
+                                        <ComboBox ItemsSource="{Binding SamplerChoices}" SelectedValue="{Binding SamplerPreset}" SelectedValuePath="Value"
+                                                  DisplayMemberPath="Label" IsEnabled="{Binding IsGlb, Converter={StaticResource InvBool}}"
+                                                  AutomationProperties.AutomationId="Gen_SamplerPreset" AutomationProperties.Name="{l:Tr GenAdv_Sampler}" />
+                                        <TextBlock Text="{l:Tr GenAdv_SamplerHint}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                    <TextBlock Grid.Row="1" Text="{l:Tr GenAdv_LowVram}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,6,0,3" />
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,3">
+                                        <CheckBox IsChecked="{Binding LowVram}" IsEnabled="{Binding IsGlb, Converter={StaticResource InvBool}}"
+                                                  AutomationProperties.AutomationId="Gen_LowVram" AutomationProperties.Name="{l:Tr GenAdv_LowVram}">
+                                            <TextBlock Text="{l:Tr GenAdv_LowVramOn}" TextWrapping="Wrap" />
+                                        </CheckBox>
+                                        <TextBlock Text="{l:Tr GenAdv_LowVramHint}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                    <TextBlock Grid.Row="2" Text="{l:Tr GenAdv_StrictOffline}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,6,0,3" />
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,3">
+                                        <CheckBox IsChecked="{Binding StrictOffline}" IsEnabled="{Binding IsGlb, Converter={StaticResource InvBool}}"
+                                                  AutomationProperties.AutomationId="Gen_StrictOffline" AutomationProperties.Name="{l:Tr GenAdv_StrictOffline}">
+                                            <TextBlock Text="{l:Tr GenAdv_StrictOfflineOn}" TextWrapping="Wrap" />
+                                        </CheckBox>
+                                        <TextBlock Text="{l:Tr GenAdv_StrictOfflineHint}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                    <TextBlock Grid.Row="3" Text="{l:Tr GenAdv_TextureMax}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,8,0,3" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,3">
+                                        <ComboBox ItemsSource="{Binding ConvertTextureChoices}" SelectedValue="{Binding ConvertTextureMax}" SelectedValuePath="Value"
+                                                  DisplayMemberPath="Label" Width="140" HorizontalAlignment="Left"
+                                                  AutomationProperties.AutomationId="Gen_ConvertTextureMax" AutomationProperties.Name="{l:Tr GenAdv_TextureMax}" />
+                                        <TextBlock Text="{l:Tr GenAdv_TextureMaxHint}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                    <!-- 候補の生成結果を下書きに残す（SF14・SF06。2026-10-17 U-A2。既定オフ） -->
+                                    <TextBlock Grid.Row="4" Text="{l:Tr UA2_KeepCandidates}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,6,0,3" />
+                                    <StackPanel Grid.Row="4" Grid.Column="1" Margin="0,3">
+                                        <CheckBox IsChecked="{Binding KeepCandidatesShown}" IsEnabled="{Binding KeepCandidatesEnabled}"
+                                                  AutomationProperties.AutomationId="Gen_KeepCandidates" AutomationProperties.Name="{l:Tr UA2_KeepCandidates}">
+                                            <TextBlock Text="{l:Tr UA2_KeepCandidatesOn}" TextWrapping="Wrap" />
+                                        </CheckBox>
+                                        <TextBlock Text="{l:Tr UA2_KeepCandidatesHint}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                </Grid>
+                                <!-- 背景除去をアプリ側で行う・rembg の後処理（SF20。2026-10-17 U-B。既定オフ。画像の入力だけ） -->
+                                <Grid IsEnabled="{Binding IsImage}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="140" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{l:Tr UB_BgApp}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,6,0,3" />
+                                    <StackPanel Grid.Column="1" Margin="0,3">
+                                        <CheckBox IsChecked="{Binding BgAppRemoval}" AutomationProperties.AutomationId="Gen_BgAppRemoval"
+                                                  AutomationProperties.Name="{l:Tr UB_BgApp}">
+                                            <TextBlock Text="{l:Tr UB_BgAppOn}" TextWrapping="Wrap" />
+                                        </CheckBox>
+                                        <TextBlock Text="{l:Tr UB_BgAppHint}" Style="{StaticResource Hint}" />
+                                        <StackPanel Margin="20,2,0,0" IsEnabled="{Binding BgAppRemoval}">
+                                            <CheckBox IsChecked="{Binding BgPostProcessMask}" Margin="0,2" AutomationProperties.AutomationId="Gen_BgPostProcessMask"
+                                                      AutomationProperties.Name="{l:Tr UB_BgPostProcess}">
+                                                <TextBlock Text="{l:Tr UB_BgPostProcess}" TextWrapping="Wrap" />
+                                            </CheckBox>
+                                            <CheckBox IsChecked="{Binding BgDecontaminate}" Margin="0,2" AutomationProperties.AutomationId="Gen_BgDecontaminate"
+                                                      AutomationProperties.Name="{l:Tr UB_BgDecontaminate}">
+                                                <TextBlock Text="{l:Tr UB_BgDecontaminate}" TextWrapping="Wrap" />
+                                            </CheckBox>
+                                            <CheckBox IsChecked="{Binding BgAlphaMatting}" Margin="0,2" AutomationProperties.AutomationId="Gen_BgAlphaMatting"
+                                                      AutomationProperties.Name="{l:Tr UB_BgAlphaMatting}">
+                                                <TextBlock Text="{l:Tr UB_BgAlphaMatting}" TextWrapping="Wrap" />
+                                            </CheckBox>
+                                            <TextBlock Text="{l:Tr UB_BgOptionsHint}" Style="{StaticResource Hint}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                                <!-- 装備一覧の「文章で見た目を作り直す」（SF10。2026-10-17 U-A3。既定オフ。画面の設定 ui_settings.json に残す） -->
+                                <Grid Margin="0,4,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="140" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{l:Tr UA3_Setting}" Style="{StaticResource Label}" VerticalAlignment="Top" Margin="0,6,0,3" />
+                                    <StackPanel Grid.Column="1" Margin="0,3">
+                                        <CheckBox IsChecked="{Binding TextVariantEnabled}" AutomationProperties.AutomationId="Gen_TextVariantEnabled"
+                                                  AutomationProperties.Name="{l:Tr UA3_Setting}">
+                                            <TextBlock Text="{l:Tr UA3_SettingOn}" TextWrapping="Wrap" />
+                                        </CheckBox>
+                                        <TextBlock Text="{l:Tr UA3_SettingHint}" Style="{StaticResource Hint}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Expander>
+                        </StackPanel>
+                    </Expander>
+                </Border>
+
+                <!-- 実行 -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <Border Style="{StaticResource Banner}" Background="{StaticResource WarnBg}" Visibility="{Binding ProviderNotice, Converter={StaticResource NullVis}}">
+                            <TextBlock Text="{Binding ProviderNotice}" TextWrapping="Wrap" />
+                        </Border>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource Primary}" Content="{l:Tr Gen_Start}" Command="{Binding GenerateCommand}" AutomationProperties.AutomationId="Gen_Start" />
+                            <Button Style="{StaticResource Normal}" Content="{l:Tr Gen_Stop}" Command="{Binding StopCommand}" Margin="8,0,0,0" AutomationProperties.AutomationId="Gen_Stop" />
+                            <Button Style="{StaticResource Normal}" Content="{l:Tr Gen_Regenerate}" Command="{Binding RegenerateCommand}" Margin="8,0,0,0"
+                                    ToolTip="{l:Tr Gen_RegenerateTip}" AutomationProperties.AutomationId="Gen_Regenerate" />
+                        </StackPanel>
+                        <ProgressBar Value="{Binding Progress, Mode=OneWay}" Maximum="100" Height="8" Margin="0,12,0,4" AutomationProperties.AutomationId="Gen_Progress" />
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding ElapsedText}" Style="{StaticResource Hint}" />
+                            <TextBlock Text="{Binding StageText}" Style="{StaticResource Hint}" AutomationProperties.AutomationId="Gen_Stage" />
+                        </DockPanel>
+                        <TextBlock Text="{Binding StatusText}" FontWeight="SemiBold" TextWrapping="Wrap" AutomationProperties.AutomationId="Gen_Status" />
+                        <!-- 生成の失敗の後: 失敗の前に表示していた結果（保存前）に戻す（点検 R18B-02） -->
+                        <Button Style="{StaticResource Small}" Content="{l:Tr Gen_RestorePrevious}" Command="{Binding RestorePreviousCommand}" HorizontalAlignment="Left"
+                                Margin="0,6,0,0" ToolTip="{l:Tr Gen_RestorePreviousTip}" Visibility="{Binding CanRestorePrevious, Converter={StaticResource BoolVis}}"
+                                AutomationProperties.AutomationId="Gen_RestorePrevious" AutomationProperties.HelpText="{l:Tr Gen_RestorePreviousTip}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- 保存 -->
+                <Border Style="{StaticResource Card}" Visibility="{Binding HasDraft, Converter={StaticResource BoolVis}}">
+                    <StackPanel>
+                        <TextBlock Text="{l:Tr Gen_SaveSection}" Style="{StaticResource SectionTitle}" />
+                        <TextBlock Text="{l:Tr Gen_NameEn}" Style="{StaticResource Label}" />
+                        <TextBox Text="{Binding NameEn, UpdateSourceTrigger=PropertyChanged}" MaxLength="64" AutomationProperties.AutomationId="Gen_NameEn"
+                                 AutomationProperties.Name="{l:Tr Gen_NameEn}" />
+                        <TextBlock Text="{l:Tr Gen_NameEnHint}" Style="{StaticResource Hint}" />
+                        <TextBlock Text="{l:Tr Gen_NameJa}" Style="{StaticResource Label}" />
+                        <TextBox Text="{Binding NameJa, UpdateSourceTrigger=PropertyChanged}" MaxLength="64" AutomationProperties.AutomationId="Gen_NameJa"
+                                 AutomationProperties.Name="{l:Tr Gen_NameJa}" />
+                        <TextBlock Text="{l:Tr Gen_NameJaHint}" Style="{StaticResource Hint}" />
+                        <CheckBox IsChecked="{Binding KeepImage}" Margin="0,6,0,8" Visibility="{Binding IsImage, Converter={StaticResource BoolVis}}"><TextBlock Text="{l:Tr Gen_KeepImage}" TextWrapping="Wrap" /></CheckBox>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource Primary}" Content="{Binding SaveButtonText}" Command="{Binding SaveCommand}" AutomationProperties.AutomationId="Gen_Save" />
+                            <Button Style="{StaticResource Normal}" Content="{l:Tr Gen_Discard}" Command="{Binding DiscardCommand}" Margin="8,0,0,0" AutomationProperties.AutomationId="Gen_Discard" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- プレビュー -->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <DockPanel Margin="0,4,0,6">
+                <TextBlock Text="{l:Tr Gen_Preview}" Style="{StaticResource SectionTitle}" Margin="0" />
+                <TextBlock Text="{Binding DraftSummary}" Style="{StaticResource Hint}" Margin="14,2,0,0" VerticalAlignment="Center" AutomationProperties.AutomationId="Gen_DraftSummary" />
+            </DockPanel>
+            <Border Grid.Row="1" Style="{StaticResource Card}" Padding="8" Margin="0">
+                <v:PreviewControl Items="{Binding PreviewItems}" CandidateRows="{Binding CandidateRows}" x:Name="Preview"
+                                  AutomationProperties.AutomationId="Gen_PreviewControl" />
+            </Border>
+            <!-- 向き: 正面が逆向き（−Z）の生成結果を 180° 回して変換し直す（3D 生成はやり直さない。docs/app_architecture.md 12 章 #16） -->
+            <Border Grid.Row="2" Style="{StaticResource Banner}" Margin="0,10,0,0"
+                    Visibility="{Binding CanRotate, Converter={StaticResource BoolVis}}" AutomationProperties.AutomationId="Gen_RotateBar">
+                <DockPanel>
+                    <Button DockPanel.Dock="Left" Style="{StaticResource Small}" Content="{Binding RotateButtonText}" Command="{Binding RotateCommand}"
+                            ToolTip="{l:Tr Gen_RotateTip}" VerticalAlignment="Center" Margin="0,0,12,0" AutomationProperties.AutomationId="Gen_Rotate" />
+                    <TextBlock Text="{Binding RotateText}" TextWrapping="Wrap" VerticalAlignment="Center" AutomationProperties.AutomationId="Gen_RotateText" />
+                </DockPanel>
+            </Border>
+            <!-- 保存した生成結果から GLB を作り直す（3D 生成はやり直さない。SF14。「候補を保存する」で生成した下書きだけ） -->
+            <Border Grid.Row="3" Style="{StaticResource Banner}" Margin="0,10,0,0"
+                    Visibility="{Binding CanRebuildGlb, Converter={StaticResource BoolVis}}" AutomationProperties.AutomationId="Gen_RebuildBar">
+                <DockPanel>
+                    <Button DockPanel.Dock="Left" Style="{StaticResource Small}" Content="{l:Tr UA2_RebuildButton}" Command="{Binding RebuildGlbCommand}"
+                            ToolTip="{l:Tr UA2_RebuildTip}" VerticalAlignment="Center" Margin="0,0,12,0" AutomationProperties.AutomationId="Gen_RebuildGlb" />
+                    <TextBlock Text="{Binding RebuildText}" TextWrapping="Wrap" VerticalAlignment="Center" AutomationProperties.AutomationId="Gen_RebuildText" />
+                </DockPanel>
+            </Border>
+            <Border Grid.Row="4" Style="{StaticResource Banner}" Background="{StaticResource WarnBg}" Margin="0,10,0,0"
+                    Visibility="{Binding HasWarnings, Converter={StaticResource BoolVis}}" AutomationProperties.AutomationId="Gen_Warnings">
+                <StackPanel>
+                    <TextBlock Text="{l:Tr Gen_WarningsTitle}" FontWeight="SemiBold" />
+                    <ItemsControl ItemsSource="{Binding DraftWarnings}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate><TextBlock Text="{Binding Converter={StaticResource Bullet}}" TextWrapping="Wrap" /></DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,32 @@
+[Check before downloading the text-to-3D models]
+
+The feature that generates 3D from text uses OpenAI's CLIP
+(openai/clip-vit-large-patch14) to analyze the text you enter.
+Before downloading it, please check the following points.
+
+1. The model's distribution page on Hugging Face does not state a license.
+   (The openai/CLIP repository on GitHub, which publishes the code, is under the
+   MIT License.)
+2. The model card states: "The model is intended as a research output for research
+   communities."
+   It states: "Any deployed use case of the model - whether commercial or not - is
+   currently out of scope."
+   It explicitly states: "Certain use cases which would fall under the domain of
+   surveillance and facial recognition are always out-of-scope regardless of
+   performance of the model."
+   It states: "Since the model has not been purposefully trained in or evaluated on any
+   languages other than English, its use should be limited to English language use
+   cases."
+   (Please enter your text in English in this tool as well.)
+3. This tool uses CLIP only to convert the text you enter into the condition for the
+   3D generation model.
+   It does not use CLIP to classify images or to identify people.
+4. What will be downloaded:
+   - openai/clip-vit-large-patch14 (commit 32bd6428): configuration, weights and
+     tokenizer, 7 files, about 1.71 GB
+   - microsoft/TRELLIS-text-xlarge (MIT License): weights, about 4.13 GB
+   They are saved inside the setup destination folder (in models and hf-home).
+
+Model card: https://huggingface.co/openai/clip-vit-large-patch14
+
+Even if you do not agree, generating 3D from images remains available as it is.

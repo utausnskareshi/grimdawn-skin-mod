@@ -1,0 +1,114 @@
+{
+  "trellis_text": {
+    "repo": "microsoft/TRELLIS-text-xlarge",
+    "revision": "e0b00432b8e3a8ecee0df806ab1df9f7281f2be4",
+    "files": {
+      ".gitattributes": {
+        "size": 1519,
+        "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+      },
+      "ckpts/slat_flow_txt_dit_XL_64l8p2_fp16.json": {
+        "size": 441,
+        "sha256": "73aec1b1d9f6a0cc04e3234786dadec4a85895c44559714eb2fca8e1df930541"
+      },
+      "ckpts/slat_flow_txt_dit_XL_64l8p2_fp16.safetensors": {
+        "size": 2151142688,
+        "sha256": "4819e388063d58f3a7f0939836ec435fed262cd8a0565226ce8e43da1bbfa55e"
+      },
+      "ckpts/ss_flow_txt_dit_XL_16l8_fp16.json": {
+        "size": 419,
+        "sha256": "ea7e5e823ea0dd3151c96fcbc75866ff302b0ec94a212048de9f62522ca0c0e8"
+      },
+      "ckpts/ss_flow_txt_dit_XL_16l8_fp16.safetensors": {
+        "size": 1976327512,
+        "sha256": "154317b61e89f97270a1d34cfee52c1ce1d07c831f533b5c878a3a0e991dfc05"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.json": {
+        "size": 843,
+        "sha256": "ebe9d3eade6d9cb7662efae109197e97d7ab58aebd5e8ede0c8991dfce88a06a"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors": {
+        "size": 171450952,
+        "sha256": "38c84bcef5ce0af1f48b1b5558dabc7575a13346043c41a7e0610f1fa619a161"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16.json": {
+        "size": 372,
+        "sha256": "293900795cb69cc972d1a20a4940ee12f7e007952c2ae92d128dda91b96ac317"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16.safetensors": {
+        "size": 181903412,
+        "sha256": "3e87aba94b5786407eb06d0502c1ed0885a0027a3f2b8537bfe15b0a92c01859"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.json": {
+        "size": 396,
+        "sha256": "9b46a04602988b9cd83f1d0537de1cb93c4c1b6d35a0bbbcb07bb37bac66b766"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.safetensors": {
+        "size": 171450488,
+        "sha256": "737da6578d01948016b7c39786113af0d64a46f7922f6b8b5e698b84643be514"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/ss_dec_conv3d_16l8_fp16.json": {
+        "size": 245,
+        "sha256": "646781293f1cda74720de85d1cef50a957fb4aebd9a4bd014e454e32f2330ac5"
+      },
+      "JeffreyXiang/TRELLIS-image-large/ckpts/ss_dec_conv3d_16l8_fp16.safetensors": {
+        "size": 147591972,
+        "sha256": "1c76d4a40519aa2d711cc263a8404105231ac26db31d946bed48b84fee79009a"
+      },
+      "pipeline.json": {
+        "size": 2133,
+        "sha256": "49b38dedcf4c587b27db3f20a6d4d438f3bafa59289df5cccfe1658f4214828c"
+      },
+      "README.md": {
+        "size": 477,
+        "sha256": "32b5cb8611066849a3c19ee0dff4ce985556d8cdc0a7cd65213c859ede66b8bf"
+      }
+    },
+    "linked_decoders": [
+      "JeffreyXiang/TRELLIS-image-large/ckpts/ss_dec_conv3d_16l8_fp16.json",
+      "JeffreyXiang/TRELLIS-image-large/ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.json",
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16.safetensors",
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.json",
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_rf_swin8_B_64l8r16_fp16.safetensors",
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16.json",
+      "JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16.safetensors"
+    ],
+    "total_bytes_downloaded": 4127475189
+  },
+  "clip": {
+    "repo": "openai/clip-vit-large-patch14",
+    "revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
+    "files": {
+      "config.json": {
+        "size": 4519,
+        "sha256": "8a09b467700c58138c29d53c605b34ebc69beaadd13274a8a2af8ad2c2f4032a"
+      },
+      "merges.txt": {
+        "size": 524619,
+        "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a"
+      },
+      "model.safetensors": {
+        "size": 1710540580,
+        "sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb"
+      },
+      "special_tokens_map.json": {
+        "size": 389,
+        "sha256": "f8c0d6c39aee3f8431078ef6646567b0aba7f2246e9c54b8b99d55c22b707cbf"
+      },
+      "tokenizer.json": {
+        "size": 2224003,
+        "sha256": "a83e0809aa4c3af7208b2df632a7a69668c6d48775b3c3fe4e1b1199d1f8b8f4"
+      },
+      "tokenizer_config.json": {
+        "size": 905,
+        "sha256": "deef455e52fa5e8151e339add0582e4235f066009601360999d3a9cda83b1129"
+      },
+      "vocab.json": {
+        "size": 961143,
+        "sha256": "3f0c4f7d2086b61b38487075278ea9ed04edb53a03cbb045b86c27190fa8fb69"
+      }
+    },
+    "total_bytes": 1714256158
+  }
+}

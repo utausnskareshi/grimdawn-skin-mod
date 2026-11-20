@@ -1,0 +1,61 @@
+<Window x:Class="GDSkinStudio.Views.TrashDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:GDSkinStudio.Localization"
+        Title="{l:Tr LibC_TrashTitle}" Width="720" Height="560" MinWidth="520" MinHeight="360"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="CanResizeWithGrip"
+        AutomationProperties.AutomationId="TrashDialog" Background="{StaticResource PageBg}">
+    <!-- 削除した装備（trash）の一覧と「元に戻す」（2026-10-17 機能 SF02） -->
+    <DockPanel Margin="20,16,20,16">
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock Text="{l:Tr LibC_TrashTitle}" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,6" AutomationProperties.AutomationId="DialogTitle" />
+            <TextBlock Text="{l:Tr LibC_TrashIntro}" TextWrapping="Wrap" Margin="0,0,0,10" />
+        </StackPanel>
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,12,0,0" LastChildFill="False">
+            <Button x:Name="CloseButton" DockPanel.Dock="Right" Style="{StaticResource Normal}" Margin="8,0,0,0" IsCancel="True"
+                    Content="{l:Tr Dialog_Close}" Click="OnClose" AutomationProperties.AutomationId="Trash_Close" />
+            <Button x:Name="RestoreButton" DockPanel.Dock="Right" Style="{StaticResource Primary}" IsDefault="True" IsEnabled="False"
+                    Content="{l:Tr LibC_TrashRestore}" Click="OnRestore" AutomationProperties.AutomationId="Trash_Restore" />
+            <TextBlock x:Name="SelectedNote" DockPanel.Dock="Left" Style="{StaticResource Hint}" VerticalAlignment="Center" MaxWidth="420"
+                       AutomationProperties.AutomationId="Trash_SelectedNote" />
+        </DockPanel>
+        <Border Style="{StaticResource Card}" Padding="4" Margin="0">
+            <Grid>
+                <ListView x:Name="TrashList" BorderThickness="0" SelectionMode="Single" AutomationProperties.AutomationId="Trash_List"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                            <Setter Property="AutomationProperties.AutomationId" Value="{Binding TrashName, StringFormat=Trash_Item_{0}}" />
+                            <Setter Property="AutomationProperties.Name" Value="{Binding Title}" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <!-- 項目のダブルクリックだけで戻す（一覧全体に付けると、スクロールバーや空白のダブルクリックでも戻った。R19B-03） -->
+                            <EventSetter Event="MouseDoubleClick" Handler="OnItemDoubleClick" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="4,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="56" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Border Width="48" Height="70" Background="{StaticResource ThumbBg}" CornerRadius="4" VerticalAlignment="Top">
+                                    <Image Source="{Binding Item.Thumbnail}" Stretch="Uniform" />
+                                </Border>
+                                <StackPanel Grid.Column="1" Margin="8,0,8,0" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Title}" FontWeight="SemiBold" FontSize="14" TextTrimming="CharacterEllipsis" />
+                                    <TextBlock Text="{Binding InfoText}" Style="{StaticResource Hint}" Margin="0,2,0,0" />
+                                    <TextBlock Text="{Binding ProblemsText}" Style="{StaticResource Hint}" Foreground="{StaticResource WarnBrush}" Margin="0"
+                                               Visibility="{Binding ProblemsText, Converter={StaticResource NullVis}}" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <TextBlock x:Name="EmptyText" Text="{l:Tr LibC_TrashEmpty}" Foreground="{StaticResource Muted}" Visibility="Collapsed"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Margin="20" TextAlignment="Center"
+                           AutomationProperties.AutomationId="Trash_Empty" />
+            </Grid>
+        </Border>
+    </DockPanel>
+</Window>

@@ -1,0 +1,92 @@
+<Window x:Class="GDSkinStudio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:GDSkinStudio.Localization"
+        xmlns:vm="clr-namespace:GDSkinStudio.ViewModels"
+        xmlns:v="clr-namespace:GDSkinStudio.Views"
+        Title="{l:Tr App_Title}" Width="1360" Height="860" MinWidth="1000" MinHeight="680"
+        WindowStartupLocation="CenterScreen" Background="{StaticResource PageBg}"
+        AutomationProperties.AutomationId="MainWindow">
+    <Window.InputBindings>
+        <!-- F1: ヘルプの画面を開く -->
+        <KeyBinding Key="F1" Command="{Binding OpenHelpCommand}" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 左のナビゲーション -->
+        <Border Background="{StaticResource NavBg}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="18,18,12,16">
+                    <TextBlock Text="{l:Tr App_Name}" Foreground="{StaticResource NavTitle}" FontSize="19" FontWeight="SemiBold" />
+                    <TextBlock Text="{l:Tr App_Tagline}" Foreground="{StaticResource NavMuted}" FontSize="12" TextWrapping="Wrap" Margin="0,2,0,0" />
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom" Margin="18,10,12,16">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="9" Height="9" Margin="0,0,7,0" VerticalAlignment="Center">
+                            <Ellipse.Style>
+                                <Style TargetType="Ellipse">
+                                    <Setter Property="Fill" Value="#F59E0B" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding BackendState}" Value="ready"><Setter Property="Fill" Value="#22C55E" /></DataTrigger>
+                                        <DataTrigger Binding="{Binding BackendState}" Value="stopped"><Setter Property="Fill" Value="#EF4444" /></DataTrigger>
+                                        <DataTrigger Binding="{Binding BackendState}" Value="error"><Setter Property="Fill" Value="#EF4444" /></DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Ellipse.Style>
+                        </Ellipse>
+                        <TextBlock Text="{Binding BackendText}" Foreground="{StaticResource NavStatus}" FontSize="12" AutomationProperties.AutomationId="BackendStatus" />
+                    </StackPanel>
+                    <TextBlock Text="{Binding GpuText}" Foreground="{StaticResource NavMuted}" FontSize="11" TextWrapping="Wrap" Margin="16,4,0,0" />
+                </StackPanel>
+                <ListBox ItemsSource="{Binding Pages}" SelectedItem="{Binding SelectedPage}" Background="Transparent" BorderThickness="0"
+                         SelectionChanged="OnNavSelectionChanged"
+                         AutomationProperties.AutomationId="Nav" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem" BasedOn="{StaticResource NavItem}">
+                            <Setter Property="AutomationProperties.AutomationId" Value="{Binding Key, StringFormat=Nav_{0}}" />
+                            <Setter Property="AutomationProperties.Name" Value="{Binding Title}" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Glyph}" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="16" Margin="0,0,12,0" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding Title}" FontSize="14" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </Border>
+
+        <!-- 右の本体 -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border Background="{StaticResource ErrBg}" Padding="16,10" Visibility="{Binding ShowBackendBanner, Converter={StaticResource BoolVis}}"
+                    AutomationProperties.AutomationId="BackendBanner">
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Style="{StaticResource Normal}" Content="{l:Tr Backend_Restart}" Command="{Binding RestartBackendCommand}"
+                            AutomationProperties.AutomationId="BackendRestart" />
+                    <TextBlock Text="{Binding BackendError}" Foreground="{StaticResource ErrBrush}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                </DockPanel>
+            </Border>
+            <!-- ページは作り直さずに表示を切り替える（3D プレビューの WebView2 を保つため） -->
+            <Grid Grid.Row="1" Margin="24,20,24,16">
+                <v:GenerateView DataContext="{Binding Generate}" Visibility="{Binding DataContext.SelectedPage.Key, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource KeyVis}, ConverterParameter=generate}" />
+                <v:LibraryView DataContext="{Binding Library}" Visibility="{Binding DataContext.SelectedPage.Key, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource KeyVis}, ConverterParameter=library}" />
+                <v:ModView DataContext="{Binding Mod}" Visibility="{Binding DataContext.SelectedPage.Key, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource KeyVis}, ConverterParameter=mod}" />
+                <v:LogView DataContext="{Binding Log}" Visibility="{Binding DataContext.SelectedPage.Key, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource KeyVis}, ConverterParameter=log}" />
+                <v:SetupView DataContext="{Binding Setup}" Visibility="{Binding DataContext.SelectedPage.Key, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource KeyVis}, ConverterParameter=setup}" />
+                <v:SettingsView DataContext="{Binding Settings}" Visibility="{Binding DataContext.SelectedPage.Key, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource KeyVis}, ConverterParameter=settings}" />
+                <v:HelpView DataContext="{Binding Help}" Visibility="{Binding DataContext.SelectedPage.Key, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource KeyVis}, ConverterParameter=help}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

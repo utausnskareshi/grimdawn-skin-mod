@@ -1,0 +1,16 @@
+<Application x:Class="GDSkinStudio.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- .NET 9 以降の WPF 標準の Fluent テーマ（明るい配色に固定。スクリーンショットと文書を揃えるため）。
+                     Windows のハイコントラストで起動したときは WPF がハイコントラスト用の辞書に切り替え、
+                     Styles.xaml の独自の色は Views/HighContrast.cs がシステムの色に置き換える -->
+                <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.Light.xaml" />
+                <ResourceDictionary Source="Views/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

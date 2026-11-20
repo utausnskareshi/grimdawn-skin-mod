@@ -1,0 +1,7 @@
+# gdconvert dependencies (all permissive licences; verified with these versions on 2026-10-16)
+numpy==2.4.6                # BSD-3-Clause
+scipy==1.17.1               # BSD-3-Clause
+pillow==12.3.0              # MIT-CMU (HPND)
+fast-simplification==0.2.0  # MIT
+xatlas==0.0.11              # MIT
+lz4==4.4.5                  # BSD-3-Clause (refs: reads the game .arc via modbuilder.arc.ArcFile; same version as the package)

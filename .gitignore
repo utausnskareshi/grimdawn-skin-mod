@@ -1,0 +1,62 @@
+# GD Skin Studio のリポジトリに入れないもの
+# 公開の前に scripts/publish/check_publish.py で、入る予定のファイルを検査する。
+
+# --- ビルド成果物・配布用 ZIP（ZIP は Releases に添付する） ---
+/build/
+*.zip
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# --- サンプル・生成物（TRELLIS の見本画像、生成した GLB、評価の出力） ---
+/samples/
+*.glb
+*.gltf
+*.ply
+*.log
+
+# --- モデルの重み ---
+*.onnx
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+
+# --- Grim Dawn のファイル・ゲームから取り出したデータ・MOD のビルド・受け渡し用のファイル ---
+# 公式のデータ（またはその複製・改変）を含むので入れない。利用者の環境ではゲームから読み取って作る。
+*.arz
+*.arc
+*.msh
+*.tex
+*.dbr
+*.tpl
+*.gst
+*.gsh
+*.gdc
+*.gdskin
+*.gdskinmod
+
+# --- ローカルの設定・秘密 ---
+.claude/
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+# 非公開の文字列の一覧（既定の名前は .gdskin-publish-private.txt。リポジトリの外に置くが、誤って中に置いても入れない）
+*publish-private*
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
